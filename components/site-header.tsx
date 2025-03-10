@@ -2,7 +2,8 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Github, Instagram, Linkedin, Menu } from "lucide-react"
+import { Menu } from "lucide-react"
+import { SocialLinks } from "@/components/social-links"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useState } from "react"
@@ -39,35 +40,7 @@ export function SiteHeader() {
             </Link>
           ))}
 
-          <div className="flex items-center gap-2">
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-navy"
-            >
-              <Linkedin size={20} />
-              <span className="sr-only">LinkedIn</span>
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-navy"
-            >
-              <Instagram size={20} />
-              <span className="sr-only">Instagram</span>
-            </a>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-navy"
-            >
-              <Github size={20} />
-              <span className="sr-only">GitHub</span>
-            </a>
-          </div>
+          <SocialLinks className="text-gray-600 hover:text-navy" containerClassName="flex items-center gap-2" />
         </nav>
 
         <Sheet open={open} onOpenChange={setOpen}>
@@ -92,35 +65,11 @@ export function SiteHeader() {
                 </Link>
               ))}
 
-              <div className="flex items-center gap-4 mt-4">
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-navy"
-                >
-                  <Linkedin size={24} />
-                  <span className="sr-only">LinkedIn</span>
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-navy"
-                >
-                  <Instagram size={24} />
-                  <span className="sr-only">Instagram</span>
-                </a>
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-navy"
-                >
-                  <Github size={24} />
-                  <span className="sr-only">GitHub</span>
-                </a>
-              </div>
+              <SocialLinks 
+                size={24} 
+                className="text-gray-600 hover:text-navy" 
+                containerClassName="flex items-center gap-4 mt-4" 
+              />
             </div>
           </SheetContent>
         </Sheet>
@@ -128,4 +77,3 @@ export function SiteHeader() {
     </header>
   )
 }
-

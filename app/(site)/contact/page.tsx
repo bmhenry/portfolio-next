@@ -9,7 +9,9 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "sonner"
-import { Github, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react"
+import { Mail, MapPin, Phone } from "lucide-react"
+import { SocialLinks } from "@/components/social-links"
+
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -111,33 +113,7 @@ export default function ContactPage() {
                 <div className="pt-4 border-t">
                   <h3 className="font-medium mb-3">Connect with me</h3>
                   <div className="flex gap-4">
-                    <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-navy"
-                    >
-                      <Linkedin size={20} />
-                      <span className="sr-only">LinkedIn</span>
-                    </a>
-                    <a
-                      href="https://instagram.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-navy"
-                    >
-                      <Instagram size={20} />
-                      <span className="sr-only">Instagram</span>
-                    </a>
-                    <a
-                      href="https://github.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-navy"
-                    >
-                      <Github size={20} />
-                      <span className="sr-only">GitHub</span>
-                    </a>
+                    <SocialLinks className="text-gray-600 hover:text-navy" containerClassName="flex items-center gap-2" />
                   </div>
                 </div>
               </CardContent>

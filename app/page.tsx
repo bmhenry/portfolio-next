@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Github, Instagram, Linkedin } from "lucide-react"
+import { SocialLinks } from "@/components/social-links"
 
 export default function Home() {
   return (
@@ -38,22 +38,8 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="flex space-x-4">
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-            <Linkedin size={24} />
-            <span className="sr-only">LinkedIn</span>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-            <Instagram size={24} />
-            <span className="sr-only">Instagram</span>
-          </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-            <Github size={24} />
-            <span className="sr-only">GitHub</span>
-          </a>
-        </div>
+        <SocialLinks size={24} className="social-icon" containerClassName="flex space-x-4" />
       </div>
     </main>
   )
 }
-

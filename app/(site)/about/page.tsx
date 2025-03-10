@@ -18,22 +18,19 @@ export default function AboutPage() {
             </div>
 
             <h1 className="text-3xl font-bold mb-2">Brandon</h1>
-            <p className="text-muted-foreground mb-4">Software Engineer & Photographer</p>
+            <p className="text-muted-foreground mb-4">Senior Computer Engineer, Tech Lead, Team Lead, and Supervisor</p>
 
             <div className="space-y-4">
               <div>
                 <h3 className="font-medium mb-2">Contact</h3>
-                <p className="text-sm">brandon@example.com</p>
-                <p className="text-sm">San Francisco, CA</p>
+                <p className="text-sm">contact@bhenry.dev</p>
+                <p className="text-sm">Dayton, OH</p>
               </div>
 
               <div>
                 <h3 className="font-medium mb-2">Education</h3>
-                <p className="text-sm font-medium">Stanford University</p>
-                <p className="text-sm text-muted-foreground">MS in Computer Science, 2018-2020</p>
-
-                <p className="text-sm font-medium mt-2">MIT</p>
-                <p className="text-sm text-muted-foreground">BS in Computer Science, 2014-2018</p>
+                <p className="text-sm font-medium">Indiana Purdue Ft. Wayne</p>
+                <p className="text-sm text-muted-foreground">BS in Computer Engineering, 2012-2016</p>
               </div>
             </div>
           </div>
