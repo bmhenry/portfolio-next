@@ -38,7 +38,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <SocialLinks size={24} className="social-icon" containerClassName="flex space-x-4" />
+        <SocialLinks size={"xl"} className="text-gray-500 hover:text-navy"/>
       </div>
     </main>
   )

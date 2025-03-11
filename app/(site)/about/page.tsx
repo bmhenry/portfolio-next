@@ -8,12 +8,14 @@ export default function AboutPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-1">
           <div className="sticky top-24">
-            <div className="relative w-full aspect-square rounded-lg overflow-hidden mb-6">
+            <div className="relative w-full rounded-lg overflow-hidden mb-6">
               <Image
                 src="/portrait_web_small.jpg"
                 alt="Brandon portrait"
-                fill
-                className="object-cover object-center"
+                width={500}
+                height={0}
+                style={{ width: '100%', height: 'auto' }}
+                className="object-center"
               />
             </div>
 
@@ -236,4 +238,3 @@ export default function AboutPage() {
     </div>
   )
 }
-

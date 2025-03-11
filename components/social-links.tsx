@@ -1,4 +1,5 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SocialLink, SocialLinkProps, SocialLinksProps, socialLinks } from "@/lib/social-links";
 
 // Component to render a single social link
@@ -7,7 +8,6 @@ export const SocialLinkComponent: React.FC<SocialLinkProps> = ({
   size,
   className,
 }) => {
-  const Icon = link.icon;
   const iconSize = size || link.defaultSize;
   
   return (
@@ -17,7 +17,7 @@ export const SocialLinkComponent: React.FC<SocialLinkProps> = ({
       rel="noopener noreferrer"
       className={className}
     >
-      <Icon size={iconSize} />
+      <FontAwesomeIcon icon={link.icon} size={iconSize} />
       <span className="sr-only">{link.ariaLabel}</span>
     </a>
   );

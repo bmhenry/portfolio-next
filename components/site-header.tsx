@@ -66,7 +66,6 @@ export function SiteHeader() {
               ))}
 
               <SocialLinks 
-                size={24} 
                 className="text-gray-600 hover:text-navy" 
                 containerClassName="flex items-center gap-4 mt-4" 
               />
