@@ -20,7 +20,7 @@ export default function AboutPage() {
             </div>
 
             <h1 className="text-3xl font-bold mb-2">Brandon</h1>
-            <p className="text-muted-foreground mb-4">Senior Computer Engineer, Tech Lead, Team Lead, and Supervisor</p>
+            <p className="text-muted-foreground mb-4">Senior Computer Engineer, Tech Lead, Team Lead, Supervisor</p>
 
             <div className="space-y-4">
               <div>
@@ -62,9 +62,9 @@ export default function AboutPage() {
                 <div className="flex justify-between items-start">
                   <div>
                     <CardTitle>Senior Software Engineer</CardTitle>
-                    <CardDescription>Google, Mountain View</CardDescription>
+                    <CardDescription>Tangram Flex - Dayton, OH</CardDescription>
                   </div>
-                  <span className="text-sm text-muted-foreground">2020 - Present</span>
+                  <span className="text-sm text-muted-foreground">2019 - Present</span>
                 </div>
               </CardHeader>
               <CardContent>
@@ -96,25 +96,6 @@ export default function AboutPage() {
                 </ul>
               </CardContent>
             </Card>
-
-            <Card>
-              <CardHeader>
-                <div className="flex justify-between items-start">
-                  <div>
-                    <CardTitle>Software Engineering Intern</CardTitle>
-                    <CardDescription>Microsoft, Redmond</CardDescription>
-                  </div>
-                  <span className="text-sm text-muted-foreground">Summer 2017</span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                  <li>Worked on the Azure team to develop cloud infrastructure tools</li>
-                  <li>Created a dashboard for monitoring system performance</li>
-                  <li>Participated in agile development processes and sprint planning</li>
-                </ul>
-              </CardContent>
-            </Card>
           </section>
 
           <section>
@@ -124,13 +105,10 @@ export default function AboutPage() {
               <div>
                 <h3 className="font-medium mb-2">Programming Languages</h3>
                 <div className="flex flex-wrap gap-2">
-                  <Badge>JavaScript</Badge>
-                  <Badge>TypeScript</Badge>
-                  <Badge>Python</Badge>
-                  <Badge>Go</Badge>
-                  <Badge>Java</Badge>
                   <Badge>C++</Badge>
-                  <Badge>SQL</Badge>
+                  <Badge>Rust</Badge>
+                  <Badge>Python</Badge>
+                  <Badge>C</Badge>
                 </div>
               </div>
 
@@ -151,14 +129,11 @@ export default function AboutPage() {
               <div>
                 <h3 className="font-medium mb-2">Tools & Platforms</h3>
                 <div className="flex flex-wrap gap-2">
-                  <Badge>AWS</Badge>
-                  <Badge>Google Cloud</Badge>
                   <Badge>Docker</Badge>
                   <Badge>Kubernetes</Badge>
                   <Badge>Git</Badge>
+                  <Badge>Gitlab</Badge>
                   <Badge>CI/CD</Badge>
-                  <Badge>Jira</Badge>
-                  <Badge>Figma</Badge>
                 </div>
               </div>
             </div>
@@ -170,64 +145,68 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Smart Home Automation</CardTitle>
+                  <CardTitle>Verifier</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-2">
-                    A full-stack application for controlling smart home devices using React, Node.js, and MQTT.
+                  <p className="text-muted-foreground mb-5">
+                    Perform isolated runtime testing on a software component using its model
                   </p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    <Badge variant="outline">React</Badge>
-                    <Badge variant="outline">Node.js</Badge>
-                    <Badge variant="outline">IoT</Badge>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <Badge variant="outline">C++</Badge>
+                    <Badge variant="outline">Tangram Pro</Badge>
+                    <Badge variant="outline">Docker</Badge>
+                    <Badge variant="outline">Kubernetes</Badge>
                   </div>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle>AI Image Recognition</CardTitle>
+                  <CardTitle>pkg</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-2">
-                    A machine learning model that identifies objects in photographs with 95% accuracy.
+                  <p className="text-muted-foreground mb-5">
+                    Git-based dependency source management for C++, Flex, and more
                   </p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    <Badge variant="outline">Python</Badge>
-                    <Badge variant="outline">TensorFlow</Badge>
-                    <Badge variant="outline">Computer Vision</Badge>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <Badge variant="outline">Rust</Badge>
+                    <Badge variant="outline">Tokio</Badge>
+                    <Badge variant="outline">Git</Badge>
                   </div>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle>E-commerce Platform</CardTitle>
+                  <CardTitle>FocusFinder</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-2">
-                    A scalable online store built with Next.js, Stripe, and a headless CMS.
+                  <p className="text-muted-foreground mb-5">
+                    Mobile app to help photographers save and return to their favorite spots
                   </p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    <Badge variant="outline">Next.js</Badge>
-                    <Badge variant="outline">Stripe</Badge>
-                    <Badge variant="outline">Contentful</Badge>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <Badge variant="outline">Flutter</Badge>
+                    <Badge variant="outline">Android</Badge>
+                    <Badge variant="outline">iOS</Badge>
+                    <Badge variant="outline">LLM</Badge>
                   </div>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Travel Journal App</CardTitle>
+                  <CardTitle>Network Message Filter</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-2">
-                    A mobile application for documenting travels with photos, notes, and location tracking.
+                  <p className="text-muted-foreground mb-5">
+                    Filter network messages based on user-defined rules and conditions
                   </p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    <Badge variant="outline">React Native</Badge>
-                    <Badge variant="outline">Firebase</Badge>
-                    <Badge variant="outline">Maps API</Badge>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <Badge variant="outline">Flex</Badge>
+                    <Badge variant="outline">C++</Badge>
+                    <Badge variant="outline">Rust</Badge>
+                    <Badge variant="outline">ZeroMQ</Badge>
+                    <Badge variant="outline">Syslog</Badge>
                   </div>
                 </CardContent>
               </Card>
