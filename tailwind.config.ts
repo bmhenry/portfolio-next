@@ -19,6 +19,48 @@ const config = {
       },
     },
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            h1: {
+              marginTop: '1.5em',
+              marginBottom: '0.5em',
+              fontWeight: '700',
+            },
+            h2: {
+              marginTop: '1.3em',
+              marginBottom: '0.5em',
+              fontWeight: '600',
+            },
+            h3: {
+              marginTop: '1.2em',
+              marginBottom: '0.5em',
+            },
+            p: {
+              marginTop: '1em',
+              marginBottom: '1em',
+            },
+            ul: {
+              marginTop: '1em',
+              marginBottom: '1em',
+            },
+            ol: {
+              marginTop: '1em',
+              marginBottom: '1em',
+            },
+            blockquote: {
+              marginTop: '1.5em',
+              marginBottom: '1.5em',
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+          },
+        },
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -79,8 +121,12 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography")({
+      className: 'prose',
+    }),
+  ],
 } satisfies Config
 
 export default config
-

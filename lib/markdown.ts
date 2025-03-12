@@ -3,6 +3,12 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import remarkGfm from 'remark-gfm';
+import { unified } from 'unified';
+import rehypeParse from 'rehype-parse';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeStringify from 'rehype-stringify';
 
 const postsDirectory = path.join(process.cwd(), 'content/blog');
 
@@ -94,12 +100,21 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  // Use remark to convert markdown into HTML string
+  // Use remark with enhanced plugins to convert markdown into HTML string
   const processedContent = await remark()
+    .use(remarkGfm) // Adds support for GitHub Flavored Markdown
     .use(html)
     .process(matterResult.content);
   
-  const contentHtml = processedContent.toString();
+  // Further process the HTML with rehype for better header handling and spacing
+  const result = await unified()
+    .use(rehypeParse) // Parse HTML
+    .use(rehypeSlug) // Adds IDs to headings
+    .use(rehypeAutolinkHeadings) // Adds anchor links to headings
+    .use(rehypeStringify) // Serializes the HTML
+    .process(processedContent.toString());
+  
+  const contentHtml = result.toString();
 
   // Combine the data with the slug and contentHtml
   return {
