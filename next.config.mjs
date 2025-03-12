@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export', // Enable static exports
   images: {
     domains: ['v0.blob.com'],
     remotePatterns: [
@@ -11,8 +12,8 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    unoptimized: true, // Required for static export with images
   },
 };
 
 export default nextConfig;
-

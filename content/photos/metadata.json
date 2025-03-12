@@ -1,0 +1,55 @@
+{
+  "landscapes/mountain-vista.jpg": {
+    "title": "Mountain Vista",
+    "description": "This photograph was taken during a trip to capture the beauty of nature. The lighting conditions were perfect, allowing for a balanced exposure that highlights both the foreground and background elements.",
+    "tags": [
+      "mountains",
+      "sunset",
+      "nature"
+    ],
+    "metadata": {
+      "camera": "Sony A7R IV",
+      "lens": "24-70mm f/2.8",
+      "aperture": "f/8",
+      "shutterSpeed": "1/125s",
+      "iso": "100",
+      "location": "Yosemite National Park, CA",
+      "date": "October 15, 2022"
+    }
+  },
+  "urban/city-skyline.jpg": {
+    "title": "City Skyline",
+    "description": "The city skyline at dusk, with lights beginning to illuminate the buildings.",
+    "tags": [
+      "city",
+      "skyline",
+      "dusk",
+      "architecture"
+    ],
+    "metadata": {
+      "camera": "Nikon Z7",
+      "lens": "24-70mm f/2.8",
+      "aperture": "f/8",
+      "shutterSpeed": "1/15s",
+      "iso": "200",
+      "location": "New York, NY",
+      "date": "September 5, 2022"
+    }
+  },
+  "hocking hills/hocking_hills.jpg": {
+    "title": "hocking_hills",
+    "description": "No description provided.",
+    "tags": [
+      "hocking hills"
+    ],
+    "metadata": {
+      "camera": "Unknown",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-12"
+    }
+  }
+}

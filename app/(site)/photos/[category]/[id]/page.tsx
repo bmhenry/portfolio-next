@@ -1,34 +1,52 @@
+import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { getPhotoById, getPhotosByCategory, getAllPhotoCategories, getAllPhotos } from "@/lib/photos"
+import { Photo } from "@/lib/photo-types"
+import { notFound } from "next/navigation"
 
-// This would typically come from a database or API
-const getPhotoData = (category: string, id: string) => {
-  return {
-    id: Number.parseInt(id),
-    src: "/placeholder.svg?height=1200&width=1600",
-    alt: `Photo ${id} in ${category} category`,
-    title: `${category.charAt(0).toUpperCase() + category.slice(1)} Photo ${id}`,
-    description:
-      "This photograph was taken during a trip to capture the beauty of nature. The lighting conditions were perfect, allowing for a balanced exposure that highlights both the foreground and background elements.",
-    metadata: {
-      camera: "Sony A7R IV",
-      lens: "24-70mm f/2.8",
-      aperture: "f/8",
-      shutterSpeed: "1/125s",
-      iso: "100",
-      location: "Yosemite National Park, CA",
-      date: "October 15, 2022",
-    },
-  }
+// Generate static params for all photo pages at build time
+export async function generateStaticParams() {
+  const photos = getAllPhotos();
+  return photos.map((photo) => ({
+    category: photo.category,
+    id: photo.id,
+  }));
 }
 
-export default function PhotoDetailPage({ params }: { params: { category: string; id: string } }) {
-  const { category, id } = params
-  const photo = getPhotoData(category, id)
-  const prevId = photo.id > 1 ? photo.id - 1 : null
-  const nextId = photo.id < 10 ? photo.id + 1 : null
+export async function generateMetadata({ params }: { params: { category: string; id: string } }) {
+  const { category, id } = await params;
+  const photo = await getPhotoById(category, id);
+  
+  if (!photo) {
+    return {
+      title: 'Photo Not Found',
+    };
+  }
+  
+  return {
+    title: photo.title,
+    description: photo.description,
+  };
+}
+
+export default async function PhotoDetailPage({ params }: { params: { category: string; id: string } }) {
+  const { category, id } = await params;
+  const photo = await getPhotoById(category, id);
+  
+  if (!photo) {
+    notFound();
+  }
+  
+  // Get all photos in this category for navigation
+  const categoryPhotos = await getPhotosByCategory(category);
+  const currentIndex = categoryPhotos.findIndex((p: any) => p.id === id);
+  
+  // Determine previous and next photos
+  const prevPhoto = currentIndex > 0 ? categoryPhotos[currentIndex - 1] : null;
+  const nextPhoto = currentIndex < categoryPhotos.length - 1 ? categoryPhotos[currentIndex + 1] : null;
 
   return (
     <div className="container py-12">
@@ -42,12 +60,19 @@ export default function PhotoDetailPage({ params }: { params: { category: string
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-            <Image src={photo.src || "/placeholder.svg"} alt={photo.alt} fill className="object-cover" priority />
+            <Image 
+              src={photo.src || "/placeholder.svg"} 
+              alt={photo.alt} 
+              fill 
+              className="object-cover" 
+              priority 
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
           </div>
 
           <div className="flex justify-between mt-4">
-            {prevId ? (
-              <Link href={`/photos/${category}/${prevId}`}>
+            {prevPhoto ? (
+              <Link href={`/photos/${category}/${prevPhoto.id}`}>
                 <Button variant="outline" size="sm">
                   <ChevronLeft size={16} className="mr-2" />
                   Previous
@@ -57,8 +82,8 @@ export default function PhotoDetailPage({ params }: { params: { category: string
               <div></div>
             )}
 
-            {nextId ? (
-              <Link href={`/photos/${category}/${nextId}`}>
+            {nextPhoto ? (
+              <Link href={`/photos/${category}/${nextPhoto.id}`}>
                 <Button variant="outline" size="sm">
                   Next
                   <ChevronRight size={16} className="ml-2" />
@@ -73,35 +98,38 @@ export default function PhotoDetailPage({ params }: { params: { category: string
         <div>
           <h1 className="text-2xl font-bold mb-4">{photo.title}</h1>
           <p className="text-muted-foreground mb-6">{photo.description}</p>
+          
+          {/* Tags */}
+          {photo.tags && photo.tags.length > 0 && (
+            <div className="mb-6">
+              <div className="flex flex-wrap gap-2">
+                {photo.tags.map((tag: string) => (
+                  <Link 
+                    key={tag} 
+                    href={`/photos?tag=${tag}`}
+                    className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm hover:bg-secondary/80"
+                  >
+                    #{tag}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="space-y-4">
             <h2 className="text-lg font-medium">Photo Details</h2>
             <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm font-medium">Camera</div>
-              <div className="text-sm text-muted-foreground">{photo.metadata.camera}</div>
-
-              <div className="text-sm font-medium">Lens</div>
-              <div className="text-sm text-muted-foreground">{photo.metadata.lens}</div>
-
-              <div className="text-sm font-medium">Aperture</div>
-              <div className="text-sm text-muted-foreground">{photo.metadata.aperture}</div>
-
-              <div className="text-sm font-medium">Shutter Speed</div>
-              <div className="text-sm text-muted-foreground">{photo.metadata.shutterSpeed}</div>
-
-              <div className="text-sm font-medium">ISO</div>
-              <div className="text-sm text-muted-foreground">{photo.metadata.iso}</div>
-
-              <div className="text-sm font-medium">Location</div>
-              <div className="text-sm text-muted-foreground">{photo.metadata.location}</div>
-
-              <div className="text-sm font-medium">Date</div>
-              <div className="text-sm text-muted-foreground">{photo.metadata.date}</div>
+              {/* Dynamically render all metadata fields */}
+              {Object.entries(photo.metadata).map(([key, value]) => (
+                <React.Fragment key={key}>
+                  <div className="text-sm font-medium">{key.charAt(0).toUpperCase() + key.slice(1)}</div>
+                  <div className="text-sm text-muted-foreground">{value}</div>
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
-

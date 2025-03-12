@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run process-images && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "process-images": "ts-node --project scripts/tsconfig.json scripts/process-images.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -65,6 +66,7 @@
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
+    "sharp": "^0.33.5",
     "sonner": "latest",
     "tailwind-merge": "^2.5.5",
     "tailwindcss": "latest",
@@ -79,6 +81,7 @@
     "@types/react-dom": "^19",
     "postcss": "^8",
     "tailwindcss": "^3.4.17",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }
