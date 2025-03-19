@@ -3,9 +3,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { getPhotoById, getPhotosByCategory, getAllPhotoCategories, getAllPhotos } from "@/lib/photos"
+import { getPhotoById, getAllPhotos } from "@/lib/photos"
 import { Photo } from "@/lib/photo-types"
 import { notFound } from "next/navigation"
+import { PhotoDetailClient } from "@/app/(site)/photos/[category]/[id]/photo-detail-client"
 
 // Generate static params for all photo pages at build time
 export async function generateStaticParams() {
@@ -32,6 +33,7 @@ export async function generateMetadata({ params }: { params: { category: string;
   };
 }
 
+
 export default async function PhotoDetailPage({ params }: { params: { category: string; id: string } }) {
   const { category, id } = await params;
   const photo = await getPhotoById(category, id);
@@ -40,13 +42,18 @@ export default async function PhotoDetailPage({ params }: { params: { category: 
     notFound();
   }
   
-  // Get all photos in this category for navigation
-  const categoryPhotos = await getPhotosByCategory(category);
-  const currentIndex = categoryPhotos.findIndex((p: any) => p.id === id);
+  // Get all photos for navigation
+  const allPhotos = await getAllPhotos();
+  const currentIndex = allPhotos.findIndex((p: any) => p.id === id && p.category === category);
   
   // Determine previous and next photos
-  const prevPhoto = currentIndex > 0 ? categoryPhotos[currentIndex - 1] : null;
-  const nextPhoto = currentIndex < categoryPhotos.length - 1 ? categoryPhotos[currentIndex + 1] : null;
+  const prevPhoto = currentIndex > 0 ? allPhotos[currentIndex - 1] : null;
+  const nextPhoto = currentIndex < allPhotos.length - 1 ? allPhotos[currentIndex + 1] : null;
+
+  // Determine if the photo is in portrait orientation
+  const isPortrait = photo.dimensions 
+    ? photo.dimensions.height > photo.dimensions.width
+    : false;
 
   return (
     <div className="container py-12">
@@ -57,45 +64,15 @@ export default async function PhotoDetailPage({ params }: { params: { category: 
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-            <Image 
-              src={photo.src || "/placeholder.svg"} 
-              alt={photo.alt} 
-              fill 
-              className="object-cover" 
-              priority 
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </div>
+      <div className={`grid grid-cols-1 ${isPortrait ? 'lg:grid-cols-2 xl:grid-cols-3' : 'lg:grid-cols-3'} gap-8`}>
+        <PhotoDetailClient 
+          photo={photo} 
+          prevPhoto={prevPhoto} 
+          nextPhoto={nextPhoto} 
+          category={category} 
+        />
 
-          <div className="flex justify-between mt-4">
-            {prevPhoto ? (
-              <Link href={`/photos/${category}/${prevPhoto.id}`}>
-                <Button variant="outline" size="sm">
-                  <ChevronLeft size={16} className="mr-2" />
-                  Previous
-                </Button>
-              </Link>
-            ) : (
-              <div></div>
-            )}
-
-            {nextPhoto ? (
-              <Link href={`/photos/${category}/${nextPhoto.id}`}>
-                <Button variant="outline" size="sm">
-                  Next
-                  <ChevronRight size={16} className="ml-2" />
-                </Button>
-              </Link>
-            ) : (
-              <div></div>
-            )}
-          </div>
-        </div>
-
-        <div>
+        <div className={isPortrait ? 'lg:col-span-1 xl:col-span-1' : ''}>
           <h1 className="text-2xl font-bold mb-4">{photo.title}</h1>
           <p className="text-muted-foreground mb-6">{photo.description}</p>
           

@@ -3,6 +3,10 @@ export type PhotoMetadata = {
   title: string;
   description: string;
   tags: string[];
+  dimensions?: {
+    width: number;
+    height: number;
+  };
   metadata: Record<string, any>; // Allows any metadata attributes
 };
 

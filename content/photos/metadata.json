@@ -1,55 +1,424 @@
 {
-  "landscapes/mountain-vista.jpg": {
-    "title": "Mountain Vista",
-    "description": "This photograph was taken during a trip to capture the beauty of nature. The lighting conditions were perfect, allowing for a balanced exposure that highlights both the foreground and background elements.",
+  "Architecture/biltmore.jpg": {
+    "title": "The Biltmore",
+    "description": "Even the front door of the magnificently ostentatious Biltmore Estate in Asheville, North Carolina is a sight to behold.",
     "tags": [
-      "mountains",
-      "sunset",
-      "nature"
+      "Architecture",
+      "Biltmore",
+      "North Carolina"
     ],
     "metadata": {
-      "camera": "Sony A7R IV",
-      "lens": "24-70mm f/2.8",
-      "aperture": "f/8",
-      "shutterSpeed": "1/125s",
-      "iso": "100",
-      "location": "Yosemite National Park, CA",
-      "date": "October 15, 2022"
-    }
-  },
-  "urban/city-skyline.jpg": {
-    "title": "City Skyline",
-    "description": "The city skyline at dusk, with lights beginning to illuminate the buildings.",
-    "tags": [
-      "city",
-      "skyline",
-      "dusk",
-      "architecture"
-    ],
-    "metadata": {
-      "camera": "Nikon Z7",
-      "lens": "24-70mm f/2.8",
-      "aperture": "f/8",
-      "shutterSpeed": "1/15s",
-      "iso": "200",
-      "location": "New York, NY",
-      "date": "September 5, 2022"
-    }
-  },
-  "hocking hills/hocking_hills.jpg": {
-    "title": "hocking_hills",
-    "description": "No description provided.",
-    "tags": [
-      "hocking hills"
-    ],
-    "metadata": {
-      "camera": "Unknown",
+      "camera": "Fuji X-T30 II",
       "lens": "Unknown",
       "aperture": "Unknown",
       "shutterSpeed": "Unknown",
       "iso": "Unknown",
       "location": "Unknown",
-      "date": "2025-03-12"
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 3244,
+      "height": 4932
+    }
+  },
+  "Architecture/cincy_skyscape.jpg": {
+    "title": "Cincinnati's Skyline",
+    "description": "No description provided.",
+    "tags": [
+      "Architecture"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 5271,
+      "height": 3035
+    }
+  },
+  "Architecture/dayton_skyscape.jpg": {
+    "title": "Dayton's Skyline",
+    "description": "No description provided.",
+    "tags": [
+      "Architecture"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 5934,
+      "height": 2696
+    }
+  },
+  "Mountains/banff_gondola.jpg": {
+    "title": "The View from Sulfur Mountain",
+    "description": "No description provided.",
+    "tags": [
+      "Mountains"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 5013,
+      "height": 3016
+    }
+  },
+  "Mountains/blueridge_car.jpg": {
+    "title": "Mountain Roads",
+    "description": "The winding roads of the Blue Ridge Mountains are a scenic drive, but can also make for some fantastic leading lines!",
+    "tags": [
+      "Mountains"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 3352,
+      "height": 4773
+    }
+  },
+  "Mountains/blueridge_wide.jpg": {
+    "title": "A Blue Ridge Sunset",
+    "description": "No description provided.",
+    "tags": [
+      "Mountains"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 5674,
+      "height": 2820
+    }
+  },
+  "Mountains/golden_night.jpg": {
+    "title": "Starry Night in Golden, BC",
+    "description": "No description provided.",
+    "tags": [
+      "Mountains"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 3452,
+      "height": 4635
+    }
+  },
+  "Mountains/takakkaw_clouds_bw.jpg": {
+    "title": "Peaks in the Clouds",
+    "description": "No description provided.",
+    "tags": [
+      "Mountains"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 3265,
+      "height": 4898
+    }
+  },
+  "Ohio/clifton_gorge_heron.jpg": {
+    "title": "Fresh Catch",
+    "description": "No description provided.",
+    "tags": [
+      "Ohio"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 3578,
+      "height": 4472
+    }
+  },
+  "Ohio/hh_cave.jpg": {
+    "title": "Fall in Hocking Hills",
+    "description": "No description provided.",
+    "tags": [
+      "Ohio"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 3183,
+      "height": 5025
+    }
+  },
+  "Ohio/hh_forest.jpg": {
+    "title": "Forest Depths",
+    "description": "No description provided.",
+    "tags": [
+      "Ohio"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 3476,
+      "height": 4602
+    }
+  },
+  "Ohio/hh_lower_falls.jpg": {
+    "title": "Lower Falls",
+    "description": "No description provided.",
+    "tags": [
+      "Ohio"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 5241,
+      "height": 3052
+    }
+  },
+  "Ohio/hh_over_conkles.jpg": {
+    "title": "The Rim of Conkle's Hollow",
+    "description": "No description provided.",
+    "tags": [
+      "Ohio"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 5557,
+      "height": 2879
+    }
+  },
+  "Travel/florida_parrot.jpg": {
+    "title": "Peekaboo",
+    "description": "No description provided.",
+    "tags": [
+      "Travel"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 6240,
+      "height": 4160
+    }
+  },
+  "Travel/golden_boo.jpg": {
+    "title": "Boo",
+    "description": "No description provided.",
+    "tags": [
+      "Travel"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 3546,
+      "height": 3898
+    }
+  },
+  "Travel/grand_canyon.jpg": {
+    "title": "The Grand Canyon",
+    "description": "No description provided.",
+    "tags": [
+      "Travel"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 2551,
+      "height": 1562
+    }
+  },
+  "Water/lake_agnes_teahouse.jpg": {
+    "title": "Lake Agnes Teahouse",
+    "description": "No description provided.",
+    "tags": [
+      "Water"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 3308,
+      "height": 4836
+    }
+  },
+  "Water/lake_louise_sunset.jpg": {
+    "title": "Blue Hour over Lake Louise",
+    "description": "No description provided.",
+    "tags": [
+      "Water"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 5979,
+      "height": 2675
+    }
+  },
+  "Water/near_takakkaw.jpg": {
+    "title": "Water's Descent",
+    "description": "No description provided.",
+    "tags": [
+      "Water"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 4160,
+      "height": 6240
+    }
+  },
+  "Water/smokes_big_river.jpg": {
+    "title": "Big Creek",
+    "description": "No description provided.",
+    "tags": [
+      "Water"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 3265,
+      "height": 4898
+    }
+  },
+  "Water/smokies_falls.jpg": {
+    "title": "Glistening Falls",
+    "description": "No description provided.",
+    "tags": [
+      "Water"
+    ],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Unknown",
+      "aperture": "Unknown",
+      "shutterSpeed": "Unknown",
+      "iso": "Unknown",
+      "location": "Unknown",
+      "date": "2025-03-17"
+    },
+    "dimensions": {
+      "width": 3389,
+      "height": 4720
     }
   }
 }

@@ -3,10 +3,11 @@ const path = require('path');
 const sharp = require('sharp');
 
 // Base paths
-const photosDirectory = path.join(process.cwd(), 'public/photos');
+const rootDir = path.join(process.cwd(), '..');
+const photosDirectory = path.join(rootDir, 'public/photos');
 const originalDir = path.join(photosDirectory, 'original');
 const webDir = path.join(photosDirectory, 'web');
-const metadataPath = path.join(process.cwd(), 'content/photos/metadata.json');
+const metadataPath = path.join(rootDir, 'content/photos/metadata.json');
 
 // Configuration
 const WEB_IMAGE_WIDTH = 1200;
@@ -49,7 +50,7 @@ async function processImage(
   category: string,
   filename: string,
   metadata: Record<string, any>
-): Promise<void> {
+): Promise<{ width: number; height: number } | null> {
   const originalPath = path.join(originalDir, category, filename);
   const webPath = path.join(webDir, category, filename);
   const fileNameWithoutExt = path.parse(filename).name;
@@ -62,6 +63,11 @@ async function processImage(
   }
   
   try {
+    // Get image dimensions
+    const imageMetadata = await sharp(originalPath).metadata();
+    const width = imageMetadata.width;
+    const height = imageMetadata.height;
+    
     // Process web-optimized version
     await sharp(originalPath)
       .resize(WEB_IMAGE_WIDTH, null, { withoutEnlargement: true })
@@ -75,8 +81,12 @@ async function processImage(
       .toFile(thumbnailPath);
     
     console.log(`Processed ${category}/${filename}`);
+    
+    // Return dimensions for metadata update
+    return { width, height };
   } catch (error) {
     console.error(`Error processing ${category}/${filename}:`, error);
+    return null;
   }
 }
 
@@ -125,8 +135,17 @@ async function processAllImages(): Promise<void> {
         console.log(`Added metadata for ${relPath}`);
       }
       
-      // Process the image
-      await processImage(category, filename, metadata);
+      // Process the image and get dimensions
+      const dimensions = await processImage(category, filename, metadata);
+      
+      // Update metadata with dimensions if available
+      if (dimensions) {
+        if (!metadata[relPath].dimensions) {
+          metadata[relPath].dimensions = dimensions;
+          metadataUpdated = true;
+          console.log(`Added dimensions for ${relPath}`);
+        }
+      }
     }
   }
   
