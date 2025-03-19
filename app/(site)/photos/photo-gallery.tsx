@@ -36,12 +36,12 @@ export function PhotoGallery({ photos, allTags }: PhotoGalleryProps) {
   // Client-side state for selected tags
   const [selectedTags, setSelectedTags] = useState<string[]>([])
   
-  // Handle tag selection
+  // Handle tag selection (single select only)
   const handleTagSelect = (tag: string) => {
     setSelectedTags(prev => 
       prev.includes(tag)
-        ? prev.filter(t => t !== tag)
-        : [...prev, tag]
+        ? [] // If tag is already selected, deselect it
+        : [tag] // Otherwise, select only this tag
     );
   };
   
