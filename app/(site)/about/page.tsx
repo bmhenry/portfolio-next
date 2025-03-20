@@ -49,7 +49,7 @@ export default function AboutPage() {
             </p>
             <p className="text-muted-foreground mb-4">
               At home, I like to spend time on personal projects such as FocusFinder and  or self-hosting a variety of services
-              such as GitLab and Immich. Apart from tech, I enjoy <a href="/photos">photography</a> (mostly landscapes),
+              such as GitLab and Immich. Apart from tech, I enjoy <a className="text-blue-700 hover:underline" href="/photos">photography</a> (mostly landscapes),
               ultimate frisbee, pickeball, and backpacking.
             </p>
           </section>
@@ -174,6 +174,7 @@ export default function AboutPage() {
                   </p>
                   <div className="flex flex-wrap gap-2 mt-4">
                     <Badge variant="outline">Flutter</Badge>
+                    <Badge variant="outline">Dart</Badge>
                     <Badge variant="outline">Android</Badge>
                     <Badge variant="outline">iOS</Badge>
                     <Badge variant="outline">LLM</Badge>
@@ -183,18 +184,18 @@ export default function AboutPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Network Message Filter</CardTitle>
+                  <CardTitle>Cross-Domain Solution</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-5">
-                    Filter network messages based on user-defined rules and conditions
+                    Filter network messages based on user-defined rules and conditions.
+                    Delivered in a package the shape of a credit card.
                   </p>
                   <div className="flex flex-wrap gap-2 mt-4">
-                    <Badge variant="outline">Flex</Badge>
+                    <Badge variant="outline">C</Badge>
                     <Badge variant="outline">C++</Badge>
-                    <Badge variant="outline">Rust</Badge>
-                    <Badge variant="outline">ZeroMQ</Badge>
-                    <Badge variant="outline">Syslog</Badge>
+                    <Badge variant="outline">Embedded Linux</Badge>
+                    <Badge variant="outline">VHDL</Badge>
                   </div>
                 </CardContent>
               </Card>

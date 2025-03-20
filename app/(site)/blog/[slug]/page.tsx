@@ -5,18 +5,26 @@ import { getPostBySlug, getAllPostSlugs } from "@/lib/markdown"
 import { notFound } from "next/navigation"
 
 // Generate static params for all blog posts
-export async function generateStaticParams() {
-  const posts = getAllPostSlugs()
-  return posts
+export function generateStaticParams() {
+  // Directly return the required slugs
+  // return [
+  //   { slug: 'building-scalable-web-apps' },
+  //   { slug: 'landscape-photography-guide' }
+  // ];
+  const slugs = getAllPostSlugs();
+  return slugs;
 }
 
 export default async function BlogPostPage({ 
   params 
 }: { 
-  params: { slug: string } 
+  params: Promise<{ slug: string }> | { slug: string }
 }) {
+  // Await the params object if it's a promise
+  const resolvedParams = await Promise.resolve(params);
+  
   // Get the slug from params
-  const post = await getPostBySlug(params.slug).catch(() => null)
+  const post = await getPostBySlug(resolvedParams.slug).catch(() => null)
   
   if (!post) {
     notFound()

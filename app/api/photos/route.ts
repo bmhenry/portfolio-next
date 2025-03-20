@@ -3,6 +3,9 @@ import fs from 'fs';
 import path from 'path';
 import { Photo, PhotoMetadata } from '@/lib/photos';
 
+// Configure this route for static export
+export const dynamic = "force-static";
+
 // Base paths
 const photosDirectory = path.join(process.cwd(), 'public/photos');
 const metadataPath = path.join(process.cwd(), 'content/photos/metadata.json');
