@@ -84,9 +84,9 @@ export default async function PhotoDetailPage({ params }: { params: { category: 
                   <Link 
                     key={tag} 
                     href={`/photos?tag=${tag}`}
-                    className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm hover:bg-secondary/80"
+                    className="px-4 py-1.5 rounded-full text-sm font-medium bg-secondary/80 text-secondary-foreground hover:bg-secondary transition-all duration-300 shadow-sm flex items-center gap-2"
                   >
-                    #{tag}
+                    {tag}
                   </Link>
                 ))}
               </div>

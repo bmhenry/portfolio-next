@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { filterPhotosByTags, Photo } from "@/lib/photo-types"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
@@ -33,8 +34,13 @@ function isLandscape(photo: Photo): boolean {
 }
 
 export function PhotoGallery({ photos, allTags }: PhotoGalleryProps) {
-  // Client-side state for selected tags
-  const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const searchParams = useSearchParams();
+  
+  // Client-side state for selected tags, initialized from URL query parameter
+  const [selectedTags, setSelectedTags] = useState<string[]>(() => {
+    const tagParam = searchParams.get('tag');
+    return tagParam && allTags.includes(tagParam) ? [tagParam] : [];
+  });
   
   // Handle tag selection (single select only)
   const handleTagSelect = (tag: string) => {

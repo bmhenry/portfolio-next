@@ -20,7 +20,7 @@ export default function AboutPage() {
             </div>
 
             <h1 className="text-3xl font-bold mb-2">Brandon</h1>
-            <p className="text-muted-foreground mb-4">Senior Computer Engineer, Tech Lead, Team Lead, Supervisor</p>
+            <p className="text-muted-foreground mb-4">Senior Computer Engineer, Tech Lead, Team Lead, and Supervisor</p>
 
             <div className="space-y-4">
               <div>
@@ -42,15 +42,15 @@ export default function AboutPage() {
           <section>
             <h2 className="text-2xl font-bold mb-4">About Me</h2>
             <p className="text-muted-foreground mb-4">
-              I'm a software engineer with a passion for building elegant, user-friendly applications. With over 8 years
-              of experience in full-stack development, I specialize in React, Node.js, and cloud architecture. When I'm
-              not coding, you can find me exploring the world with my camera, hiking in remote locations, or writing
-              about technology on my blog.
+              Don't expect anyone to redo your work later. Do it the right way, now.
             </p>
-            <p className="text-muted-foreground">
-              My approach combines technical expertise with creative problem-solving, allowing me to build solutions
-              that are both technically sound and aesthetically pleasing. I believe in continuous learning and staying
-              at the forefront of technological advancements.
+            <p className="text-muted-foreground mb-4">
+              I believe in building quality software. I enjoy creating tools that improve the lives of users and engineers.
+            </p>
+            <p className="text-muted-foreground mb-4">
+              At home, I like to spend time on personal projects such as FocusFinder and  or self-hosting a variety of services
+              such as GitLab and Immich. Apart from tech, I enjoy <a href="/photos">photography</a> (mostly landscapes),
+              ultimate frisbee, pickeball, and backpacking.
             </p>
           </section>
 
@@ -69,10 +69,11 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                  <li>Led the development of a new feature that increased user engagement by 35%</li>
-                  <li>Architected and implemented a microservices infrastructure using Kubernetes</li>
-                  <li>Mentored junior engineers and conducted technical interviews</li>
-                  <li>Collaborated with product and design teams to refine user experiences</li>
+                  <li>Created the Verifier tool: a new product & feature that's unique in the market and provides interface-level testing for software components, allowing developers and integrators to test compatible of swappable components</li>
+                  <li>Tech lead for teams performing on millions of dollars in contracts, including multidisciplinary and cross-organizational teams</li>
+                  <li>Technical advisor & product advisor for both internal and external teams as well as customers</li>
+                  <li>Worked with engineers & leadership to build team members' skills and careers while following their interests</li>
+                  <li>Collaborated regularly with other product leads and company leadership on product & business direction, such as how to sell Verifier and goal prioritization</li>
                 </ul>
               </CardContent>
             </Card>
@@ -82,17 +83,16 @@ export default function AboutPage() {
                 <div className="flex justify-between items-start">
                   <div>
                     <CardTitle>Software Engineer</CardTitle>
-                    <CardDescription>Facebook, Menlo Park</CardDescription>
+                    <CardDescription>General Dynamics Mission Systems - Dayton, OH</CardDescription>
                   </div>
-                  <span className="text-sm text-muted-foreground">2018 - 2020</span>
+                  <span className="text-sm text-muted-foreground">2017 - 2019</span>
                 </div>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                  <li>Developed and maintained React components for the main Facebook app</li>
-                  <li>Improved application performance by 25% through code optimization</li>
-                  <li>Implemented automated testing strategies that reduced bugs by 40%</li>
-                  <li>Contributed to open-source projects within the company</li>
+                  <li>Brought up a new product board from scratch</li>
+                  <li>Created new embedded Linux drivers & adapted existing drivers to link FPGA-based peripherals</li>
+                  <li>Developed & adapted FPGA applications</li>
                 </ul>
               </CardContent>
             </Card>
@@ -103,7 +103,7 @@ export default function AboutPage() {
 
             <div className="space-y-4">
               <div>
-                <h3 className="font-medium mb-2">Programming Languages</h3>
+                <h3 className="font-medium mb-2">Top Programming Languages</h3>
                 <div className="flex flex-wrap gap-2">
                   <Badge>C++</Badge>
                   <Badge>Rust</Badge>
@@ -113,27 +113,15 @@ export default function AboutPage() {
               </div>
 
               <div>
-                <h3 className="font-medium mb-2">Frameworks & Libraries</h3>
-                <div className="flex flex-wrap gap-2">
-                  <Badge>React</Badge>
-                  <Badge>Next.js</Badge>
-                  <Badge>Node.js</Badge>
-                  <Badge>Express</Badge>
-                  <Badge>Django</Badge>
-                  <Badge>TensorFlow</Badge>
-                  <Badge>Redux</Badge>
-                  <Badge>GraphQL</Badge>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="font-medium mb-2">Tools & Platforms</h3>
+                <h3 className="font-medium mb-2">Top Tools & Platforms</h3>
                 <div className="flex flex-wrap gap-2">
                   <Badge>Docker</Badge>
                   <Badge>Kubernetes</Badge>
                   <Badge>Git</Badge>
-                  <Badge>Gitlab</Badge>
+                  <Badge>GitLab</Badge>
                   <Badge>CI/CD</Badge>
+                  <Badge>Claude</Badge>
+                  <Badge>Cline</Badge>
                 </div>
               </div>
             </div>
