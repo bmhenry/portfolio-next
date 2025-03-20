@@ -5,8 +5,21 @@ import { SocialLinks } from "@/components/social-links"
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col md:flex-row">
-      {/* Left side - Image */}
-      <div className="w-full md:w-1/2 relative bg-gray-100">
+      {/* Mobile headshot - only visible on small screens */}
+      <div className="flex justify-center py-6 md:hidden">
+        <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-gray-100">
+          <Image
+            src="/portrait_web_small.jpg"
+            alt="Brandon portrait"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+        </div>
+      </div>
+
+      {/* Desktop image - hidden on mobile */}
+      <div className="hidden md:block md:w-1/2 relative bg-gray-100">
         <Image
           src="/portrait_web_small.jpg"
           alt="Brandon portrait"
