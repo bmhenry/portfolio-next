@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col md:flex-row">
       {/* Mobile headshot - only visible on small screens */}
-      <div className="flex justify-center py-6 md:hidden">
-        <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-gray-100">
+      <div className="flex justify-center py-6 md:hidden mt-6">
+        <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-gray-100">
           <Image
             src="/portrait_web_small.jpg"
             alt="Brandon portrait"

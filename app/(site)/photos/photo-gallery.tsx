@@ -155,7 +155,7 @@ export function PhotoGallery({ photos, allTags }: PhotoGalleryProps) {
                                     <div className="flex flex-wrap gap-2 mt-3">
                                       {photo.tags.slice(0, 3).map(tag => (
                                         <span key={tag} className="text-xs bg-white/20 text-white px-2 py-1 rounded-full">
-                                          #{tag}
+                                          {tag}
                                         </span>
                                       ))}
                                       {photo.tags.length > 3 && (
