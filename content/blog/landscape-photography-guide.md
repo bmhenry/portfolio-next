@@ -1,7 +1,7 @@
 ---
 title: "The Art of Landscape Photography: Capturing the Perfect Shot"
 date: "2023-02-18"
-category: "Photography"
+tags: ["Photography", "Landscape", "Techniques", "Lighting", "Composition"]
 excerpt: "Discover techniques for capturing stunning landscape photographs in any lighting condition."
 image: "/headshot.jpg"
 readTime: "6 min read"

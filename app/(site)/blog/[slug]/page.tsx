@@ -41,10 +41,20 @@ export default async function BlogPostPage({
 
       <article className="max-w-3xl mx-auto">
         <div className="mb-8">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-sm font-medium bg-secondary text-secondary-foreground px-2 py-1 rounded">
-              {post.category}
-            </span>
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            {post.tags && post.tags.length > 0 && (
+              <div className="flex flex-wrap gap-1 mr-2">
+                {post.tags.map(tag => (
+                  <Link 
+                    key={tag} 
+                    href={`/blog?tag=${tag}`}
+                    className="text-sm font-medium bg-secondary text-secondary-foreground px-2 py-1 rounded hover:bg-secondary/80 transition-colors"
+                  >
+                    {tag}
+                  </Link>
+                ))}
+              </div>
+            )}
             <span className="text-sm text-muted-foreground">{post.readTime}</span>
           </div>
 

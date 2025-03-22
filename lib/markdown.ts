@@ -27,7 +27,7 @@ export type PostMetadata = {
   slug: string;
   title: string;
   date: string;
-  category: string;
+  tags: string[];
   excerpt: string;
   image: string;
   readTime: string;
@@ -169,4 +169,32 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     contentHtml,
     ...postData,
   };
+}
+
+/**
+ * Get all unique tags from all blog posts
+ */
+export function getAllBlogTags(): string[] {
+  const posts = getAllPosts();
+  const tagsSet = new Set<string>();
+  
+  posts.forEach(post => {
+    if (post.tags && Array.isArray(post.tags)) {
+      post.tags.forEach(tag => tagsSet.add(tag));
+    }
+  });
+  
+  return Array.from(tagsSet).sort();
+}
+
+/**
+ * Filter blog posts by multiple tags (AND logic)
+ */
+export function filterPostsByTags(posts: PostMetadata[], tags: string[]): PostMetadata[] {
+  if (tags.length === 0) return posts;
+  
+  return posts.filter(post => 
+    post.tags && Array.isArray(post.tags) && 
+    tags.every(tag => post.tags.includes(tag))
+  );
 }

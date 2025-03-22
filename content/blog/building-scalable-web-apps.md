@@ -1,7 +1,7 @@
 ---
 title: "Building Scalable Web Applications with React and Next.js"
 date: "2023-03-05"
-category: "Web Development"
+tags: ["Web Development", "React", "Next.js", "Performance", "Architecture"]
 excerpt: "Learn how to architect and build web applications that can scale to millions of users using React and Next.js."
 image: "/placeholder.svg?height=400&width=600"
 readTime: "8 min read"
