@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
@@ -15,7 +15,8 @@ type BlogListProps = {
 }
 
 
-export function BlogList({ posts, allTags }: BlogListProps) {
+// Component that uses useSearchParams
+function BlogListContent({ posts, allTags }: BlogListProps) {
   const searchParams = useSearchParams();
   
   // Client-side state for selected tags, initialized from URL query parameter
@@ -155,5 +156,21 @@ export function BlogList({ posts, allTags }: BlogListProps) {
         </motion.div>
       </div>
     </div>
+  )
+}
+
+// Wrapper component with Suspense boundary
+export function BlogList(props: BlogListProps) {
+  return (
+    <Suspense fallback={
+      <div className="text-center py-16">
+        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+          <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+        </div>
+        <p className="mt-4 text-muted-foreground">Loading blog posts...</p>
+      </div>
+    }>
+      <BlogListContent {...props} />
+    </Suspense>
   )
 }

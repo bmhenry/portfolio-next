@@ -22,10 +22,6 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // Exclude API routes from the build
-  experimental: {
-    excludeRoutes: ['/api/**'],
-  },
 };
 
 export default nextConfig;

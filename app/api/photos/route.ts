@@ -5,6 +5,8 @@ import { Photo, PhotoMetadata } from '@/lib/photos';
 
 // Configure this route for static export
 export const dynamic = "force-static";
+export const revalidate = false;
+export const fetchCache = "force-cache";
 
 // Base paths
 const photosDirectory = path.join(process.cwd(), 'public/photos');
@@ -93,48 +95,14 @@ function getAllTags(): string[] {
   return Array.from(tagsSet).sort();
 }
 
-// API route handlers
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const action = searchParams.get('action');
-  const category = searchParams.get('category');
-  const id = searchParams.get('id');
-  const tag = searchParams.get('tag');
-
-  switch (action) {
-    case 'getAllCategories':
-      return NextResponse.json(getAllPhotoCategories());
-    
-    case 'getAllTags':
-      return NextResponse.json(getAllTags());
-    
-    case 'getAllPhotos':
-      return NextResponse.json(getAllPhotos());
-    
-    case 'getPhotosByCategory':
-      if (!category) {
-        return NextResponse.json({ error: 'Category is required' }, { status: 400 });
-      }
-      return NextResponse.json(getPhotosByCategory(category));
-    
-    case 'getPhotoById':
-      if (!category || !id) {
-        return NextResponse.json({ error: 'Category and ID are required' }, { status: 400 });
-      }
-      const photo = getPhotoById(category, id);
-      if (!photo) {
-        return NextResponse.json({ error: 'Photo not found' }, { status: 404 });
-      }
-      return NextResponse.json(photo);
-    
-    case 'getPhotosByTag':
-      if (!tag) {
-        return NextResponse.json({ error: 'Tag is required' }, { status: 400 });
-      }
-      const photos = getAllPhotos().filter(photo => photo.tags.includes(tag));
-      return NextResponse.json(photos);
-    
-    default:
-      return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
-  }
+// Generate static data for all photos
+export async function GET() {
+  // Return all photos data in a single response
+  const data = {
+    categories: getAllPhotoCategories(),
+    tags: getAllTags(),
+    photos: getAllPhotos()
+  };
+  
+  return NextResponse.json(data);
 }

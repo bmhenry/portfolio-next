@@ -3,7 +3,7 @@ const path = require('path');
 const sharp = require('sharp');
 
 // Base paths
-const rootDir = path.join(process.cwd(), '..');
+const rootDir = process.cwd();
 const photosDirectory = path.join(rootDir, 'public/photos');
 const originalDir = path.join(photosDirectory, 'original');
 const webDir = path.join(photosDirectory, 'web');

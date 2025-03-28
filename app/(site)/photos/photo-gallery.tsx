@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
@@ -33,7 +33,8 @@ function isLandscape(photo: Photo): boolean {
   return false;
 }
 
-export function PhotoGallery({ photos, allTags }: PhotoGalleryProps) {
+// Component that uses useSearchParams
+function PhotoGalleryContent({ photos, allTags }: PhotoGalleryProps) {
   const searchParams = useSearchParams();
   
   // Client-side state for selected tags, initialized from URL query parameter
@@ -202,5 +203,21 @@ export function PhotoGallery({ photos, allTags }: PhotoGalleryProps) {
         </motion.div>
       </div>
     </div>
+  )
+}
+
+// Wrapper component with Suspense boundary
+export function PhotoGallery(props: PhotoGalleryProps) {
+  return (
+    <Suspense fallback={
+      <div className="text-center py-16">
+        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+          <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+        </div>
+        <p className="mt-4 text-muted-foreground">Loading gallery...</p>
+      </div>
+    }>
+      <PhotoGalleryContent {...props} />
+    </Suspense>
   )
 }
