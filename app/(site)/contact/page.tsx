@@ -16,19 +16,15 @@ import { SocialLinks } from "@/components/social-links"
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  // This function will handle the form submission state
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // We don't prevent default here to allow the native form submission to Formspree
     setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    toast.success("Message sent!", {
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    })
-
-    setIsSubmitting(false)
-    e.currentTarget.reset()
+    
+    // We'll reset the submitting state after a delay to account for the redirect
+    setTimeout(() => {
+      setIsSubmitting(false)
+    }, 2000)
   }
 
   return (
@@ -49,7 +45,14 @@ export default function ContactPage() {
                 <CardDescription>Fill out the form below and I'll get back to you as soon as possible.</CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form 
+                  action="https://formspree.io/f/mblgokrl" 
+                  method="POST"
+                  onSubmit={handleSubmit} 
+                  className="space-y-6"
+                >
+                  {/* Hidden field for Formspree to redirect back to this page */}
+                  <input type="hidden" name="_next" value="https://brandon-henry.com/contact?success=true" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Name</Label>
@@ -124,4 +127,3 @@ export default function ContactPage() {
     </div>
   )
 }
-
