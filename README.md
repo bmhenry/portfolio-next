@@ -47,6 +47,30 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Learn Next.js](https://nextjs.org/learn)
 
+## Adding Blog Posts
+
+You'll want this header data at the top:
+
+```md
+---
+title: "The Art of Landscape Photography: Capturing the Perfect Shot"
+date: "2023-02-18"
+tags: ["Photography", "Landscape", "Techniques", "Lighting", "Composition"]
+excerpt: "Discover techniques for capturing stunning landscape photographs in any lighting condition."
+image: "/headshot.jpg"
+readTime: "6 min read"
+author:
+  name: "Brandon"
+  avatar: "/placeholder.svg?height=100&width=100"
+  bio: "Software Engineer & Photographer"
+relatedPosts:
+  - slug: "building-scalable-web-apps"
+    title: "Building Scalable Web Applications with React and Next.js"
+  - slug: "patagonia-backpacking"
+    title: "Exploring Remote Trails: My Backpacking Journey Through Patagonia"
+---
+```
+
 ## License
 
 This project is licensed under the MIT License.

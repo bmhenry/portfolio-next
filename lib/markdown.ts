@@ -30,7 +30,7 @@ export type PostMetadata = {
   tags: string[];
   excerpt: string;
   image: string;
-  readTime: string;
+  readTime?: string; // Made optional since we'll calculate it if not provided
   author: Author;
   relatedPosts: RelatedPost[];
 };
@@ -39,6 +39,30 @@ export type Post = PostMetadata & {
   content: string;
   contentHtml: string;
 };
+
+/**
+ * Calculate read time for a blog post
+ * Assumes average reading speed of 250 words per minute
+ * Adds 10 seconds for each image in the content
+ */
+function calculateReadTime(content: string): string {
+  // Count words in content
+  const wordCount = content.trim().split(/\s+/).length;
+  
+  // Count images in content (both markdown and HTML format)
+  const markdownImageMatches = content.match(/!\[.*?\]\(.*?\)/g) || [];
+  const htmlImageMatches = content.match(/<img.*?>/g) || [];
+  const imageCount = markdownImageMatches.length + htmlImageMatches.length;
+  
+  // Calculate total read time in minutes
+  // 250 words per minute, plus 10 seconds (1/6 of a minute) per image
+  const readTimeMinutes = (wordCount / 250) + (imageCount * (10 / 60));
+  
+  // Format the read time (round up to nearest minute, or use "less than 1 min" for very short content)
+  return readTimeMinutes < 1 
+    ? "Less than 1 min read" 
+    : `${Math.ceil(readTimeMinutes)} min read`;
+}
 
 /**
  * Get all blog posts metadata
@@ -58,11 +82,19 @@ export function getAllPosts(): PostMetadata[] {
 
       // Use gray-matter to parse the post metadata section
       const matterResult = matter(fileContents);
+      
+      // Get the post data
+      const postData = matterResult.data as Omit<PostMetadata, 'slug'>;
+      
+      // Calculate read time if not provided
+      if (!postData.readTime) {
+        postData.readTime = calculateReadTime(matterResult.content);
+      }
 
       // Combine the data with the slug
       return {
         slug,
-        ...(matterResult.data as Omit<PostMetadata, 'slug'>),
+        ...postData,
       };
     });
 
@@ -128,6 +160,11 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   
   // Get the post data
   const postData = matterResult.data as Omit<PostMetadata, 'slug'>;
+  
+  // Calculate read time if not provided in frontmatter
+  if (!postData.readTime) {
+    postData.readTime = calculateReadTime(matterResult.content);
+  }
   
   // Filter out related posts that don't exist
   if (postData.relatedPosts && Array.isArray(postData.relatedPosts)) {

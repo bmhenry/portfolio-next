@@ -3,7 +3,7 @@ const path = require('path');
 const sharp = require('sharp');
 
 // Base paths
-const rootDir = process.cwd();
+const rootDir = path.resolve(__dirname, '..');
 const photosDirectory = path.join(rootDir, 'public/photos');
 const originalDir = path.join(photosDirectory, 'original');
 const webDir = path.join(photosDirectory, 'web');
@@ -70,12 +70,14 @@ async function processImage(
     
     // Process web-optimized version
     await sharp(originalPath)
+      .rotate() // Preserve EXIF orientation
       .resize(WEB_IMAGE_WIDTH, null, { withoutEnlargement: true })
       .jpeg({ quality: IMAGE_QUALITY })
       .toFile(webPath);
     
     // Process thumbnail
     await sharp(originalPath)
+      .rotate() // Preserve EXIF orientation
       .resize(THUMBNAIL_WIDTH, null, { withoutEnlargement: true })
       .jpeg({ quality: IMAGE_QUALITY })
       .toFile(thumbnailPath);
