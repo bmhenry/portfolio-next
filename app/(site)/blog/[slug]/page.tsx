@@ -75,12 +75,12 @@ export default async function BlogPostPage({
             </div>
           </div>
 
-          <div className="relative aspect-[2/1] rounded-lg overflow-hidden mb-8">
+          <div className="relative aspect-[2/1] rounded-lg overflow-hidden mb-20">
             <Image src={post.image || "/placeholder.svg"} alt={post.title} fill priority className="object-cover" />
           </div>
 
           <div 
-            className="prose prose-gray max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground/90 prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-foreground prose-ul:my-6 prose-ol:my-6 prose-li:my-2" 
+            className="prose prose-gray max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground/90 prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-foreground" 
             dangerouslySetInnerHTML={{ __html: post.contentHtml }} 
           />
         </div>

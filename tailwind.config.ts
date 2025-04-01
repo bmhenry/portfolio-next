@@ -23,18 +23,18 @@ const config = {
         DEFAULT: {
           css: {
             h1: {
-              marginTop: '1.5em',
-              marginBottom: '0.5em',
+              marginTop: '5em',
+              marginBottom: '0.7em',
               fontWeight: '700',
             },
             h2: {
-              marginTop: '1.3em',
-              marginBottom: '0.5em',
+              marginTop: '2.6em',
+              marginBottom: '0.7em',
               fontWeight: '600',
             },
             h3: {
-              marginTop: '1.2em',
-              marginBottom: '0.5em',
+              marginTop: '2.4em',
+              marginBottom: '0.7em',
             },
             p: {
               marginTop: '1em',
@@ -48,9 +48,26 @@ const config = {
               marginTop: '1em',
               marginBottom: '1em',
             },
+            'ul ul, ol ol, ul ol, ol ul': {
+              marginTop: '0.1em',
+              marginBottom: '0.1em',
+            },
+            'li > ul, li > ol': {
+              marginTop: '0',
+              marginBottom: '0',
+            },
             blockquote: {
               marginTop: '1.5em',
               marginBottom: '1.5em',
+            },
+            code: {
+              backgroundColor: 'rgb(30, 30, 30)',
+              color: 'rgb(230, 230, 230)',
+              borderRadius: '0.25rem',
+              padding: '0.1em 0.4em 0.1em',
+              fontWeight: '400',
+              verticalAlign: 'middle',
+              display: 'inline-block',
             },
             'code::before': {
               content: '""',
