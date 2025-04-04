@@ -71,6 +71,27 @@ relatedPosts:
 ---
 ```
 
+### Collapsible Sections
+
+Do this:
+
+```md
+:::collapsible[Title]
+
+Content
+:::
+```
+
+Optionally, do
+
+```md
+:::collapsible[Golden Hour Lighting Tips]{open}
+content
+:::
+```
+
+do default to open
+
 ## License
 
 This project is licensed under the MIT License.

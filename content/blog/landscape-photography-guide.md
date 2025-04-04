@@ -24,29 +24,35 @@ Landscape photography is about patience, planning, and a deep appreciation for t
 
 The quality of light can make or break a landscape photograph. Here's how to work with different lighting conditions:
 
-### Golden Hour
-
+:::collapsible[Golden Hour Lighting Tips]
 The hour after sunrise and before sunset provides warm, directional light that adds depth and dimension to landscapes. During this time:
 
 - Look for side-lighting that creates texture and shadows
 - Use a polarizing filter to enhance colors and reduce glare
 - Consider silhouettes against the colorful sky
 
-### Blue Hour
+Golden hour light is characterized by its warm, golden tones and long shadows that add depth and dimension to your landscapes. The low angle of the sun creates dramatic side-lighting that reveals texture in the landscape.
+:::
 
+:::collapsible[Blue Hour Techniques]{open}
 The period before sunrise and after sunset offers a cool, ethereal quality to your images:
 
 - Use longer exposures to capture movement in clouds or water
 - Incorporate artificial lights from buildings or streets
 - Balance exposure for both sky and foreground elements
 
-### Harsh Midday Light
+Blue hour is often overlooked by beginning photographers, but it offers some of the most magical lighting conditions, especially for cityscapes and scenes with water.
+:::
 
+:::collapsible[Working with Harsh Midday Light]
 While often avoided, midday light can work well for certain scenes:
 
 - Look for deep canyons where light bounces and creates interesting patterns
 - Convert to black and white to emphasize contrast and form
 - Use graduated ND filters to balance bright skies with darker foregrounds
+
+Don't pack away your camera just because the sun is high! With the right techniques, you can create compelling images even in challenging lighting conditions.
+:::
 
 ## Composition Techniques for Stronger Images
 
@@ -80,10 +86,14 @@ Conveying the three-dimensional nature of a landscape in a two-dimensional mediu
 
 While you don't need expensive equipment to create compelling landscape images, certain tools can expand your creative possibilities:
 
+:::collapsible[Essential Landscape Photography Gear]
 - **Tripod:** Essential for sharp images in low light and when using small apertures
 - **Filters:** Graduated ND filters help balance exposure, while polarizers reduce glare and enhance colors
 - **Wide-angle lens:** Captures expansive scenes and emphasizes foreground elements
 - **Weather protection:** Ensures you can shoot in challenging conditions
+
+A solid tripod is perhaps the most important investment for landscape photography, as it allows you to use longer shutter speeds and smaller apertures without introducing camera shake.
+:::
 
 ## Post-Processing for Landscape Photography
 

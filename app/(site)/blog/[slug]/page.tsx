@@ -3,6 +3,9 @@ import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
 import { getPostBySlug, getAllPostSlugs } from "@/lib/markdown"
 import { notFound } from "next/navigation"
+import { HydrateCollapsibleSections } from "@/components/blog/collapsible-section"
+import { TableOfContents } from "@/components/blog/table-of-contents"
+import "../blog.css" // Import the blog-specific CSS
 
 // Generate static params for all blog posts
 export function generateStaticParams() {
@@ -39,7 +42,8 @@ export default async function BlogPostPage({
         </Link>
       </div>
 
-      <article className="max-w-3xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto relative">
+        <article className="lg:col-span-8 max-w-3xl">
         <div className="mb-8">
           <div className="flex flex-wrap items-center gap-2 mb-4">
             {post.tags && post.tags.length > 0 && (
@@ -80,9 +84,12 @@ export default async function BlogPostPage({
           </div>
 
           <div 
-            className="prose prose-gray max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground/90 prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-foreground" 
+            className="prose prose-gray max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground/90 prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-foreground prose-headings:[&>a]:invisible prose-headings:hover:[&>a]:visible prose-headings:[&>a]:no-underline prose-headings:[&>a]:mr-2" 
             dangerouslySetInnerHTML={{ __html: post.contentHtml }} 
           />
+          
+          {/* Client component to hydrate collapsible sections */}
+          <HydrateCollapsibleSections />
         </div>
 
         {post.relatedPosts && post.relatedPosts.length > 0 && (
@@ -97,7 +104,13 @@ export default async function BlogPostPage({
             </div>
           </div>
         )}
-      </article>
+        </article>
+        
+        {/* Table of Contents */}
+        <div className="lg:col-span-4 order-first lg:order-last">
+          <TableOfContents />
+        </div>
+      </div>
     </div>
   )
 }

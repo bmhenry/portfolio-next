@@ -197,7 +197,10 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     .use(rehypeStringify) // Serializes the HTML
     .process(processedContent.toString());
   
-  const contentHtml = result.toString();
+  let contentHtml = result.toString();
+  
+  // Process collapsible sections
+  contentHtml = processCollapsibleSections(contentHtml);
 
   // Combine the data with the slug and contentHtml
   return {
@@ -206,6 +209,64 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     contentHtml,
     ...postData,
   };
+}
+
+/**
+ * Process collapsible sections in HTML content
+ * Converts :::collapsible[Title]{open} syntax to HTML with data attributes
+ */
+function processCollapsibleSections(content: string): string {
+  // First, check if there are any raw collapsible tags in the content
+  if (content.includes(':::collapsible[')) {
+    // Process the raw markdown syntax directly
+    const regex = /:::collapsible\[(.*?)\](?:\{(.*?)\})?\s*\n([\s\S]*?):::/g;
+    
+    // Also handle the case where the collapsible syntax appears in the HTML content
+    const htmlRegex = /&lt;p&gt;:::collapsible\[(.*?)\](?:\{(.*?)\})?\s*&lt;\/p&gt;([\s\S]*?)&lt;p&gt;:::&lt;\/p&gt;/g;
+    
+    // First, process the raw markdown syntax
+    let processedContent = content.replace(regex, (match, title, options, body) => {
+      const isOpen = options && options.includes('open');
+      const openAttr = isOpen ? ' data-collapsible-open' : '';
+      
+      return `<div data-collapsible${openAttr}>
+  <div data-collapsible-title>${title}</div>
+  <div data-collapsible-content>
+    ${body.trim()}
+  </div>
+</div>`;
+    });
+    
+    // Then, process any HTML-encoded collapsible syntax
+    processedContent = processedContent.replace(htmlRegex, (match, title, options, body) => {
+      const isOpen = options && options.includes('open');
+      const openAttr = isOpen ? ' data-collapsible-open' : '';
+      
+      return `<div data-collapsible${openAttr}>
+  <div data-collapsible-title>${title}</div>
+  <div data-collapsible-content>
+    ${body.trim()}
+  </div>
+</div>`;
+    });
+    
+    // Finally, handle any remaining raw syntax that might be in the HTML content
+    processedContent = processedContent.replace(/:::collapsible\[(.*?)\](?:\{(.*?)\})?/g, (match, title, options) => {
+      const isOpen = options && options.includes('open');
+      const openAttr = isOpen ? ' data-collapsible-open' : '';
+      
+      return `<div data-collapsible${openAttr}>
+  <div data-collapsible-title>${title}</div>
+  <div data-collapsible-content>`;
+    });
+    
+    processedContent = processedContent.replace(/:::/g, `</div>
+</div>`);
+    
+    return processedContent;
+  }
+  
+  return content;
 }
 
 /**
