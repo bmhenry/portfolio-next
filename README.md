@@ -90,7 +90,13 @@ content
 :::
 ```
 
-do default to open
+to default to open.
+
+You can collapse images too:
+
+```md
+>![Image Title](image source)
+```
 
 ## License
 

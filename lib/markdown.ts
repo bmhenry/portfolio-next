@@ -250,8 +250,17 @@ function processCollapsibleSections(content: string): string {
 </div>`;
     });
     
+    // Handle the case where the collapsible syntax is in a code block
+    const codeBlockRegex = /<pre><code>[\s\S]*?:::collapsible\[(.*?)\](?:\{(.*?)\})?([\s\S]*?):::[\s\S]*?<\/code><\/pre>/g;
+    processedContent = processedContent.replace(codeBlockRegex, (match) => {
+      // Don't process collapsible syntax inside code blocks
+      return match;
+    });
+    
     // Finally, handle any remaining raw syntax that might be in the HTML content
-    processedContent = processedContent.replace(/:::collapsible\[(.*?)\](?:\{(.*?)\})?/g, (match, title, options) => {
+    // but not inside code blocks
+    const remainingRawSyntaxRegex = /<p>:::collapsible\[(.*?)\](?:\{(.*?)\})?<\/p>/g;
+    processedContent = processedContent.replace(remainingRawSyntaxRegex, (match, title, options) => {
       const isOpen = options && options.includes('open');
       const openAttr = isOpen ? ' data-collapsible-open' : '';
       
@@ -260,7 +269,9 @@ function processCollapsibleSections(content: string): string {
   <div data-collapsible-content>`;
     });
     
-    processedContent = processedContent.replace(/:::/g, `</div>
+    // Close any remaining collapsible sections
+    const closingTagRegex = /<p>:::<\/p>/g;
+    processedContent = processedContent.replace(closingTagRegex, `</div>
 </div>`);
     
     return processedContent;
