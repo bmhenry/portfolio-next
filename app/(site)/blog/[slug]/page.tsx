@@ -4,6 +4,7 @@ import { ChevronLeft } from "lucide-react"
 import { getPostBySlug, getAllPostSlugs } from "@/lib/markdown"
 import { notFound } from "next/navigation"
 import { HydrateCollapsibleSections } from "@/components/blog/collapsible-section"
+import { HydrateCollapsibleImages } from "@/components/blog/collapsible-image"
 import { BlogImageFullscreen } from "@/components/blog/blog-image-fullscreen"
 import { TableOfContents } from "@/components/blog/table-of-contents"
 import "../blog.css" // Import the blog-specific CSS
@@ -91,6 +92,7 @@ export default async function BlogPostPage({
           
           {/* Client components to hydrate interactive elements */}
           <HydrateCollapsibleSections />
+          <HydrateCollapsibleImages />
           <BlogImageFullscreen />
         </div>
 

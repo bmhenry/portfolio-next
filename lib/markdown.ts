@@ -212,12 +212,15 @@ export async function getPostBySlug(slug: string): Promise<Post> {
 }
 
 /**
- * Process collapsible sections in HTML content
+ * Process collapsible sections and images in HTML content
  * Converts :::collapsible[Title]{open} syntax to HTML with data attributes
+ * Converts >![Collapsible Title](image source) to collapsible image HTML
  */
 function processCollapsibleSections(content: string): string {
-  // First, check if there are any raw collapsible tags in the content
-  if (content.includes(':::collapsible[')) {
+  let processedContent = content;
+  
+  // Process collapsible sections
+  if (processedContent.includes(':::collapsible[')) {
     // Process the raw markdown syntax directly
     const regex = /:::collapsible\[(.*?)\](?:\{(.*?)\})?\s*\n([\s\S]*?):::/g;
     
@@ -225,7 +228,7 @@ function processCollapsibleSections(content: string): string {
     const htmlRegex = /&lt;p&gt;:::collapsible\[(.*?)\](?:\{(.*?)\})?\s*&lt;\/p&gt;([\s\S]*?)&lt;p&gt;:::&lt;\/p&gt;/g;
     
     // First, process the raw markdown syntax
-    let processedContent = content.replace(regex, (match, title, options, body) => {
+    processedContent = processedContent.replace(regex, (match, title, options, body) => {
       const isOpen = options && options.includes('open');
       const openAttr = isOpen ? ' data-collapsible-open' : '';
       
@@ -273,11 +276,32 @@ function processCollapsibleSections(content: string): string {
     const closingTagRegex = /<p>:::<\/p>/g;
     processedContent = processedContent.replace(closingTagRegex, `</div>
 </div>`);
-    
-    return processedContent;
   }
   
-  return content;
+  // Process collapsible images
+  // The markdown processor converts >![Title](src) to a blockquote with an image
+  const collapsibleImageRegex = /<blockquote>\s*<p><img src="([^"]+)" alt="([^"]+)"[^>]*><\/p>\s*<\/blockquote>/g;
+  processedContent = processedContent.replace(collapsibleImageRegex, (match, src, title) => {
+    return `<div data-collapsible-image>
+  <div data-collapsible-image-title>${title}</div>
+  <div data-collapsible-image-content>
+    <img src="${src}" alt="${title}" class="w-full">
+  </div>
+</div>`;
+  });
+  
+  // Also handle the case where the image might be wrapped in a link
+  const collapsibleLinkedImageRegex = /<blockquote>\s*<p><a[^>]*><img src="([^"]+)" alt="([^"]+)"[^>]*><\/a><\/p>\s*<\/blockquote>/g;
+  processedContent = processedContent.replace(collapsibleLinkedImageRegex, (match, src, title) => {
+    return `<div data-collapsible-image>
+  <div data-collapsible-image-title>${title}</div>
+  <div data-collapsible-image-content>
+    <img src="${src}" alt="${title}" class="w-full">
+  </div>
+</div>`;
+  });
+  
+  return processedContent;
 }
 
 /**
