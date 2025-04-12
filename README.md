@@ -36,6 +36,9 @@ To build the application for production, run:
 npm run build
 ```
 
+This will create the `out/` folder at the top level, where the website is rendered to static files.
+
+
 ## Deploy
 
 You can deploy the application using platforms like Vercel, Netlify, or any other hosting service that supports Next.js.

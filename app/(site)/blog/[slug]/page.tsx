@@ -7,6 +7,7 @@ import { HydrateCollapsibleSections } from "@/components/blog/collapsible-sectio
 import { HydrateCollapsibleImages } from "@/components/blog/collapsible-image"
 import { BlogImageFullscreen } from "@/components/blog/blog-image-fullscreen"
 import { TableOfContents } from "@/components/blog/table-of-contents"
+import { BackToTop } from "@/components/blog/back-to-top"
 import "../blog.css" // Import the blog-specific CSS
 
 // Generate static params for all blog posts
@@ -115,6 +116,9 @@ export default async function BlogPostPage({
           <TableOfContents />
         </div>
       </div>
+      
+      {/* Back to top component (handles both mobile and desktop) */}
+      <BackToTop />
     </div>
   )
 }
