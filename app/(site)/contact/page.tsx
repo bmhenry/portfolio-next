@@ -33,7 +33,7 @@ export default function ContactPage() {
         <div className="text-center space-y-4">
           <h1 className="text-3xl font-bold">Contact Me</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a question or want to work together? Feel free to reach out!
+            Questions? Find a typo? Let me know.
           </p>
         </div>
 
@@ -86,33 +86,9 @@ export default function ContactPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Contact Information</CardTitle>
-                <CardDescription>Here are the ways you can reach me directly.</CardDescription>
+                <CardDescription>Less direct ways to find me.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 mt-0.5 text-muted-foreground" />
-                  <div>
-                    <h3 className="font-medium">Email</h3>
-                    <p className="text-sm text-muted-foreground">brandon@example.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 mt-0.5 text-muted-foreground" />
-                  <div>
-                    <h3 className="font-medium">Phone</h3>
-                    <p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 mt-0.5 text-muted-foreground" />
-                  <div>
-                    <h3 className="font-medium">Location</h3>
-                    <p className="text-sm text-muted-foreground">San Francisco, CA</p>
-                  </div>
-                </div>
-
                 <div className="pt-4 border-t">
                   <h3 className="font-medium mb-3">Connect with me</h3>
                   <div className="flex gap-4">
