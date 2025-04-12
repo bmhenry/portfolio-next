@@ -1,7 +1,7 @@
 ---
 title: "A Software Engineer's Realistic Use of AI - March 2025"
 date: "2025-03-29"
-tags: ["Engineering", "Tech", "Code", "LLM", "AI"]
+tags: ["Engineering", "AI"]
 excerpt: "A no-BS explanation of how a software engineer at a non-AI company uses AI daily."
 image: "/blog/ai-human-crop.jpg"
 author:
