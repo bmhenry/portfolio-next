@@ -84,13 +84,9 @@ export default function ContactPage() {
 
           <div>
             <Card>
-              <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
-                <CardDescription>Less direct ways to find me.</CardDescription>
-              </CardHeader>
               <CardContent className="space-y-6">
                 <div className="pt-4 border-t">
-                  <h3 className="font-medium mb-3">Connect with me</h3>
+                  <h3 className="font-medium mb-3">Connect</h3>
                   <div className="flex gap-4">
                     <SocialLinks className="text-gray-600 hover:text-navy" containerClassName="flex items-center gap-2" />
                   </div>

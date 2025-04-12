@@ -20,19 +20,25 @@ export default function AboutPage() {
             </div>
 
             <h1 className="text-3xl font-bold mb-2">Brandon</h1>
-            <p className="text-muted-foreground mb-4">Senior Computer Engineer, Tech Lead, Team Lead, and Supervisor</p>
+            <p className="text-muted-foreground">Senior Computer Engineer</p>
+            <p className="text-muted-foreground">Tech Lead</p>
+            <p className="text-muted-foreground">Team Lead</p>
+            <p className="text-muted-foreground">Supervisor</p>
 
-            <div className="space-y-4">
+            <div className="space-y-4 mt-8">
               <div>
-                <h3 className="font-medium mb-2">Contact</h3>
-                <p className="text-sm">contact@bhenry.dev</p>
-                <p className="text-sm">Dayton, OH</p>
+                <h3 className="font-medium mb-2">Company</h3>
+                <p className="text-sm font-medium text-muted-foreground">
+                  <a href="https://tangramflex.com/" target="_blank" rel="noopener noreferrer">Tangram Flex</a>
+                </p>
               </div>
-
               <div>
                 <h3 className="font-medium mb-2">Education</h3>
-                <p className="text-sm font-medium">Indiana Purdue Ft. Wayne</p>
+                <p className="text-sm font-medium">
+                  <a href="https://www.pfw.edu/" target="_blank" rel="noopener noreferrer">Indiana Purdue Fort Wayne</a>
+                </p>
                 <p className="text-sm text-muted-foreground">BS in Computer Engineering, 2012-2016</p>
+                <p className="text-sm text-muted-foreground">Chapman Scholar</p>
               </div>
             </div>
           </div>
@@ -42,15 +48,40 @@ export default function AboutPage() {
           <section>
             <h2 className="text-2xl font-bold mb-4">About Me</h2>
             <p className="text-muted-foreground mb-4">
-              Don't expect anyone to redo your work later. Do it the right way, now.
+              I'm happiest when I'm making things that help other people. Whether it's a brand new
+              product to fill a gap in the market, a mobile app that fills a niche need that isn't being met, or
+              just creating a new library that makes my teammates' lives easier, I love to design and
+              build answers to life's questions.
             </p>
             <p className="text-muted-foreground mb-4">
-              I believe in building quality software. I enjoy creating tools that improve the lives of users and engineers.
+              I <b>strongly</b> believe in doing things right the first time. I don't expect anybody
+              to come behind me and clean up my mistakes later - I try my hardest to do it right the
+              first time. I make plenty of mistakes and do my best to learn from them, but that doesn't
+              stop me from trying to put the best first iteration forward, every time.
             </p>
             <p className="text-muted-foreground mb-4">
-              At home, I like to spend time on personal projects such as FocusFinder and  or self-hosting a variety of services
+              I believe in building secure, reliable, and maintainable software -- these three factors
+              sum up "code quality" for me.
+            </p>
+            <ol className="list-decimal text-muted-foreground mb-4 pl-8">
+              <li>
+                Apps should be written to avoid bugs & memory leaks that may be detrimental to users.
+              </li>
+              <li>
+                They should perform as expected every time to avoid frustrating users. If they don't,
+                that's a bug: see rule 1.
+              </li>
+              <li>
+                An app that isn't maintainable is a ticking time bomb, waiting to break rules 1 and 2.
+                Write quality comments that explain intent, don't get caught up on a "code is documentation" mantra that harms
+                team members (especially newer ones). Write useful tests that allow you to refactor with confidence.
+                Keep code clear, organized, and simple.
+              </li>
+            </ol>
+            <p className="text-muted-foreground mb-4">
+              At home, I like to spend time on personal projects such as FocusFinder, electronics projects, and self-hosting a variety of services
               such as GitLab and Immich. Apart from tech, I enjoy <a className="text-blue-700 hover:underline" href="/photos">photography</a> (mostly landscapes),
-              ultimate frisbee, pickeball, and backpacking.
+              ultimate frisbee, pickleball, and backpacking.
             </p>
           </section>
 
@@ -69,11 +100,11 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                  <li>Created the Verifier tool: a new product & feature that's unique in the market and provides interface-level testing for software components, allowing developers and integrators to test compatible of swappable components</li>
-                  <li>Tech lead for teams performing on millions of dollars in contracts, including multidisciplinary and cross-organizational teams</li>
-                  <li>Technical advisor & product advisor for both internal and external teams as well as customers</li>
-                  <li>Worked with engineers & leadership to build team members' skills and careers while following their interests</li>
-                  <li>Collaborated regularly with other product leads and company leadership on product & business direction, such as how to sell Verifier and goal prioritization</li>
+                  <li>Created Runway, the engine behind <a className="text-blue-700 hover:underline" href="https://tangramflex.com/capabilities" target="_blank" rel="noopener noreferrer">Verifier</a>: a new product & feature that's unique in the market. It provides interface-level testing for software components, allowing developers and integrators to test compatibility of swappable components at runtime.</li>
+                  <li>Tech lead for many project teams performing on contracts, doing everything from security and testing to code generation and containerization</li>
+                  <li>Technical advisor & product advisor for both internal & external teams, as well as for customers</li>
+                  <li>Actively collaborate with peers & leadership to "level up" the team, looking for skill & career development opportunities as well as team culture improvements</li>
+                  <li>Collaborate regularly with other product leads and company leadership on product direction, such as cross-team product initiatives, how to sell Verifier, and technical milestone prioritization</li>
                 </ul>
               </CardContent>
             </Card>
@@ -103,7 +134,7 @@ export default function AboutPage() {
 
             <div className="space-y-4">
               <div>
-                <h3 className="font-medium mb-2">Top Programming Languages</h3>
+                <h3 className="font-medium mb-2">Favorite Programming Languages</h3>
                 <div className="flex flex-wrap gap-2">
                   <Badge>C++</Badge>
                   <Badge>Rust</Badge>
@@ -154,7 +185,7 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-5">
-                    Git-based dependency source management for C++, Flex, and more
+                    Git-based dependency management for C++, Flex, and more
                   </p>
                   <div className="flex flex-wrap gap-2 mt-4">
                     <Badge variant="outline">Rust</Badge>
@@ -188,8 +219,9 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-5">
-                    Filter network messages based on user-defined rules and conditions.
-                    Delivered in a package the shape of a credit card.
+                    Breaks the mold for cross-domain solutions with its credit card
+                    footprint. Filters network messages
+                    based on user-defined rules and conditions.
                   </p>
                   <div className="flex flex-wrap gap-2 mt-4">
                     <Badge variant="outline">C</Badge>

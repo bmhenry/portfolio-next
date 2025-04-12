@@ -28,14 +28,14 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "GitHub",
-    url: "https://github.com/bmhenry",
+    url: "https://github.com/bmhenry?tab=repositories",
     icon: faGithub,
     defaultSize: "1x",
     ariaLabel: "GitHub",
   },
   {
     name: "BlueSky",
-    url: "https://bsky.app/profile/bmhenry.com",
+    url: "https://bsky.app/profile/bhenry.dev",
     icon: faBluesky,
     defaultSize: "1x",
     ariaLabel: "BlueSky",
