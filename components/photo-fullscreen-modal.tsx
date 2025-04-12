@@ -67,6 +67,17 @@ export function PhotoFullscreenModal({ photo, isOpen, onClose }: PhotoFullscreen
     }
   }, [isOpen, onClose])
 
+  // Dispatch custom events when modal opens/closes
+  useEffect(() => {
+    if (isOpen) {
+      // Dispatch event when modal opens
+      window.dispatchEvent(new CustomEvent('photoModalOpen'))
+    } else {
+      // Dispatch event when modal closes
+      window.dispatchEvent(new CustomEvent('photoModalClose'))
+    }
+  }, [isOpen])
+
   // Calculate aspect ratio for the image
   const aspectRatio = photo.dimensions 
     ? `${photo.dimensions.width} / ${photo.dimensions.height}`

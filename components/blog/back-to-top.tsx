@@ -9,12 +9,16 @@ import { cn } from "@/lib/utils"
 export function BackToTop() {
   const isMobile = useIsMobile()
   const [showButton, setShowButton] = React.useState(false)
+  const [isModalOpen, setIsModalOpen] = React.useState(false)
 
   // Handle scroll event to show/hide the button
   React.useEffect(() => {
     const handleScroll = () => {
       // Show button after scrolling down 300px
-      setShowButton(window.scrollY > 300)
+      // Only update if no modal is open
+      if (!isModalOpen) {
+        setShowButton(window.scrollY > 300)
+      }
     }
 
     // Add scroll event listener
@@ -25,6 +29,30 @@ export function BackToTop() {
     
     // Clean up
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [isModalOpen])
+
+  // Listen for photo modal events
+  React.useEffect(() => {
+    const handleModalOpen = () => {
+      setIsModalOpen(true)
+      setShowButton(false) // Hide button when modal opens
+    }
+    
+    const handleModalClose = () => {
+      setIsModalOpen(false)
+      // Check scroll position to determine if button should be shown
+      setShowButton(window.scrollY > 300)
+    }
+    
+    // Add event listeners
+    window.addEventListener("photoModalOpen", handleModalOpen)
+    window.addEventListener("photoModalClose", handleModalClose)
+    
+    // Clean up
+    return () => {
+      window.removeEventListener("photoModalOpen", handleModalOpen)
+      window.removeEventListener("photoModalClose", handleModalClose)
+    }
   }, [])
 
   const scrollToTop = () => {
