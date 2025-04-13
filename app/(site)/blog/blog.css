@@ -22,25 +22,27 @@ h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
   height: 100%;
 }
 
-/* Reduce margin between image captions and images */
+/* Target image captions with higher specificity */
 .prose p > em:only-child {
-  display: block;
-  margin-bottom: 0.25em;
+  margin-bottom: 0 !important;
 }
 
-/* Target images that follow italic text */
-.prose p > em:only-child + br + img,
-.prose p > em:only-child ~ img,
-.prose p:has(> em:only-child) + p > img {
-  margin-top: 0.25em !important;
+.prose p > em:only-child + p > img,
+.prose p > em + p > img {
+  margin-top: 0 !important;
 }
 
-/* Target the specific image class the user mentioned */
-.prose :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  margin-top: 0.5em;
+/* Target the specific image class with higher specificity */
+.prose p:has(> em:only-child) + p > img,
+.prose p:has(> em) + p > img {
+  margin-top: 0 !important;
 }
 
-/* Target paragraphs with only em that are followed by paragraphs with images */
+/* Add a custom class for image captions */
 .prose p:has(> em:only-child) {
-  margin-bottom: 0.25em;
+  margin-bottom: 0 !important;
+}
+
+.prose p + p > img {
+  margin-top: 0.25em !important;
 }
