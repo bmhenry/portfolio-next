@@ -22,6 +22,34 @@ h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
   height: 100%;
 }
 
+/* Mobile Table of Contents styles */
+@media (max-width: 1023px) {
+  /* Ensure the ToC button doesn't overlap with other fixed elements */
+  .toc-mobile-button {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  
+  /* Add some extra space for the ToC sheet content */
+  .toc-sheet-content {
+    max-height: 80vh;
+  }
+  
+  /* Style the close button to be more minimal */
+  .toc-sheet-content button[class*="Close"] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    opacity: 0.7 !important;
+  }
+  
+  /* Target the specific close button in the sheet */
+  [data-state="open"].toc-sheet-content button {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+
 /* Target image captions with higher specificity */
 .prose p > em:only-child {
   margin-bottom: 0 !important;
