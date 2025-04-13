@@ -4,17 +4,16 @@
     "description": "Even the front door of the magnificently ostentatious Biltmore Estate in Asheville, North Carolina is a sight to behold.",
     "tags": [
       "Architecture",
-      "Biltmore",
-      "North Carolina"
+      "Travel"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/8.0",
+      "shutterSpeed": "1/240",
+      "iso": "640",
+      "location": "Asheville, NC",
+      "date": "2024-05-24"
     },
     "dimensions": {
       "width": 3244,
@@ -23,18 +22,18 @@
   },
   "Architecture/cincy_skyscape.jpg": {
     "title": "Cincinnati's Skyline",
-    "description": "No description provided.",
+    "description": "Devou Park provides a great view of Cincy's skyline from just south of the Ohio River",
     "tags": [
       "Architecture"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 70-300mm f/4-5.6",
+      "aperture": "f/13",
+      "shutterSpeed": "0.7 seconds",
+      "iso": "800",
+      "location": "Devou Park, Covington, KY",
+      "date": "2024-11-11"
     },
     "dimensions": {
       "width": 5271,
@@ -43,18 +42,18 @@
   },
   "Architecture/dayton_skyscape.jpg": {
     "title": "Dayton's Skyline",
-    "description": "No description provided.",
+    "description": "Dayton from the north, over the Miami River",
     "tags": [
       "Architecture"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/5.6",
+      "shutterSpeed": "3 seconds",
+      "iso": "160",
+      "location": "Dayton, OH",
+      "date": "2024-06-18"
     },
     "dimensions": {
       "width": 5934,
@@ -63,18 +62,20 @@
   },
   "Mountains/banff_gondola.jpg": {
     "title": "The View from Sulfur Mountain",
-    "description": "No description provided.",
+    "description": "The Banff Gondola is expensive, but the view from the top was absolutely worth it. That's how they get you!",
     "tags": [
-      "Mountains"
+      "Banff",
+      "Mountains",
+      "Travel"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/7.1",
+      "shutterSpeed": "1/950",
+      "iso": "640",
+      "location": "Sulfur Mountain, Banff, AB",
+      "date": "2024-08-20"
     },
     "dimensions": {
       "width": 5013,
@@ -85,16 +86,17 @@
     "title": "Mountain Roads",
     "description": "The winding roads of the Blue Ridge Mountains are a scenic drive, but can also make for some fantastic leading lines!",
     "tags": [
-      "Mountains"
+      "Mountains",
+      "Travel"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/8.0",
+      "shutterSpeed": "1/240",
+      "iso": "640",
+      "location": "Craggy Garden, Blue Ridge Parkway, NC",
+      "date": "2024-05-25"
     },
     "dimensions": {
       "width": 3352,
@@ -103,18 +105,18 @@
   },
   "Mountains/blueridge_wide.jpg": {
     "title": "A Blue Ridge Sunset",
-    "description": "No description provided.",
     "tags": [
-      "Mountains"
+      "Mountains",
+      "Travel"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/4.0",
+      "shutterSpeed": "1/640",
+      "iso": "640",
+      "location": "Craggy Garden, Blue Ridge Parkway, NC",
+      "date": "2024-05-26"
     },
     "dimensions": {
       "width": 5674,
@@ -123,18 +125,18 @@
   },
   "Mountains/golden_night.jpg": {
     "title": "Starry Night in Golden, BC",
-    "description": "No description provided.",
     "tags": [
+      "Banff",
       "Mountains"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/3.2",
+      "shutterSpeed": "13.0 seconds",
+      "iso": "1600",
+      "location": "Kicking Horse Mountain Resort, Golden, BC",
+      "date": "2024-08-19"
     },
     "dimensions": {
       "width": 3452,
@@ -143,18 +145,20 @@
   },
   "Mountains/takakkaw_clouds_bw.jpg": {
     "title": "Peaks in the Clouds",
-    "description": "No description provided.",
+    "description": "The mist from the gigantic Takakkaw Falls combined with the clouds to provide an intensely moody scene.",
     "tags": [
-      "Mountains"
+      "Banff",
+      "Mountains",
+      "Travel"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 70-300mm f/4-5.6",
+      "aperture": "f/5.6",
+      "shutterSpeed": "1/900",
+      "iso": "800",
+      "location": "Takakkaw Falls, Yoho National Park, BC",
+      "date": "2024-08-17"
     },
     "dimensions": {
       "width": 3265,
@@ -163,18 +167,18 @@
   },
   "Ohio/clifton_gorge_heron.jpg": {
     "title": "Fresh Catch",
-    "description": "No description provided.",
+    "description": "This heron is a regular at this spot in Clifton Gorge, and in the sprint the rushing water provides a fitting backdrop",
     "tags": [
       "Ohio"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 70-300mm f/4-5.6",
+      "aperture": "f/8.0",
+      "shutterSpeed": "1/200",
+      "iso": "800",
+      "location": "Clifton Gorge, OH",
+      "date": "2024-04-14"
     },
     "dimensions": {
       "width": 3578,
@@ -183,18 +187,17 @@
   },
   "Ohio/hh_cave.jpg": {
     "title": "Fall in Hocking Hills",
-    "description": "No description provided.",
     "tags": [
       "Ohio"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/8.0",
+      "shutterSpeed": "1/45",
+      "iso": "800",
+      "location": "Cedar Falls, Hocking Hills, OH",
+      "date": "2023-10-22"
     },
     "dimensions": {
       "width": 3183,
@@ -203,18 +206,17 @@
   },
   "Ohio/hh_forest.jpg": {
     "title": "Forest Depths",
-    "description": "No description provided.",
     "tags": [
       "Ohio"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/6.4",
+      "shutterSpeed": "1/160",
+      "iso": "800",
+      "location": "Hocking Hills, OH",
+      "date": "2024-04-20"
     },
     "dimensions": {
       "width": 3476,
@@ -222,19 +224,18 @@
     }
   },
   "Ohio/hh_lower_falls.jpg": {
-    "title": "Lower Falls",
-    "description": "No description provided.",
+    "title": "The Lower Falls",
     "tags": [
       "Ohio"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/5.6",
+      "shutterSpeed": "1/40",
+      "iso": "800",
+      "location": "Lower Falls, Hocking Hills, OH",
+      "date": "2024-04-20"
     },
     "dimensions": {
       "width": 5241,
@@ -242,19 +243,19 @@
     }
   },
   "Ohio/hh_over_conkles.jpg": {
-    "title": "The Rim of Conkle's Hollow",
-    "description": "No description provided.",
+    "title": "Over the Rim",
+    "description": "While the hike inside of Conkle's Hollow is a more magical experience, you can find some great views from the top as well.",
     "tags": [
       "Ohio"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/11",
+      "shutterSpeed": "1/180",
+      "iso": "320",
+      "location": "Conkle's Hollow, Hocking Hills, OH",
+      "date": "2023-10-22"
     },
     "dimensions": {
       "width": 5557,
@@ -263,18 +264,18 @@
   },
   "Travel/florida_parrot.jpg": {
     "title": "Peekaboo",
-    "description": "No description provided.",
     "tags": [
+      "Florida",
       "Travel"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 70-300mm f/4-5.6",
+      "aperture": "f/5.6",
+      "shutterSpeed": "1/300",
+      "iso": "640",
+      "location": "Jungle Gardens, Sarasota, FL",
+      "date": "2023-03-25"
     },
     "dimensions": {
       "height": 6240,
@@ -283,18 +284,18 @@
   },
   "Travel/golden_boo.jpg": {
     "title": "Boo",
-    "description": "No description provided.",
     "tags": [
+      "Banff",
       "Travel"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 70-300mm f/4-5.6",
+      "aperture": "f/5.6",
+      "shutterSpeed": "1/500",
+      "iso": "3200",
+      "location": "Kicking Horse Mountain Resort, Golden, BC",
+      "date": "2024-08-18"
     },
     "dimensions": {
       "width": 3546,
@@ -303,18 +304,18 @@
   },
   "Travel/grand_canyon.jpg": {
     "title": "The Grand Canyon",
-    "description": "No description provided.",
+    "description": "Capturing the depth and vastness of the Grand Canyon is an enormous challenge. This photo is as close as I came to doing it justice.",
     "tags": [
       "Travel"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 70-300mm f/4-5.6",
+      "aperture": "f/11",
+      "shutterSpeed": "1/210",
+      "iso": "160",
+      "location": "North Rim, Grand Canyon National Park, AZ",
+      "date": "2023-02-19"
     },
     "dimensions": {
       "width": 2551,
@@ -323,18 +324,20 @@
   },
   "Water/lake_agnes_teahouse.jpg": {
     "title": "Lake Agnes Teahouse",
-    "description": "No description provided.",
+    "description": "Hiking to the teahouse was the easiest part of the hike.",
     "tags": [
+      "Banff",
+      "Travel",
       "Water"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/8.0",
+      "shutterSpeed": "1/200",
+      "iso": "160",
+      "location": "Lake Agnes, Banff, AB",
+      "date": "2024-08-15"
     },
     "dimensions": {
       "width": 3308,
@@ -343,18 +346,20 @@
   },
   "Water/lake_louise_sunset.jpg": {
     "title": "Blue Hour over Lake Louise",
-    "description": "No description provided.",
+    "description": "The blue glacier water. The purple & blue sky. The layered mountains. The tall pines. What's not to love? Lake Louise is one of the most popular places in Banff National Park for good reason: it's a must-see",
     "tags": [
+      "Banff",
+      "Travel",
       "Water"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/7.1",
+      "shutterSpeed": "1/100",
+      "iso": "1250",
+      "location": "Lake Louise, Banff, AB",
+      "date": "2024-08-15"
     },
     "dimensions": {
       "width": 5979,
@@ -363,18 +368,19 @@
   },
   "Water/near_takakkaw.jpg": {
     "title": "Water's Descent",
-    "description": "No description provided.",
     "tags": [
+      "Banff",
+      "Travel",
       "Water"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 70-300mm f/4-5.6",
+      "aperture": "f/5.6",
+      "shutterSpeed": "1/210",
+      "iso": "800",
+      "location": "Takakkaw Falls, Yoho National Park, BC",
+      "date": "2024-08-17"
     },
     "dimensions": {
       "width": 4160,
@@ -383,18 +389,19 @@
   },
   "Water/smokes_big_river.jpg": {
     "title": "Big Creek",
-    "description": "No description provided.",
+    "description": "Backpacking with my brother along the Big Creek Trail was serene and beautiful. It's an easy hike, so there was plenty of time to stop and take photos!",
     "tags": [
+      "Travel",
       "Water"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/8.0",
+      "shutterSpeed": "1/10",
+      "iso": "320",
+      "location": "Big Creek, Great Smoky Mountains National Park, NC",
+      "date": "2023-09-20"
     },
     "dimensions": {
       "width": 3265,
@@ -403,18 +410,18 @@
   },
   "Water/smokies_falls.jpg": {
     "title": "Glistening Falls",
-    "description": "No description provided.",
     "tags": [
+      "Travel",
       "Water"
     ],
     "metadata": {
       "camera": "Fuji X-T30 II",
-      "lens": "Unknown",
-      "aperture": "Unknown",
-      "shutterSpeed": "Unknown",
-      "iso": "Unknown",
-      "location": "Unknown",
-      "date": "2025-03-17"
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/7.1",
+      "shutterSpeed": "1/5",
+      "iso": "160",
+      "location": "Great Smoky Mountains National Park, TN",
+      "date": "2024-05-26"
     },
     "dimensions": {
       "width": 3389,
