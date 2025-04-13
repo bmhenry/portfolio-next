@@ -160,8 +160,9 @@ Overall, while Copilot feels more fluid to use, Cline saves me more time. I use 
 
 Sometimes, it'll run through 20 API calls only to forget what the original task is. I've watched it modify code in ways that definitely doesn't make sense. But, like I said up top: in these less common failures, you can just do a `git reset` or restore files using the "checkpoints" built into Cline, and then try again or just do it yourself.
 
+### Examples
 
-### Editing This Site With Cline
+#### Editing This Site With Cline
 
 99.9% of the code for this website was generated using a combination of [v0](https://v0.dev) and Cline. If you're a frontend engineer or a designer, you might be thinking "Yeah, coulda told you that". If you're _anybody else_, you're very likely thinking "Wow, maybe it's time for me to make a new personal website."
 
@@ -258,6 +259,19 @@ It proceeded to attempt to launch its internal browser with a larger viewport, a
 
 To be fair, I did (kinda) tell it that the ToC was working. And it worked! Take a look at the screenshot, and you'll see it cost me $1.43. That seems a little pricey for the work it did, but it also beats actually learning how _any_ of the code in this site works!
 
+
+#### Task Examples
+
+- This Site
+  - I asked it to add a "Back to Top" button for blog posts, and it did that no problem
+  - The "Back to Top" button would appear on top of the fullscreen image popups (when you click images in posts), I told it to fix it. No problem.
+  - Tried to get it to reduce the margin between the italic captions over some images in posts. It struggled greatly, trying multiple approaches that sometimes caused rendering to fail. I had to inspect the HTML and give it the right class naming for the image before it succeeded.
+- Other Tasks
+  - I told it to create (from scratch) a program to use the CloudFlare API to update DNS records, and it did it correctly in one go.
+  - When asked to write tests for a C++ library, it wrote a combination of useless and solid tests.
+- Flutter
+  - It's consistently able to build working widgets from scratch
+  - When asked to add new data to a widget backed by database entries, it will correctly update the data flow from backend to frontend, even writing tests
 
 ## Chat
 

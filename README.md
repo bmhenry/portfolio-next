@@ -74,6 +74,11 @@ relatedPosts:
 ---
 ```
 
+### Image Captions
+
+Italic blocks directly over images will turn into "captions" with a reduced margin on top of the image.
+
+
 ### Collapsible Sections
 
 Do this:

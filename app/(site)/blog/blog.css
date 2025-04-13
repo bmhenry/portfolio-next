@@ -21,3 +21,26 @@ h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
   width: 100%;
   height: 100%;
 }
+
+/* Reduce margin between image captions and images */
+.prose p > em:only-child {
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+/* Target images that follow italic text */
+.prose p > em:only-child + br + img,
+.prose p > em:only-child ~ img,
+.prose p:has(> em:only-child) + p > img {
+  margin-top: 0.25em !important;
+}
+
+/* Target the specific image class the user mentioned */
+.prose :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 0.5em;
+}
+
+/* Target paragraphs with only em that are followed by paragraphs with images */
+.prose p:has(> em:only-child) {
+  margin-bottom: 0.25em;
+}
