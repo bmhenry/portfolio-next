@@ -162,7 +162,7 @@ export function TableOfContents({ className }: TableOfContentsProps) {
 
   // Desktop view
   return (
-    <div className={cn("hidden lg:block sticky top-24 overflow-auto", className)}>
+    <div className={cn("hidden lg:block sticky top-24 max-h-[calc(100vh-8rem)] overflow-auto", className)}>
       <TableOfContentsContent />
     </div>
   )
