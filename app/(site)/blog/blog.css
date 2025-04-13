@@ -29,9 +29,9 @@ h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
     transition: opacity 0.2s ease, transform 0.2s ease;
   }
   
-  /* Add some extra space for the ToC sheet content */
+  /* Make the ToC sheet content take up the full viewport height */
   .toc-sheet-content {
-    max-height: 80vh;
+    height: 100vh;
   }
   
   /* Style the close button to be more minimal */

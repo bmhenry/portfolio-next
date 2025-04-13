@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
 import Image from "next/image"
 import { X, ZoomIn, ZoomOut, Minus, Plus } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -175,8 +175,11 @@ export function PhotoFullscreenModal({ photo, isOpen, onClose }: PhotoFullscreen
   // Determine object-fit style - always contain when using zoom levels
   const objectFitClass = "object-contain"
 
-  // Determine cursor style based on zoom level and dragging state
-  const cursorClass = zoomLevel > minZoomLevel
+  // State for tracking if mouse is over the actual image
+  const [isMouseOverImage, setIsMouseOverImage] = useState(false)
+  
+  // Determine cursor style based on zoom level, dragging state, and mouse position
+  const cursorClass = (zoomLevel > minZoomLevel && isMouseOverImage)
     ? isDragging ? "cursor-grabbing" : "cursor-grab" 
     : ""
     
@@ -190,6 +193,46 @@ export function PhotoFullscreenModal({ photo, isOpen, onClose }: PhotoFullscreen
     setZoomLevel(prev => Math.max(prev - zoomIncrement, minZoomLevel))
   }
 
+  // Function to check if a point is on the actual image pixels
+  const isPointOnImage = useCallback((e: React.MouseEvent) => {
+    if (!imageRef.current) return false;
+    
+    // Get the image element
+    const imageElement = imageRef.current.querySelector('img');
+    if (!imageElement) return false;
+    
+    // Get bounding rect of the image container
+    const rect = imageElement.getBoundingClientRect();
+    
+    // Calculate the actual image dimensions (accounting for object-contain)
+    const imgRatio = photo.dimensions ? 
+      photo.dimensions.width / photo.dimensions.height : 1;
+    const containerRatio = rect.width / rect.height;
+    
+    let actualWidth, actualHeight;
+    if (imgRatio > containerRatio) {
+      // Image is constrained by width
+      actualWidth = rect.width;
+      actualHeight = rect.width / imgRatio;
+    } else {
+      // Image is constrained by height
+      actualHeight = rect.height;
+      actualWidth = rect.height * imgRatio;
+    }
+    
+    // Calculate the position of the actual image within the container
+    const imgLeft = rect.left + (rect.width - actualWidth) / 2;
+    const imgTop = rect.top + (rect.height - actualHeight) / 2;
+    
+    // Check if click is within the actual image area
+    return (
+      e.clientX >= imgLeft &&
+      e.clientX <= imgLeft + actualWidth &&
+      e.clientY >= imgTop &&
+      e.clientY <= imgTop + actualHeight
+    );
+  }, [photo.dimensions]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -201,26 +244,39 @@ export function PhotoFullscreenModal({ photo, isOpen, onClose }: PhotoFullscreen
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
           onClick={onClose}
         >
+          {/* This is the image container - we don't stop propagation here */}
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
             className="relative w-full h-full max-w-[95vw] max-h-[95vh]"
-            onClick={(e) => e.stopPropagation()}
             ref={containerRef}
           >
+            {/* This is the actual image area - we don't stop propagation here */}
             <div 
               className="relative overflow-hidden w-full h-full"
               onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
+              onMouseEnter={(e) => {
+                // Initialize cursor state when mouse enters
+                setIsMouseOverImage(isPointOnImage(e));
+              }}
+              onMouseMove={(e) => {
+                handleMouseMove(e);
+                // Update cursor based on whether mouse is over the actual image
+                setIsMouseOverImage(isPointOnImage(e));
+              }}
               onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseLeave}
+              onMouseLeave={() => {
+                handleMouseLeave();
+                setIsMouseOverImage(false);
+              }}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
               ref={imageRef}
             >
+              {/* This div contains the image - we don't stop propagation here */}
               <div 
                 style={{
                   transform: zoomLevel > minZoomLevel
@@ -242,6 +298,13 @@ export function PhotoFullscreenModal({ photo, isOpen, onClose }: PhotoFullscreen
                   priority
                   quality={90}
                   draggable={false}
+                  onClick={(e) => {
+                    // Only stop propagation if the click is on the actual image
+                    if (isPointOnImage(e)) {
+                      e.stopPropagation();
+                    }
+                    // Otherwise, let the click propagate to close the modal
+                  }}
                 />
               </div>
               
@@ -254,13 +317,27 @@ export function PhotoFullscreenModal({ photo, isOpen, onClose }: PhotoFullscreen
             </div>
             
             {/* Zoom level indicator */}
-            <div className="absolute bottom-4 left-4 bg-background/80 text-foreground px-3 py-1 rounded-full shadow-lg backdrop-blur-sm text-sm font-medium">
+            <div 
+              className="absolute bottom-4 left-4 bg-background/80 text-foreground px-3 py-1 rounded-full shadow-lg backdrop-blur-sm text-sm font-medium"
+              onClick={(e) => {
+                // Only stop propagation if the click is directly on this element
+                if (e.target === e.currentTarget) {
+                  e.stopPropagation();
+                }
+              }}
+            >
               {zoomLevel.toFixed(1)}x
             </div>
             
             {/* Zoom in button */}
             <button
-              onClick={handleZoomIn}
+              onClick={(e) => {
+                // Only stop propagation if the click is directly on this button or its icon
+                if (e.target === e.currentTarget || e.target === e.currentTarget.firstChild) {
+                  e.stopPropagation();
+                  handleZoomIn();
+                }
+              }}
               className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 text-foreground shadow-lg hover:bg-background transition-colors backdrop-blur-sm disabled:opacity-50"
               aria-label="Zoom in"
               disabled={zoomLevel >= maxZoomLevel}
@@ -270,7 +347,13 @@ export function PhotoFullscreenModal({ photo, isOpen, onClose }: PhotoFullscreen
             
             {/* Zoom out button */}
             <button
-              onClick={handleZoomOut}
+              onClick={(e) => {
+                // Only stop propagation if the click is directly on this button or its icon
+                if (e.target === e.currentTarget || e.target === e.currentTarget.firstChild) {
+                  e.stopPropagation();
+                  handleZoomOut();
+                }
+              }}
               className="absolute bottom-4 right-16 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 text-foreground shadow-lg hover:bg-background transition-colors backdrop-blur-sm disabled:opacity-50"
               aria-label="Zoom out"
               disabled={zoomLevel <= minZoomLevel}
@@ -280,7 +363,13 @@ export function PhotoFullscreenModal({ photo, isOpen, onClose }: PhotoFullscreen
             
             {/* Close button */}
             <button
-              onClick={onClose}
+              onClick={(e) => {
+                // Only stop propagation if the click is directly on this button or its icon
+                if (e.target === e.currentTarget || e.target === e.currentTarget.firstChild) {
+                  e.stopPropagation();
+                  onClose();
+                }
+              }}
               className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 text-foreground shadow-lg hover:bg-background transition-colors backdrop-blur-sm"
               aria-label="Close fullscreen view"
             >

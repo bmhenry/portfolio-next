@@ -156,7 +156,7 @@ In C++, my current success is much much lower: maybe a 10-20% success rate with 
 
 ### Cline In Summary
 
-Overall, while Copilot feels more fluid to use, Cline saves me more time. I use it to one-shot Python scripts which handle CloudFlare DNS for me, or to add new features to my existing Rust apps, or modify this Next JS website. _Far more often than not_, Cline saves me a ton of time: I get to finish more work in a shorter amount of time, offload boring work to AI, and pursue more loose threads that I find interesting.
+Overall, while Copilot feels more natural to use and leaves me at the helm (thus, I enjoy it more), Cline saves me more time. I use it to one-shot Python scripts which handle CloudFlare DNS for me, or to add new features to my existing Rust apps, or modify this Next JS website. _Far more often than not_, Cline saves me a ton of time: I get to finish more work in a shorter amount of time, offload boring work to AI, and pursue more loose threads that I find interesting.
 
 Sometimes, it'll run through 20 API calls only to forget what the original task is. I've watched it modify code in ways that definitely doesn't make sense. But, like I said up top: in these less common failures, you can just do a `git reset` or restore files using the "checkpoints" built into Cline, and then try again or just do it yourself.
 
@@ -303,4 +303,6 @@ It turns out that humans are pretty predictable, and (especially in a programmin
 
 Personally, I find AI too useful to ignore. I use it to boost my productivity _literally_ every day that I write code, which is a very corporate way of saying "I have to type less bullshit and I get to spend more time thinking about interesting things like architecture, new features, or trying out random ideas". Being able to give one task to Cline while I work on something else? Awesome. Asking it to fix a bug by just pasting an error in the chat window? Incredible. Diving into manual code changes and getting the thoughts out of my head faster thanks to Copilot? Fantastic.
 
-*By no means* is AI perfect: it's not intelligent by any stretch. It is still genius in its own stochastic way, in its utility and in its effectiveness when used correctly. I don't blindly trust it, but when used with eyes open it can improve my quality of life. Whether you ultimately decide to use it or not, I highly recommend that you at least become familiar enough with its capabilities to make an informed choice. I hope that this summary has been helpful in that.
+I wouldn't have started working on my mobile app, were it not for AI. My progress in the past couple months wouldn't have skyrocketed without Cline to help me. This website is 300% nicer than my last, and is all AI (except for the writing). Offload the tasks you can to AI, and leave the more off-beat, architectural, and creative tasks for yourself.
+
+*By no means* is AI perfect -- it's not intelligent by any stretch. It is still genius in its own stochastic way, in its utility and in its effectiveness when used correctly. Whether you ultimately decide to use it or not, I hope that these examples of my successes and failures with AI will help you make the choice that fits for you today.

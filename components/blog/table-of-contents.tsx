@@ -151,7 +151,7 @@ export function TableOfContents({ className }: TableOfContentsProps) {
         </SheetTrigger>
         <SheetContent 
           side="right" 
-          className="w-[85vw] max-w-xs pt-12 overflow-auto toc-sheet-content"
+          className="w-[85vw] max-w-xs pt-12 overflow-auto toc-sheet-content h-full"
         >
           <TableOfContentsContent />
         </SheetContent>
