@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 import { useIsMobile } from "@/hooks/use-mobile"
 import { Button } from "@/components/ui/button"
 import { List } from "lucide-react"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 
 interface Heading {
   id: string
@@ -153,6 +153,7 @@ export function TableOfContents({ className }: TableOfContentsProps) {
           side="right" 
           className="w-[85vw] max-w-xs pt-12 overflow-auto toc-sheet-content h-full"
         >
+          <SheetTitle>On this page</SheetTitle>
           <TableOfContentsContent />
         </SheetContent>
       </Sheet>

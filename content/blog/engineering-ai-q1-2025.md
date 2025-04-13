@@ -266,6 +266,7 @@ To be fair, I did (kinda) tell it that the ToC was working. And it worked! Take 
   - I asked it to add a "Back to Top" button for blog posts, and it did that no problem
   - The "Back to Top" button would appear on top of the fullscreen image popups (when you click images in posts), I told it to fix it. No problem.
   - Tried to get it to reduce the margin between the italic captions over some images in posts. It struggled greatly, trying multiple approaches that sometimes caused rendering to fail. I had to inspect the HTML and give it the right class naming for the image before it succeeded.
+  - Fix this bug: `(something about DialogContent)` - fixed it for under 10 cents
 - Other Tasks
   - I told it to create (from scratch) a program to use the CloudFlare API to update DNS records, and it did it correctly in one go.
   - When asked to write tests for a C++ library, it wrote a combination of useless and solid tests.
