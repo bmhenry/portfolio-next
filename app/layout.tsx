@@ -8,9 +8,8 @@ import { Toaster } from "sonner"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Brandon | Engineer & Photographer",
-  description: "Personal website of Brandon - Engineer, Programmer, Maker, Photographer, Backpacker, Explorer",
-    generator: 'v0.dev'
+  title: "Brandon Henry | Engineer & Photographer",
+  description: "Brandon Henry - Engineer, Programmer, Maker, Photographer, Backpacker, Explorer",
 }
 
 export default function RootLayout({
