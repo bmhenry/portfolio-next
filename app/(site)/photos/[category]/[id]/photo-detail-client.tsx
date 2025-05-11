@@ -29,6 +29,35 @@ export function PhotoDetailClient({ photo, prevPhoto, nextPhoto, category }: {
   return (
     <>
       <div className="lg:col-span-2 flex flex-col">
+        {/* Navigation buttons above the image */}
+        <div className="flex justify-between mb-4 mt-4 sm:mt-0">
+          {prevPhoto ? (
+            <Link 
+              href={`/photos/${prevPhoto.category}/${prevPhoto.id}`}
+            >
+              <Button variant="outline" size="sm">
+                <ChevronLeft size={16} className="mr-2" />
+                Previous
+              </Button>
+            </Link>
+          ) : (
+            <div></div>
+          )}
+
+          {nextPhoto ? (
+            <Link 
+              href={`/photos/${nextPhoto.category}/${nextPhoto.id}`}
+            >
+              <Button variant="outline" size="sm">
+                Next
+                <ChevronRight size={16} className="ml-2" />
+              </Button>
+            </Link>
+          ) : (
+            <div></div>
+          )}
+        </div>
+
         <div className={`${isPortrait ? 'flex justify-center' : ''}`}>
           <div 
             className={`
@@ -59,30 +88,6 @@ export function PhotoDetailClient({ photo, prevPhoto, nextPhoto, category }: {
               }
             />
           </div>
-        </div>
-
-        <div className={`flex justify-between mt-4 sm:mt-5 md:mt-6 ${isPortrait ? 'w-full px-4 md:px-8 lg:px-12' : ''}`}>
-          {prevPhoto ? (
-            <Link href={`/photos/${prevPhoto.category}/${prevPhoto.id}`}>
-              <Button variant="outline" size="sm">
-                <ChevronLeft size={16} className="mr-2" />
-                Previous
-              </Button>
-            </Link>
-          ) : (
-            <div></div>
-          )}
-
-          {nextPhoto ? (
-            <Link href={`/photos/${nextPhoto.category}/${nextPhoto.id}`}>
-              <Button variant="outline" size="sm">
-                Next
-                <ChevronRight size={16} className="ml-2" />
-              </Button>
-            </Link>
-          ) : (
-            <div></div>
-          )}
         </div>
       </div>
 
