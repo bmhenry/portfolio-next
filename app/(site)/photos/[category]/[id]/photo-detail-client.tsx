@@ -34,14 +34,16 @@ export function PhotoDetailClient({ photo, prevPhoto, nextPhoto, category }: {
             className={`
               relative overflow-hidden rounded-lg cursor-pointer
               ${isPortrait 
-                ? 'max-h-[75vh] max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[65%] mx-auto' 
-                : 'max-h-[80vh] w-full'
+                ? 'max-h-[80vh] max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[65%] mx-auto' 
+                : 'max-h-[65vh] sm:max-h-[70vh] md:max-h-[80vh] w-full'
               }
             `}
             style={{ 
               aspectRatio,
-              height: isPortrait ? '85vh' : 'auto',
-              minHeight: '400px'
+              height: isPortrait 
+                ? 'min(calc((100vw * 0.9) * ' + (photo.dimensions ? photo.dimensions.height / photo.dimensions.width : 1) + '), calc(100vh - 220px))' 
+                : 'auto',
+              minHeight: isPortrait ? '300px' : '400px'
             }}
             onClick={() => setIsFullscreen(true)}
           >
@@ -59,7 +61,7 @@ export function PhotoDetailClient({ photo, prevPhoto, nextPhoto, category }: {
           </div>
         </div>
 
-        <div className={`flex justify-between mt-4 ${isPortrait ? 'w-full px-4 md:px-8 lg:px-12' : ''}`}>
+        <div className={`flex justify-between mt-4 sm:mt-5 md:mt-6 ${isPortrait ? 'w-full px-4 md:px-8 lg:px-12' : ''}`}>
           {prevPhoto ? (
             <Link href={`/photos/${prevPhoto.category}/${prevPhoto.id}`}>
               <Button variant="outline" size="sm">

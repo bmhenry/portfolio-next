@@ -56,15 +56,15 @@ export default async function PhotoDetailPage({ params }: { params: { category: 
     : false;
 
   return (
-    <div className="container py-12">
-      <div className="mb-8">
+    <div className="container py-6 md:py-8 lg:py-12">
+      <div className="sm:mb-6 md:mb-8">
         <Link href="/photos" className="text-muted-foreground hover:text-foreground flex items-center gap-1">
           <ChevronLeft size={16} />
           Back to Gallery
         </Link>
       </div>
 
-      <div className={`grid grid-cols-1 ${isPortrait ? 'lg:grid-cols-2 xl:grid-cols-3' : 'lg:grid-cols-3'} gap-8`}>
+      <div className={`grid grid-cols-1 ${isPortrait ? 'lg:grid-cols-2 xl:grid-cols-3' : 'lg:grid-cols-3'} gap-4 sm:gap-6 md:gap-8`}>
         <PhotoDetailClient 
           photo={photo} 
           prevPhoto={prevPhoto} 
