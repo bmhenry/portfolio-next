@@ -32,13 +32,13 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   };
 }
 
+// This ensures the page is statically rendered
+export const dynamic = 'force-static';
 
 export default async function PhotoDetailPage({ 
   params,
-  searchParams
 }: { 
   params: { id: string },
-  searchParams: { [key: string]: string | string[] | undefined }
 }) {
   const { id } = await params;
   const photo = await getPhotoById(id);
@@ -49,12 +49,14 @@ export default async function PhotoDetailPage({
   
   // Get all photos for navigation
   const allPhotos = await getAllPhotos();
-  const currentIndex = allPhotos.findIndex((p: any) => p.id === id);
+  
+  // Find the current photo's index in the collection
+  const currentIndex = allPhotos.findIndex((p) => p.id === id);
   
   // Determine previous and next photos
   const prevPhoto = currentIndex > 0 ? allPhotos[currentIndex - 1] : null;
   const nextPhoto = currentIndex < allPhotos.length - 1 ? allPhotos[currentIndex + 1] : null;
-
+  
   // Determine if the photo is in portrait orientation
   const isPortrait = photo.dimensions 
     ? photo.dimensions.height > photo.dimensions.width
@@ -84,6 +86,7 @@ export default async function PhotoDetailPage({
             prevPhoto={prevPhoto} 
             nextPhoto={nextPhoto} 
             backToGalleryHref={`/photos`}
+            allPhotos={allPhotos}
           />
         </Suspense>
 

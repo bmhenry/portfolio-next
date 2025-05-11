@@ -1,24 +1,57 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Photo } from "@/lib/photo-types"
+import { Photo, filterPhotosByTags } from "@/lib/photo-types"
 import { PhotoFullscreenModal } from "@/components/photo-fullscreen-modal"
 import { useSearchParams } from "next/navigation"
 
-export function PhotoDetailClient({ photo, prevPhoto, nextPhoto, backToGalleryHref }: { 
+export function PhotoDetailClient({ 
+  photo, 
+  prevPhoto: serverPrevPhoto, 
+  nextPhoto: serverNextPhoto, 
+  backToGalleryHref,
+  allPhotos
+}: { 
   photo: Photo; 
   prevPhoto: Photo | null; 
   nextPhoto: Photo | null;
   backToGalleryHref: string;
+  allPhotos: Photo[];
 }) {
   const searchParams = useSearchParams();
   const tagParam = searchParams.get('tag');
   const queryString = tagParam ? `?tag=${tagParam}` : '';
   const [isFullscreen, setIsFullscreen] = useState(false);
+
+  // Filter photos by tag if a tag parameter is present
+  const filteredPhotos = useMemo(() => {
+    if (!tagParam) return allPhotos;
+    return filterPhotosByTags(allPhotos, [tagParam]);
+  }, [allPhotos, tagParam]);
+
+  // Find the current photo's index in the filtered collection
+  const currentIndex = useMemo(() => {
+    return filteredPhotos.findIndex(p => p.id === photo.id);
+  }, [filteredPhotos, photo.id]);
+
+  // Determine previous and next photos based on the filtered collection
+  const prevPhoto = useMemo(() => {
+    // If no tag filter is active, use the server-provided prevPhoto
+    if (!tagParam) return serverPrevPhoto;
+    // Otherwise, determine the previous photo from the filtered collection
+    return currentIndex > 0 ? filteredPhotos[currentIndex - 1] : null;
+  }, [tagParam, serverPrevPhoto, filteredPhotos, currentIndex]);
+
+  const nextPhoto = useMemo(() => {
+    // If no tag filter is active, use the server-provided nextPhoto
+    if (!tagParam) return serverNextPhoto;
+    // Otherwise, determine the next photo from the filtered collection
+    return currentIndex < filteredPhotos.length - 1 ? filteredPhotos[currentIndex + 1] : null;
+  }, [tagParam, serverNextPhoto, filteredPhotos, currentIndex]);
 
   // Calculate aspect ratio for the image
   const aspectRatio = photo.dimensions 
