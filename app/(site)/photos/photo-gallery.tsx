@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { useSearchParams } from "next/navigation"
+import { useSearchParams, useRouter, usePathname } from "next/navigation"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { filterPhotosByTags, Photo } from "@/lib/photo-types"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
@@ -36,6 +36,8 @@ function isLandscape(photo: Photo): boolean {
 // Component that uses useSearchParams
 function PhotoGalleryContent({ photos, allTags }: PhotoGalleryProps) {
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
   
   // Client-side state for selected tags, initialized from URL query parameter
   const [selectedTags, setSelectedTags] = useState<string[]>(() => {
@@ -45,11 +47,23 @@ function PhotoGalleryContent({ photos, allTags }: PhotoGalleryProps) {
   
   // Handle tag selection (single select only)
   const handleTagSelect = (tag: string) => {
-    setSelectedTags(prev => 
-      prev.includes(tag)
-        ? [] // If tag is already selected, deselect it
-        : [tag] // Otherwise, select only this tag
-    );
+    // Update state
+    const newTags = selectedTags.includes(tag) ? [] : [tag];
+    setSelectedTags(newTags);
+    
+    // Update URL
+    const params = new URLSearchParams(searchParams.toString());
+    
+    if (newTags.length === 0) {
+      // If deselecting, remove the tag parameter
+      params.delete('tag');
+    } else {
+      // If selecting, set the tag parameter
+      params.set('tag', tag);
+    }
+    
+    // Update URL without full page reload
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   };
   
   // Filter photos by selected tags
@@ -193,7 +207,13 @@ function PhotoGalleryContent({ photos, allTags }: PhotoGalleryProps) {
                       No photos match the selected tags. Try selecting different tags or clearing your current selection.
                     </p>
                     <button 
-                      onClick={() => setSelectedTags([])}
+                      onClick={() => {
+                        setSelectedTags([]);
+                        // Clear URL parameter
+                        const params = new URLSearchParams(searchParams.toString());
+                        params.delete('tag');
+                        router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+                      }}
                       className="mt-4 px-4 py-2 bg-secondary rounded-full text-sm font-medium hover:bg-secondary/80 transition-colors"
                     >
                       Clear filters
