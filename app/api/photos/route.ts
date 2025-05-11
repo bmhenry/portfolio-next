@@ -48,15 +48,13 @@ function getAllPhotos(): Photo[] {
   const photos: Photo[] = [];
 
   // Process each entry in the metadata
-  Object.entries(metadata).forEach(([key, data]) => {
-    const [category, filename] = key.split('/');
+  Object.entries(metadata).forEach(([filename, data]) => {
     const id = filename.replace(/\.[^/.]+$/, ''); // Remove file extension
     
     photos.push({
       id,
-      category,
-      src: `/photos/web/${category}/${filename}`,
-      thumbSrc: `/photos/web/${category}/${id}-thumb.jpg`,
+      src: `/photos/web/${filename}`,
+      thumbSrc: `/photos/web/${id}-thumb.jpg`,
       alt: data.title,
       ...data
     });
@@ -66,18 +64,10 @@ function getAllPhotos(): Photo[] {
 }
 
 /**
- * Get photos by category
+ * Get a specific photo by and id
  */
-function getPhotosByCategory(category: string): Photo[] {
-  return getAllPhotos().filter(photo => photo.category === category);
-}
-
-/**
- * Get a specific photo by category and id
- */
-function getPhotoById(category: string, id: string): Photo | null {
-  const photos = getPhotosByCategory(category);
-  const photo = photos.find(p => p.id === id);
+function getPhotoById(id: string): Photo | null {
+  const photo = getAllPhotos().find(p => p.id === id);
   return photo || null;
 }
 

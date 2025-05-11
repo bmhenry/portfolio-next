@@ -1,5 +1,5 @@
 {
-  "Architecture/biltmore.jpg": {
+  "biltmore.jpg": {
     "title": "The Biltmore",
     "description": "Even the front door of the magnificently ostentatious Biltmore Estate in Asheville, North Carolina is a sight to behold.",
     "tags": [
@@ -20,7 +20,7 @@
       "height": 4932
     }
   },
-  "Architecture/cincy_skyscape.jpg": {
+  "cincy_skyscape.jpg": {
     "title": "Cincinnati's Skyline",
     "description": "Devou Park provides a great view of Cincy's skyline from just south of the Ohio River",
     "tags": [
@@ -40,7 +40,7 @@
       "height": 3035
     }
   },
-  "Architecture/dayton_skyscape.jpg": {
+  "dayton_skyscape.jpg": {
     "title": "Dayton's Skyline",
     "description": "Dayton from the north, over the Miami River",
     "tags": [
@@ -60,7 +60,7 @@
       "height": 2696
     }
   },
-  "Mountains/banff_gondola.jpg": {
+  "banff_gondola.jpg": {
     "title": "The View from Sulfur Mountain",
     "description": "The Banff Gondola is expensive, but the view from the top was absolutely worth it. That's how they get you!",
     "tags": [
@@ -82,7 +82,7 @@
       "height": 3016
     }
   },
-  "Mountains/blueridge_car.jpg": {
+  "blueridge_car.jpg": {
     "title": "Mountain Roads",
     "description": "The winding roads of the Blue Ridge Mountains are a scenic drive, but can also make for some fantastic leading lines!",
     "tags": [
@@ -103,7 +103,7 @@
       "height": 4773
     }
   },
-  "Mountains/blueridge_wide.jpg": {
+  "blueridge_wide.jpg": {
     "title": "A Blue Ridge Sunset",
     "tags": [
       "Mountains",
@@ -123,7 +123,7 @@
       "height": 2820
     }
   },
-  "Mountains/golden_night.jpg": {
+  "golden_night.jpg": {
     "title": "Starry Night in Golden, BC",
     "tags": [
       "Banff",
@@ -143,7 +143,7 @@
       "height": 4635
     }
   },
-  "Mountains/takakkaw_clouds_bw.jpg": {
+  "takakkaw_clouds_bw.jpg": {
     "title": "Peaks in the Clouds",
     "description": "The mist from the gigantic Takakkaw Falls combined with the clouds to provide an intensely moody scene.",
     "tags": [
@@ -165,7 +165,7 @@
       "height": 4898
     }
   },
-  "Ohio/clifton_gorge_heron.jpg": {
+  "clifton_gorge_heron.jpg": {
     "title": "Fresh Catch",
     "description": "This heron is a regular at this spot in Clifton Gorge, and in the sprint the rushing water provides a fitting backdrop",
     "tags": [
@@ -185,7 +185,7 @@
       "height": 4472
     }
   },
-  "Ohio/hh_cave.jpg": {
+  "hh_cave.jpg": {
     "title": "Fall in Hocking Hills",
     "tags": [
       "Ohio"
@@ -204,7 +204,7 @@
       "height": 5025
     }
   },
-  "Ohio/hh_forest.jpg": {
+  "hh_forest.jpg": {
     "title": "Forest Depths",
     "tags": [
       "Ohio"
@@ -223,7 +223,7 @@
       "height": 4602
     }
   },
-  "Ohio/hh_lower_falls.jpg": {
+  "hh_lower_falls.jpg": {
     "title": "The Lower Falls",
     "tags": [
       "Ohio"
@@ -242,7 +242,7 @@
       "height": 3052
     }
   },
-  "Ohio/hh_over_conkles.jpg": {
+  "hh_over_conkles.jpg": {
     "title": "Over the Rim",
     "description": "While the hike inside of Conkle's Hollow is a more magical experience, you can find some great views from the top as well.",
     "tags": [
@@ -262,7 +262,7 @@
       "height": 2879
     }
   },
-  "Travel/florida_parrot.jpg": {
+  "florida_parrot.jpg": {
     "title": "Peekaboo",
     "tags": [
       "Florida",
@@ -282,7 +282,7 @@
       "width": 4160
     }
   },
-  "Travel/golden_boo.jpg": {
+  "golden_boo.jpg": {
     "title": "Boo",
     "tags": [
       "Banff",
@@ -302,7 +302,7 @@
       "height": 3898
     }
   },
-  "Travel/grand_canyon.jpg": {
+  "grand_canyon.jpg": {
     "title": "The Grand Canyon",
     "description": "Capturing the depth and vastness of the Grand Canyon is an enormous challenge. This photo is as close as I came to doing it justice.",
     "tags": [
@@ -322,7 +322,7 @@
       "height": 1562
     }
   },
-  "Water/lake_agnes_teahouse.jpg": {
+  "lake_agnes_teahouse.jpg": {
     "title": "Lake Agnes Teahouse",
     "description": "Hiking to the teahouse was the easiest part of the hike.",
     "tags": [
@@ -344,7 +344,7 @@
       "height": 4836
     }
   },
-  "Water/lake_louise_sunset.jpg": {
+  "lake_louise_sunset.jpg": {
     "title": "Blue Hour over Lake Louise",
     "description": "The blue glacier water. The purple & blue sky. The layered mountains. The tall pines. What's not to love? Lake Louise is one of the most popular places in Banff National Park for good reason: it's a must-see",
     "tags": [
@@ -366,7 +366,7 @@
       "height": 2675
     }
   },
-  "Water/near_takakkaw.jpg": {
+  "near_takakkaw.jpg": {
     "title": "Water's Descent",
     "tags": [
       "Banff",
@@ -387,7 +387,7 @@
       "height": 6240
     }
   },
-  "Water/smokes_big_river.jpg": {
+  "smokes_big_river.jpg": {
     "title": "Big Creek",
     "description": "Backpacking with my brother along the Big Creek Trail was serene and beautiful. It's an easy hike, so there was plenty of time to stop and take photos!",
     "tags": [
@@ -408,7 +408,7 @@
       "height": 4898
     }
   },
-  "Water/smokies_falls.jpg": {
+  "smokies_falls.jpg": {
     "title": "Glistening Falls",
     "tags": [
       "Travel",

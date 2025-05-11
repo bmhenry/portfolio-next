@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Suspense } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -6,20 +6,19 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { getPhotoById, getAllPhotos } from "@/lib/photos"
 import { Photo } from "@/lib/photo-types"
 import { notFound } from "next/navigation"
-import { PhotoDetailClient } from "@/app/(site)/photos/[category]/[id]/photo-detail-client"
+import { PhotoDetailClient } from "@/app/(site)/photos/[id]/photo-detail-client"
 
 // Generate static params for all photo pages at build time
 export async function generateStaticParams() {
   const photos = getAllPhotos();
   return photos.map((photo) => ({
-    category: photo.category,
     id: photo.id,
   }));
 }
 
-export async function generateMetadata({ params }: { params: { category: string; id: string } }) {
-  const { category, id } = await params;
-  const photo = await getPhotoById(category, id);
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const { id } = await params;
+  const photo = await getPhotoById(id);
   
   if (!photo) {
     return {
@@ -34,9 +33,15 @@ export async function generateMetadata({ params }: { params: { category: string;
 }
 
 
-export default async function PhotoDetailPage({ params }: { params: { category: string; id: string } }) {
-  const { category, id } = await params;
-  const photo = await getPhotoById(category, id);
+export default async function PhotoDetailPage({ 
+  params,
+  searchParams
+}: { 
+  params: { id: string },
+  searchParams: { [key: string]: string | string[] | undefined }
+}) {
+  const { id } = await params;
+  const photo = await getPhotoById(id);
   
   if (!photo) {
     notFound();
@@ -44,7 +49,7 @@ export default async function PhotoDetailPage({ params }: { params: { category: 
   
   // Get all photos for navigation
   const allPhotos = await getAllPhotos();
-  const currentIndex = allPhotos.findIndex((p: any) => p.id === id && p.category === category);
+  const currentIndex = allPhotos.findIndex((p: any) => p.id === id);
   
   // Determine previous and next photos
   const prevPhoto = currentIndex > 0 ? allPhotos[currentIndex - 1] : null;
@@ -57,7 +62,7 @@ export default async function PhotoDetailPage({ params }: { params: { category: 
 
   return (
     <div className="container py-6 md:py-8 lg:py-12">
-      <div className="sm:mb-6 md:mb-8">
+      <div className="sm:mb-6 md:mb-8 hidden lg:block">
         <Link href="/photos" className="text-muted-foreground hover:text-foreground flex items-center gap-1">
           <ChevronLeft size={16} />
           Back to Gallery
@@ -65,33 +70,29 @@ export default async function PhotoDetailPage({ params }: { params: { category: 
       </div>
 
       <div className={`grid grid-cols-1 ${isPortrait ? 'lg:grid-cols-2 xl:grid-cols-3' : 'lg:grid-cols-3'} gap-4 sm:gap-6 md:gap-8`}>
-        <PhotoDetailClient 
-          photo={photo} 
-          prevPhoto={prevPhoto} 
-          nextPhoto={nextPhoto} 
-          category={category} 
-        />
+        <Suspense fallback={
+          <div className="lg:col-span-2 flex flex-col">
+            <div className="animate-pulse bg-secondary/50 rounded-lg" style={{ 
+              aspectRatio: photo.dimensions ? `${photo.dimensions.width} / ${photo.dimensions.height}` : "16/9",
+              height: "auto",
+              minHeight: "400px"
+            }}></div>
+          </div>
+        }>
+          <PhotoDetailClient 
+            photo={photo} 
+            prevPhoto={prevPhoto} 
+            nextPhoto={nextPhoto} 
+            backToGalleryHref={`/photos`}
+          />
+        </Suspense>
 
         <div className={isPortrait ? 'lg:col-span-1 xl:col-span-1' : ''}>
           <h1 className="text-2xl font-bold mb-4">{photo.title}</h1>
           <p className="text-muted-foreground mb-6">{photo.description}</p>
           
-          {/* Tags */}
-          {photo.tags && photo.tags.length > 0 && (
-            <div className="mb-6">
-              <div className="flex flex-wrap gap-2">
-                {photo.tags.map((tag: string) => (
-                  <Link 
-                    key={tag} 
-                    href={`/photos?tag=${tag}`}
-                    className="px-4 py-1.5 rounded-full text-sm font-medium bg-secondary/80 text-secondary-foreground hover:bg-secondary transition-all duration-300 shadow-sm flex items-center gap-2"
-                  >
-                    {tag}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Tags will be rendered by the client component */}
+          <div id="photo-tags-desktop" className="hidden lg:block mb-6"></div>
 
           <div className="space-y-4">
             <h2 className="text-lg font-medium">Photo Details</h2>

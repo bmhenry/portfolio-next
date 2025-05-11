@@ -12,7 +12,6 @@ export type PhotoMetadata = {
 
 export type Photo = {
   id: string;
-  category: string;
   src: string;
   thumbSrc: string;
   alt: string;

@@ -9,10 +9,6 @@ import { filterPhotosByTags, Photo } from "@/lib/photo-types"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 import { motion, AnimatePresence } from "framer-motion"
 
-type Category = {
-  id: string;
-  name: string;
-}
 
 type PhotoGalleryProps = {
   photos: Photo[];
@@ -140,7 +136,7 @@ function PhotoGalleryContent({ photos, allTags }: PhotoGalleryProps) {
                           className={`${landscape ? 'landscape-photo' : ''}`}
                         >
                           <Link 
-                            href={`/photos/${photo.category}/${photo.id}`} 
+                            href={`/photos/${photo.id}${selectedTags.length > 0 ? `?tag=${selectedTags[0]}` : ''}`} 
                             className="group block"
                           >
                             <div className={`relative overflow-hidden rounded-xl transition-all duration-300 ${
