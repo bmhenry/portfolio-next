@@ -71,12 +71,24 @@ async function extractExifMetadata(imagePath: string): Promise<Record<string, an
     } else if (exif.Model) {
       metadata.camera = exif.Model;
     }
+
+    // Manually map the camera make to something more readable
+    if (metadata.camera == "FUJIFILM X-T30 II") {
+      metadata.camera = "Fuji X-T30 II";
+    }
     
     // Lens information
     if (exif.LensModel) {
       metadata.lens = exif.LensModel;
     } else if (exif.Lens) {
       metadata.lens = exif.Lens;
+    }
+
+    // Manually map the lens names to something more readable
+    if (metadata.lens == "XF18-55mmF2.8-4 R LM OIS") {
+      metadata.lens = "Fuji 18-55mm f/2.8-4";
+    } else if (metadata.lens == "XF70-300mmF4-5.6 R LM OIS WR") {
+      metadata.lens = "Fuji 70-300mm f/4-5.6";
     }
     
     // Aperture

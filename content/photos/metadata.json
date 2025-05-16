@@ -324,7 +324,7 @@
   },
   "lake_agnes_teahouse.jpg": {
     "title": "Lake Agnes Teahouse",
-    "description": "Hiking to the teahouse was the easiest part of the hike.",
+    "description": "Hiking to the teahouse was the easiest part of the hike. We went back downt to Lake Louise the long way, going up the Big Beehive first.",
     "tags": [
       "Banff",
       "Travel",
@@ -426,6 +426,214 @@
     "dimensions": {
       "width": 3389,
       "height": 4720
+    }
+  },
+  "banff_sky_bistro.jpg": {
+    "title": "Mountain Reflections",
+    "description": "The top of the Banff Gondola is home to the Sky Bistro, which has great food and an even better view. There's a short boardwalk hike at the top that provides a 360 degree view of Banff and the surrounding mountains.",
+    "tags": ["Banff", "Mountains", "Travel"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 70-300mm f/4-5.6",
+      "aperture": "f/11.0",
+      "shutterSpeed": "1/250",
+      "iso": "640",
+      "location": "Sulfur Mountain, Banff, AB",
+      "date": "2024-08-20"
+    },
+    "dimensions": {
+      "width": 6240,
+      "height": 4160
+    }
+  },
+  "canmore_sunrise.jpg": {
+    "title": "A Canmore Sunrise",
+    "description": "Despite getting up early nearly every morning, our best sunrise was captured from the balcony of our AirBNB in Canmore.",
+    "tags": ["Banff", "Mountains", "Travel"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/5.6",
+      "shutterSpeed": "1/340",
+      "iso": "640",
+      "location": "Canmore, AB",
+      "date": "2024-08-20"
+    },
+    "dimensions": {
+      "width": 5878,
+      "height": 3303
+    }
+  },
+  "downtown_lights.jpg": {
+    "title": "Banff in Blue Hour",
+    "description": "The small town of Banff, already shrouded in Blue Hour.",
+    "tags": ["Banff", "Mountains", "Travel"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 70-300mm f/4-5.6",
+      "aperture": "f/5.6",
+      "location": "Sulfur Mountain, Banff, AB",
+      "date": "2025-05-11"
+    },
+    "dimensions": {
+      "width": 3360,
+      "height": 4720
+    }
+  },
+  "emerald_lake_canoes.jpg": {
+    "title": "The Canoes at Emerald Lake",
+    "tags": ["Banff", "Travel"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/5.0",
+      "shutterSpeed": "1/250",
+      "iso": "640",
+      "location": "Emerald Lake, Yoho National Park, BC",
+      "date": "2024-08-17"
+    },
+    "dimensions": {
+      "width": 5985,
+      "height": 3905
+    }
+  },
+  "icefield_pkwy.jpg": {
+    "title": "Looming over the Icefield Parkway",
+    "tags": ["Banff", "Mountains", "Travel"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/9.0",
+      "shutterSpeed": "1/850",
+      "iso": "640",
+      "location": "Icefield Parkway, AB",
+      "date": "2024-08-20"
+    },
+    "dimensions": {
+      "width": 4007,
+      "height": 5008
+    }
+  },
+  "johnston_canyon.jpg": {
+    "title": "The Canyon's Future",
+    "description": "Johnston Canyon was simply too crowded for me to take my time with. Go early or skip it altogether: there are so many great places to see that you shouldn't waste time waiting in line to see a waterfall.",
+    "tags": ["Banff", "Travel", "Water"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/16.0",
+      "shutterSpeed": "1/6",
+      "iso": "160",
+      "location": "Johnston Canyon, AB",
+      "date": "2024-08-20"
+    },
+    "dimensions": {
+      "width": 6240,
+      "height": 4160
+    }
+  },
+  "lake_louise_glacier.jpg": {
+    "title": "Frosted Tips",
+    "tags": ["Banff", "Mountains", "Travel"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 70-300mm f/4-5.6",
+      "aperture": "f/13.0",
+      "shutterSpeed": "1/340",
+      "iso": "640",
+      "location": "Big Beehive, Lake Louise, Banff, AB",
+      "date": "2024-08-15"
+    },
+    "dimensions": {
+      "width": 4160,
+      "height": 6240
+    }
+  },
+  "lake_louise_sunrise.jpg": {
+    "title": "Morning Glow",
+    "tags": ["Banff", "Mountains", "Travel"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/5.6",
+      "shutterSpeed": "1/25",
+      "iso": "800",
+      "location": "Lake Louise, Banff, AB",
+      "date": "2024-08-15"
+    },
+    "dimensions": {
+      "width": 4160,
+      "height": 6240
+    }
+  },
+  "moraine_lake_canoes.jpg": {
+    "title": "Moraine Lake",
+    "tags": ["Banff", "Mountains", "Travel"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/5.6",
+      "shutterSpeed": "1/180",
+      "iso": "640",
+      "location": "Moraine Lake, AB",
+      "date": "2024-08-16"
+    },
+    "dimensions": {
+      "width": 4080,
+      "height": 5857
+    }
+  },
+  "moraine_lake_mist.jpg": {
+    "title": "Seclusion",
+    "description": "The wildfires, the cabin look, the misty mountains... They give this photo a secluded mountain vibe that belies the thousands of tourists that walk past every day.",
+    "tags": ["Banff", "Mountains", "Travel"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/8.0",
+      "shutterSpeed": "1/80",
+      "iso": "3200",
+      "location": "Moraine Lake, AB",
+      "date": "2024-08-16"
+    },
+    "dimensions": {
+      "width": 3830,
+      "height": 5746
+    }
+  },
+  "mtns_over_lake_louise.jpg": {
+    "title": "mtns_over_lake_louise",
+    "tags": ["Banff", "Mountains", "Travel"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/10.0",
+      "shutterSpeed": "1/340",
+      "iso": "640",
+      "location": "Big Beehive, Lake Louise, Banff, AB",
+      "date": "2024-08-15"
+    },
+    "dimensions": {
+      "width": 4160,
+      "height": 6240
+    }
+  },
+  "over_lake_louise.jpg": {
+    "title": "over_lake_louise",
+    "description": "This is one of my favorite photos of the whole trip. The still glacier blue water, the distant haze, and of course the canoers on the lake. I could have sat here for hours.",
+    "tags": ["Banff", "Mountains", "Travel"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/13.0",
+      "shutterSpeed": "1/550",
+      "iso": "640",
+      "location": "Big Beehive, Lake Louise, Banff, AB",
+      "date": "2024-08-15"
+    },
+    "dimensions": {
+      "width": 4160,
+      "height": 6240
     }
   }
 }
