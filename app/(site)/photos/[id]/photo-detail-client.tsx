@@ -198,7 +198,14 @@ export function PhotoDetailClient({
 
       <div className="lg:hidden mt-6">
         <h1 className="text-xl font-bold mb-2">{photo.title}</h1>
-        <p className="text-muted-foreground mb-4">{photo.description}</p>
+        {photo.descriptionHtml ? (
+          <div 
+            className="text-muted-foreground mb-4 prose prose-sm dark:prose-invert"
+            dangerouslySetInnerHTML={{ __html: photo.descriptionHtml }}
+          />
+        ) : (
+          <p className="text-muted-foreground mb-4">{photo.description}</p>
+        )}
         {renderTags()}
       </div>
 

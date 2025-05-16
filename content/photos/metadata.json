@@ -125,7 +125,7 @@
   },
   "golden_night.jpg": {
     "title": "Starry Night in Golden, BC",
-    "description": "From the balcony of our Airbnb in Golden, believe it or not. We actually stayed in a ski resort room that is leased(?) and then rented as an Airbnb. It's a ski resort in the summer, so it was very quiet. Strange setup, but incredible view.",
+    "description": "From the balcony of our Airbnb in Golden, believe it or not. We actually stayed in a ski resort room that is leased(?) and then rented as an Airbnb. It's a ski resort in the summer, so it was _very_ quiet. Strange setup, but incredible view.",
     "tags": [
       "Banff",
       "Mountains"
@@ -347,7 +347,7 @@
   },
   "lake_louise_sunset.jpg": {
     "title": "Blue Hour over Lake Louise",
-    "description": "The blue glacier water. The purple & blue sky. The layered mountains. The tall pines. What's not to love? Lake Louise is one of the most popular places in Banff National Park for good reason: it's a must-see",
+    "description": "The **blue glacier water**. The *purple & blue sky*. The layered mountains. The tall pines.\n\nWhat's not to love? Lake Louise is one of the most popular places in [Banff National Park](https://www.pc.gc.ca/en/pn-np/ab/banff) for good reason: it's a **must-see**.\n\n### Photo Notes\n* Best viewed at sunset or sunrise\n* Arrive early to get parking\n* Bring a tripod for low-light shots",
     "tags": [
       "Banff",
       "Travel",

@@ -15,6 +15,7 @@ export type Photo = {
   src: string;
   thumbSrc: string;
   alt: string;
+  descriptionHtml?: string; // HTML version of the description after markdown parsing
 } & PhotoMetadata;
 
 /**

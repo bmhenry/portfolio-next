@@ -1,9 +1,26 @@
 import fs from 'fs';
 import path from 'path';
 import { Photo, PhotoMetadata } from './photo-types';
+import { remark } from 'remark';
+import html from 'remark-html';
+import remarkGfm from 'remark-gfm';
 
 // Re-export types for convenience
 export type { Photo, PhotoMetadata } from './photo-types';
+
+/**
+ * Parse markdown content to HTML
+ */
+export async function parseMarkdown(content: string): Promise<string> {
+  if (!content) return '';
+  
+  const processedContent = await remark()
+    .use(remarkGfm) // Adds support for GitHub Flavored Markdown
+    .use(html)
+    .process(content);
+    
+  return processedContent.toString();
+}
 
 // Base paths
 const photosDirectory = path.join(process.cwd(), 'public/photos');
@@ -100,4 +117,38 @@ export function filterPhotosByTags(photos: Photo[], tags: string[]): Photo[] {
  */
 export function getPhotosByTag(tag: string): Photo[] {
   return getAllPhotos().filter(photo => photo.tags && photo.tags.includes(tag));
+}
+
+/**
+ * Get all photos with parsed markdown descriptions
+ */
+export async function getAllPhotosWithParsedDescriptions(): Promise<Photo[]> {
+  const photos = getAllPhotos();
+  
+  // Parse descriptions for all photos
+  const photosWithParsedDescriptions = await Promise.all(
+    photos.map(async (photo) => {
+      const descriptionHtml = await parseMarkdown(photo.description);
+      return {
+        ...photo,
+        descriptionHtml
+      };
+    })
+  );
+  
+  return photosWithParsedDescriptions;
+}
+
+/**
+ * Get a specific photo by id with parsed markdown description
+ */
+export async function getPhotoByIdWithParsedDescription(id: string): Promise<Photo | null> {
+  const photo = getPhotoById(id);
+  if (!photo) return null;
+  
+  const descriptionHtml = await parseMarkdown(photo.description);
+  return {
+    ...photo,
+    descriptionHtml
+  };
 }

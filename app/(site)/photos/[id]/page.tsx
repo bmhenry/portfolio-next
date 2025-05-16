@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { getPhotoById, getAllPhotos } from "@/lib/photos"
+import { getPhotoById, getAllPhotos, getPhotoByIdWithParsedDescription } from "@/lib/photos"
 import { Photo } from "@/lib/photo-types"
 import { notFound } from "next/navigation"
 import { PhotoDetailClient } from "@/app/(site)/photos/[id]/photo-detail-client"
@@ -41,7 +41,7 @@ export default async function PhotoDetailPage({
   params: { id: string },
 }) {
   const { id } = await params;
-  const photo = await getPhotoById(id);
+  const photo = await getPhotoByIdWithParsedDescription(id);
   
   if (!photo) {
     notFound();
@@ -92,7 +92,14 @@ export default async function PhotoDetailPage({
 
         <div className={isPortrait ? 'lg:col-span-1 xl:col-span-1' : ''}>
           <h1 className="text-2xl font-bold mb-4">{photo.title}</h1>
-          <p className="text-muted-foreground mb-6">{photo.description}</p>
+          {photo.descriptionHtml ? (
+            <div 
+              className="text-muted-foreground mb-6 prose prose-sm dark:prose-invert"
+              dangerouslySetInnerHTML={{ __html: photo.descriptionHtml }}
+            />
+          ) : (
+            <p className="text-muted-foreground mb-6">{photo.description}</p>
+          )}
           
           {/* Tags will be rendered by the client component */}
           <div id="photo-tags-desktop" className="hidden lg:block mb-6"></div>
