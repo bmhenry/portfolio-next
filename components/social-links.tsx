@@ -1,6 +1,13 @@
+"use client";
+
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SocialLink, SocialLinkProps, SocialLinksProps, socialLinks } from "@/lib/social-links";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+// Prevent fontawesome from adding its CSS since we did it manually above
+config.autoAddCss = false;
 
 // Component to render a single social link
 export const SocialLinkComponent: React.FC<SocialLinkProps> = ({
