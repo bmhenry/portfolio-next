@@ -90,21 +90,23 @@ export default async function PhotoDetailPage({
           />
         </Suspense>
 
-        <div className={isPortrait ? 'lg:col-span-1 xl:col-span-1' : ''}>
-          <h1 className="text-2xl font-bold mb-4">{photo.title}</h1>
-          {photo.descriptionHtml ? (
-            <div 
-              className="text-muted-foreground mb-6 prose prose-sm dark:prose-invert"
-              dangerouslySetInnerHTML={{ __html: photo.descriptionHtml }}
-            />
-          ) : (
-            <p className="text-muted-foreground mb-6">{photo.description}</p>
-          )}
-          
-          {/* Tags will be rendered by the client component */}
-          <div id="photo-tags-desktop" className="hidden lg:block mb-6"></div>
+        <div className={`${isPortrait ? 'lg:col-span-1 xl:col-span-1' : ''}`}>
+          <div className="hidden lg:block">
+            <h1 className="text-2xl font-bold mb-4">{photo.title}</h1>
+            {photo.descriptionHtml ? (
+              <div 
+                className="text-muted-foreground mb-6 prose prose-sm dark:prose-invert"
+                dangerouslySetInnerHTML={{ __html: photo.descriptionHtml }}
+              />
+            ) : (
+              <p className="text-muted-foreground mb-6">{photo.description}</p>
+            )}
+            
+            {/* Tags will be rendered by the client component */}
+            <div id="photo-tags-desktop" className="hidden lg:block mb-6"></div>
+          </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 mt-2 lg:mt-0">
             <h2 className="text-lg font-medium">Photo Details</h2>
             <div className="grid grid-cols-2 gap-2">
               {/* Dynamically render all metadata fields */}
