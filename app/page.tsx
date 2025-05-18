@@ -36,20 +36,28 @@ export default function Home() {
           <p className="text-xl text-gray-600">Engineer. Programmer. Maker. Photographer. Backpacker. Explorer.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-md">
-          <Link href="/about" className="nav-button text-center">
-            About Me
-          </Link>
-          <Link href="/photos" className="nav-button text-center">
-            Photos
-          </Link>
-          <Link href="/blog" className="nav-button text-center">
-            Blog
-          </Link>
-          <Link href="/contact" className="nav-button text-center">
-            Contact
-          </Link>
-        </div>
+        <ul className="space-y-4 w-full max-w-md">
+          <li className="flex flex-row justify-center">
+            <Link href="/about" className="nav-button block text-center">
+              About Me
+            </Link>
+          </li>
+          <li className="flex flex-row justify-center">
+            <Link href="/photos" className="nav-button block text-center">
+              Photos
+            </Link>
+          </li>
+          <li className="flex flex-row justify-center">
+            <Link href="/blog" className="nav-button block text-center">
+              Blog
+            </Link>
+          </li>
+          <li className="flex flex-row justify-center">
+            <Link href="/contact" className="nav-button block text-center">
+              Contact
+            </Link>
+          </li>
+        </ul>
 
         <SocialLinks size={"xl"} className="text-gray-500 hover:text-navy"/>
       </div>
