@@ -76,7 +76,7 @@
 }
 
 .nav-button {
-  @apply text-navy hover:text-navy-light transition-colors duration-200 py-2 px-8 font-medium uppercase hover:border hover:border-navy;
+  @apply text-navy hover:text-navy-light transition-colors duration-200 py-2 px-8 font-medium uppercase border border-transparent hover:border-navy;
 }
 
 .social-icon {

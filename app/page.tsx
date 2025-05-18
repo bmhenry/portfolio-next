@@ -30,7 +30,7 @@ export default function Home() {
       </div>
 
       {/* Right side - Content */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 md:p-16 space-y-12">
+      <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 md:p-16 space-y-12 mt-5">
         <div className="text-center space-y-4">
           <h1 className="text-5xl md:text-6xl font-bold text-navy">I'm Brandon.</h1>
           <p className="text-xl text-gray-600">Engineer. Programmer. Maker. Photographer. Backpacker. Explorer.</p>
@@ -59,7 +59,7 @@ export default function Home() {
           </li>
         </ul>
 
-        <SocialLinks size={"xl"} className="text-gray-500 hover:text-navy"/>
+        <SocialLinks size={"xl"} className="mt-5 text-gray-500 hover:text-navy"/>
       </div>
     </main>
   )
