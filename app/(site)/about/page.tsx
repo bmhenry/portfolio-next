@@ -64,7 +64,6 @@ export default function AboutPage() {
               <h1 className="text-3xl font-bold mb-2">Brandon</h1>
               <p className="text-muted-foreground">Senior Computer Engineer</p>
               <p className="text-muted-foreground">Tech Lead</p>
-              <p className="text-muted-foreground">Team Lead</p>
               <p className="text-muted-foreground">Supervisor</p>
 
               <div className="space-y-4 mt-8">
@@ -122,7 +121,7 @@ export default function AboutPage() {
               </li>
             </ol>
             <p className="text-muted-foreground mb-4">
-              At home, I like to spend time on personal projects such as FocusedPhotons, electronics projects, and self-hosting a variety of services
+              At home, I like to spend time on personal projects such as FocusedPhotons, electronics projects, and self-hosting a variety of services,
               such as GitLab and Immich. Apart from tech, I enjoy <a className="text-blue-700 hover:underline" href="/photos">photography</a> (mostly landscapes),
               ultimate frisbee, pickleball, and backpacking.
             </p>
@@ -152,7 +151,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                  <li>Created the <a className="text-blue-700 hover:underline" href="https://tangramflex.com/capabilities" target="_blank" rel="noopener noreferrer">Verifier</a> tool: a new patented product & feature that's unique in the market. It provides interface-level testing for software components, allowing developers and integrators to test compatibility of swappable components at runtime.</li>
+                  <li>Created the <a className="text-blue-700 hover:underline" href="https://tangramflex.com/capabilities" target="_blank" rel="noopener noreferrer">Verifier</a> tool: a new patented product & feature that's unique in the market. </li>
                   <li>Tech lead for many project teams performing on contracts, doing everything from security and testing to code generation and containerization</li>
                   <li>Technical advisor & product advisor for both internal & external teams, as well as for customers</li>
                   <li>Actively collaborate with peers & leadership to "level up" the team, looking for skill & career development opportunities as well as team culture improvements</li>
