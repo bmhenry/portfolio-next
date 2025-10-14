@@ -79,10 +79,23 @@ export default function AboutPage() {
               </li>
             </ol>
             <p className="text-muted-foreground mb-4">
-              At home, I like to spend time on personal projects such as FocusFinder, electronics projects, and self-hosting a variety of services
+              At home, I like to spend time on personal projects such as FocusedPhotons, electronics projects, and self-hosting a variety of services
               such as GitLab and Immich. Apart from tech, I enjoy <a className="text-blue-700 hover:underline" href="/photos">photography</a> (mostly landscapes),
               ultimate frisbee, pickleball, and backpacking.
             </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold mb-4">What I'm Doing Now</h2>
+            <p className="text-muted-foreground mb-4">
+              This is a regularly updated section about what I'm currently focused on. Last updated: January 2025.
+            </p>
+            <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+              <li>Working on new features and improvements for Verifier at Tangram Flex</li>
+              <li>Building and iterating on FocusedPhotons, my photography location tracking app</li>
+              <li>Exploring new technologies and tools to improve my development workflow</li>
+              <li>Planning my next backpacking trip and photography expedition</li>
+            </ul>
           </section>
 
           <section>
@@ -153,6 +166,7 @@ export default function AboutPage() {
                   <Badge>CI/CD</Badge>
                   <Badge>Claude</Badge>
                   <Badge>Cline</Badge>
+                  <Badge>AI</Badge>
                 </div>
               </div>
             </div>
@@ -168,7 +182,7 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-5">
-                    Perform isolated runtime testing on a software component using its model
+                    Patented product enabling model-based testing of software components based on their message interfaces, saving time and money in integration by catching issues in new or third-party components earlier in the development lifecycle.
                   </p>
                   <div className="flex flex-wrap gap-2 mt-4">
                     <Badge variant="outline">C++</Badge>
@@ -197,11 +211,11 @@ export default function AboutPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle>FocusFinder</CardTitle>
+                  <CardTitle>FocusedPhotons</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-5">
-                    Mobile app to help photographers save and return to their favorite spots
+                    Mobile app giving photographers a private & searchable map to save and return to their favorite spots
                   </p>
                   <div className="flex flex-wrap gap-2 mt-4">
                     <Badge variant="outline">Flutter</Badge>
