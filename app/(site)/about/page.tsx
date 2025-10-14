@@ -8,37 +8,80 @@ export default function AboutPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-1">
           <div className="sticky top-24">
-            <div className="relative w-full rounded-lg overflow-hidden mb-6">
-              <Image
-                src="/portrait_web_small.jpg"
-                alt="Brandon portrait"
-                width={500}
-                height={0}
-                style={{ width: '100%', height: 'auto' }}
-                className="object-center"
-              />
+            {/* Mobile layout: portrait + name side by side, details below */}
+            <div className="md:hidden">
+              <div className="flex gap-4 mb-4">
+                <div className="relative w-2/5 rounded-lg overflow-hidden flex-shrink-0">
+                  <Image
+                    src="/portrait_web_small.jpg"
+                    alt="Brandon portrait"
+                    width={500}
+                    height={0}
+                    style={{ width: '100%', height: 'auto' }}
+                    className="object-center"
+                  />
+                </div>
+
+                <div className="flex flex-col justify-center">
+                  <h1 className="text-2xl sm:text-3xl font-bold mb-2">Brandon</h1>
+                  <p className="text-sm sm:text-base text-muted-foreground">Senior Computer Engineer</p>
+                  <p className="text-sm sm:text-base text-muted-foreground">Tech Lead</p>
+                  <p className="text-sm sm:text-base text-muted-foreground">Supervisor</p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <h3 className="font-medium mb-2">Company</h3>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    <a href="https://tangramflex.com/" target="_blank" rel="noopener noreferrer">Tangram Flex</a>
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-medium mb-2">Education</h3>
+                  <p className="text-sm font-medium">
+                    <a href="https://www.pfw.edu/" target="_blank" rel="noopener noreferrer">Indiana Purdue Fort Wayne</a>
+                  </p>
+                  <p className="text-sm text-muted-foreground">BS in Computer Engineering, 2012-2016</p>
+                  <p className="text-sm text-muted-foreground">Chapman Scholar</p>
+                </div>
+              </div>
             </div>
 
-            <h1 className="text-3xl font-bold mb-2">Brandon</h1>
-            <p className="text-muted-foreground">Senior Computer Engineer</p>
-            <p className="text-muted-foreground">Tech Lead</p>
-            <p className="text-muted-foreground">Team Lead</p>
-            <p className="text-muted-foreground">Supervisor</p>
-
-            <div className="space-y-4 mt-8">
-              <div>
-                <h3 className="font-medium mb-2">Company</h3>
-                <p className="text-sm font-medium text-muted-foreground">
-                  <a href="https://tangramflex.com/" target="_blank" rel="noopener noreferrer">Tangram Flex</a>
-                </p>
+            {/* Desktop layout: original vertical stack */}
+            <div className="hidden md:block">
+              <div className="relative w-full rounded-lg overflow-hidden mb-6">
+                <Image
+                  src="/portrait_web_small.jpg"
+                  alt="Brandon portrait"
+                  width={500}
+                  height={0}
+                  style={{ width: '100%', height: 'auto' }}
+                  className="object-center"
+                />
               </div>
-              <div>
-                <h3 className="font-medium mb-2">Education</h3>
-                <p className="text-sm font-medium">
-                  <a href="https://www.pfw.edu/" target="_blank" rel="noopener noreferrer">Indiana Purdue Fort Wayne</a>
-                </p>
-                <p className="text-sm text-muted-foreground">BS in Computer Engineering, 2012-2016</p>
-                <p className="text-sm text-muted-foreground">Chapman Scholar</p>
+
+              <h1 className="text-3xl font-bold mb-2">Brandon</h1>
+              <p className="text-muted-foreground">Senior Computer Engineer</p>
+              <p className="text-muted-foreground">Tech Lead</p>
+              <p className="text-muted-foreground">Team Lead</p>
+              <p className="text-muted-foreground">Supervisor</p>
+
+              <div className="space-y-4 mt-8">
+                <div>
+                  <h3 className="font-medium mb-2">Company</h3>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    <a href="https://tangramflex.com/" target="_blank" rel="noopener noreferrer">Tangram Flex</a>
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-medium mb-2">Education</h3>
+                  <p className="text-sm font-medium">
+                    <a href="https://www.pfw.edu/" target="_blank" rel="noopener noreferrer">Indiana Purdue Fort Wayne</a>
+                  </p>
+                  <p className="text-sm text-muted-foreground">BS in Computer Engineering, 2012-2016</p>
+                  <p className="text-sm text-muted-foreground">Chapman Scholar</p>
+                </div>
               </div>
             </div>
           </div>
@@ -88,14 +131,10 @@ export default function AboutPage() {
           <section>
             <h2 className="text-2xl font-bold mb-4">What I'm Doing Now</h2>
             <p className="text-muted-foreground mb-4">
-              This is a regularly updated section about what I'm currently focused on. Last updated: January 2025.
+                I spend most of my time at Tangram Flex working on Verifier and leading program teams. Outside of work, my time is split between
+                weekend travel, sports, photography, and personal projects. The largest personal project currently is FocusedPhotons, which I'm preparing
+                to launch on both the Android and iOS app stores.
             </p>
-            <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-              <li>Working on new features and improvements for Verifier at Tangram Flex</li>
-              <li>Building and iterating on FocusedPhotons, my photography location tracking app</li>
-              <li>Exploring new technologies and tools to improve my development workflow</li>
-              <li>Planning my next backpacking trip and photography expedition</li>
-            </ul>
           </section>
 
           <section>
@@ -113,7 +152,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                  <li>Created Runway, the engine behind <a className="text-blue-700 hover:underline" href="https://tangramflex.com/capabilities" target="_blank" rel="noopener noreferrer">Verifier</a>: a new product & feature that's unique in the market. It provides interface-level testing for software components, allowing developers and integrators to test compatibility of swappable components at runtime.</li>
+                  <li>Created the <a className="text-blue-700 hover:underline" href="https://tangramflex.com/capabilities" target="_blank" rel="noopener noreferrer">Verifier</a> tool: a new patented product & feature that's unique in the market. It provides interface-level testing for software components, allowing developers and integrators to test compatibility of swappable components at runtime.</li>
                   <li>Tech lead for many project teams performing on contracts, doing everything from security and testing to code generation and containerization</li>
                   <li>Technical advisor & product advisor for both internal & external teams, as well as for customers</li>
                   <li>Actively collaborate with peers & leadership to "level up" the team, looking for skill & career development opportunities as well as team culture improvements</li>
