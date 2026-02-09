@@ -6,6 +6,7 @@ import { notFound } from "next/navigation"
 import { HydrateCollapsibleSections } from "@/components/blog/collapsible-section"
 import { HydrateCollapsibleImages } from "@/components/blog/collapsible-image"
 import { BlogImageFullscreen } from "@/components/blog/blog-image-fullscreen"
+import { ImageGallery } from "@/components/blog/image-gallery"
 import { TableOfContents } from "@/components/blog/table-of-contents"
 import { BackToTop } from "@/components/blog/back-to-top"
 import "../blog.css" // Import the blog-specific CSS
@@ -95,6 +96,7 @@ export default async function BlogPostPage({
           <HydrateCollapsibleSections />
           <HydrateCollapsibleImages />
           <BlogImageFullscreen />
+          <ImageGallery />
         </div>
 
         {post.relatedPosts && post.relatedPosts.length > 0 && (

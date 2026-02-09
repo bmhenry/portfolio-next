@@ -218,7 +218,20 @@ export async function getPostBySlug(slug: string): Promise<Post> {
  */
 function processCollapsibleSections(content: string): string {
   let processedContent = content;
-  
+
+  // Process gallery sections BEFORE collapsible sections
+  // (so the shared ::: closing tag doesn't get consumed by collapsible processing)
+  // Handles both: single <p> block (no blank lines) and separate <p> tags (blank lines)
+  const gallerySinglePRegex = /<p>:::gallery\s*([\s\S]*?)\s*:::<\/p>/g;
+  processedContent = processedContent.replace(gallerySinglePRegex, (_match, body: string) => {
+    return `<div class="image-gallery">${body.trim()}</div>`;
+  });
+  const gallerySeparatePRegex = /<p>:::gallery<\/p>([\s\S]*?)<p>:::<\/p>/g;
+  processedContent = processedContent.replace(gallerySeparatePRegex, (_match, body: string) => {
+    const cleanBody = body.replace(/<p>(<img[^>]+>)<\/p>/g, '$1');
+    return `<div class="image-gallery">${cleanBody.trim()}</div>`;
+  });
+
   // Process collapsible sections
   if (processedContent.includes(':::collapsible[')) {
     // Process the raw markdown syntax directly

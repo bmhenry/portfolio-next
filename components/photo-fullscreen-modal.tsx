@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback } from "react"
 import Image from "next/image"
-import { X, ZoomIn, ZoomOut, Minus, Plus } from "lucide-react"
+import { X, ZoomIn, ZoomOut, Minus, Plus, Download } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Photo } from "@/lib/photo-types"
 
@@ -10,6 +10,7 @@ interface PhotoFullscreenModalProps {
   photo: Photo
   isOpen: boolean
   onClose: () => void
+  downloadUrl?: string
 }
 
 
@@ -18,7 +19,7 @@ const maxZoomLevel = 3
 const zoomIncrement = 1
 
 
-export function PhotoFullscreenModal({ photo, isOpen, onClose }: PhotoFullscreenModalProps) {
+export function PhotoFullscreenModal({ photo, isOpen, onClose, downloadUrl }: PhotoFullscreenModalProps) {
   // State for zoom level
   const [zoomLevel, setZoomLevel] = useState<number>(1)
   // State for panning when zoomed in
@@ -361,6 +362,21 @@ export function PhotoFullscreenModal({ photo, isOpen, onClose }: PhotoFullscreen
               <Minus size={20} />
             </button>
             
+            {/* Download button */}
+            {downloadUrl && (
+              <a
+                href={downloadUrl}
+                download
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+                className="absolute top-4 right-16 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 text-foreground shadow-lg hover:bg-background transition-colors backdrop-blur-sm"
+                aria-label="Download original image"
+              >
+                <Download size={20} />
+              </a>
+            )}
+
             {/* Close button */}
             <button
               onClick={(e) => {
