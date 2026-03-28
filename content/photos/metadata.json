@@ -433,7 +433,11 @@
   "banff_sky_bistro.jpg": {
     "title": "Mountain Reflections",
     "description": "The top of the Banff Gondola is home to the Sky Bistro, which has great food and an even better view. There's a short boardwalk hike at the top that provides a 360 degree view of Banff and the surrounding mountains.",
-    "tags": ["Banff", "Mountains", "Travel"],
+    "tags": [
+      "Banff",
+      "Mountains",
+      "Travel"
+    ],
     "metadata": {
       "camera": "Fuji X-T30 II",
       "lens": "Fuji 70-300mm f/4-5.6",
@@ -451,7 +455,11 @@
   "canmore_sunrise.jpg": {
     "title": "A Canmore Sunrise",
     "description": "Despite getting up early nearly every morning, our best sunrise was captured from the balcony of our AirBNB in Canmore.",
-    "tags": ["Banff", "Mountains", "Travel"],
+    "tags": [
+      "Banff",
+      "Mountains",
+      "Travel"
+    ],
     "metadata": {
       "camera": "Fuji X-T30 II",
       "lens": "Fuji 18-55mm f/2.8-4",
@@ -469,7 +477,11 @@
   "downtown_lights.jpg": {
     "title": "Banff in Blue Hour",
     "description": "The small town of Banff, already shrouded in Blue Hour.",
-    "tags": ["Banff", "Mountains", "Travel"],
+    "tags": [
+      "Banff",
+      "Mountains",
+      "Travel"
+    ],
     "metadata": {
       "camera": "Fuji X-T30 II",
       "lens": "Fuji 70-300mm f/4-5.6",
@@ -484,7 +496,10 @@
   },
   "emerald_lake_canoes.jpg": {
     "title": "The Canoes at Emerald Lake",
-    "tags": ["Banff", "Travel"],
+    "tags": [
+      "Banff",
+      "Travel"
+    ],
     "metadata": {
       "camera": "Fuji X-T30 II",
       "lens": "Fuji 18-55mm f/2.8-4",
@@ -501,7 +516,11 @@
   },
   "icefield_pkwy.jpg": {
     "title": "Looming over the Icefield Parkway",
-    "tags": ["Banff", "Mountains", "Travel"],
+    "tags": [
+      "Banff",
+      "Mountains",
+      "Travel"
+    ],
     "metadata": {
       "camera": "Fuji X-T30 II",
       "lens": "Fuji 18-55mm f/2.8-4",
@@ -519,7 +538,11 @@
   "johnston_canyon.jpg": {
     "title": "The Canyon's Future",
     "description": "Johnston Canyon was simply too crowded for me to take my time with. Go early or skip it altogether: there are so many great places to see that you shouldn't waste time waiting in line to see a waterfall.",
-    "tags": ["Banff", "Travel", "Water"],
+    "tags": [
+      "Banff",
+      "Travel",
+      "Water"
+    ],
     "metadata": {
       "camera": "Fuji X-T30 II",
       "lens": "Fuji 18-55mm f/2.8-4",
@@ -536,7 +559,11 @@
   },
   "lake_louise_glacier.jpg": {
     "title": "Frosted Tips",
-    "tags": ["Banff", "Mountains", "Travel"],
+    "tags": [
+      "Banff",
+      "Mountains",
+      "Travel"
+    ],
     "metadata": {
       "camera": "Fuji X-T30 II",
       "lens": "Fuji 70-300mm f/4-5.6",
@@ -553,7 +580,11 @@
   },
   "lake_louise_sunrise.jpg": {
     "title": "Morning Glow",
-    "tags": ["Banff", "Mountains", "Travel"],
+    "tags": [
+      "Banff",
+      "Mountains",
+      "Travel"
+    ],
     "metadata": {
       "camera": "Fuji X-T30 II",
       "lens": "Fuji 18-55mm f/2.8-4",
@@ -570,7 +601,11 @@
   },
   "moraine_lake_canoes.jpg": {
     "title": "Moraine Lake",
-    "tags": ["Banff", "Mountains", "Travel"],
+    "tags": [
+      "Banff",
+      "Mountains",
+      "Travel"
+    ],
     "metadata": {
       "camera": "Fuji X-T30 II",
       "lens": "Fuji 18-55mm f/2.8-4",
@@ -588,7 +623,11 @@
   "moraine_lake_mist.jpg": {
     "title": "Seclusion",
     "description": "The wildfires, the cabin look, the misty mountains... They give this photo a secluded mountain vibe that belies the thousands of tourists that walk past every day.",
-    "tags": ["Banff", "Mountains", "Travel"],
+    "tags": [
+      "Banff",
+      "Mountains",
+      "Travel"
+    ],
     "metadata": {
       "camera": "Fuji X-T30 II",
       "lens": "Fuji 18-55mm f/2.8-4",
@@ -605,7 +644,11 @@
   },
   "mtns_over_lake_louise.jpg": {
     "title": "mtns_over_lake_louise",
-    "tags": ["Banff", "Mountains", "Travel"],
+    "tags": [
+      "Banff",
+      "Mountains",
+      "Travel"
+    ],
     "metadata": {
       "camera": "Fuji X-T30 II",
       "lens": "Fuji 18-55mm f/2.8-4",
@@ -623,7 +666,11 @@
   "over_lake_louise.jpg": {
     "title": "over_lake_louise",
     "description": "This is one of my favorite photos of the whole trip. The still glacier blue water, the distant haze, and of course the canoers on the lake. I could have sat here for hours.",
-    "tags": ["Banff", "Mountains", "Travel"],
+    "tags": [
+      "Banff",
+      "Mountains",
+      "Travel"
+    ],
     "metadata": {
       "camera": "Fuji X-T30 II",
       "lens": "Fuji 18-55mm f/2.8-4",

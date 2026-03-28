@@ -39,6 +39,10 @@ const config = {
             p: {
               marginTop: '1em',
               marginBottom: '1em',
+              lineHeight: '1.625',
+            },
+            li: {
+              lineHeight: '1.625',
             },
             ul: {
               marginTop: '1em',
