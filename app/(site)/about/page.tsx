@@ -102,22 +102,25 @@ export default function AboutPage() {
               stop me from trying to put the best first iteration forward, every time.
             </p>
             <p className="text-muted-foreground mb-4">
-              I believe in building secure, reliable, and maintainable software -- these three factors
-              sum up "code quality" for me.
+              I believe in building high quality products, which to me means products that are
+              secure, reliable, and maintainable:
             </p>
             <ol className="list-decimal text-muted-foreground mb-4 pl-8">
               <li>
-                Apps should be written to avoid bugs & memory leaks that may be detrimental to users.
+                Software that isn't maintainable is a ticking time bomb: code that's hard to understand and modify
+                is far more likely to have security vulnerabilities, with risk increasing over time and as more
+                engineers are added to the team.
               </li>
               <li>
-                They should perform as expected every time to avoid frustrating users. If they don't,
-                that's a bug: see rule 1.
+                Products which don't reliably act as an informed user expects them to are bad products. After a small
+                amount of up-front learning, users should be able to count on the product to work as they expect it to.
+                Products which don't look and feel right to the user may <i>never</i> act reliably for the user -- bad
+                user experience is a bad product.
               </li>
               <li>
-                An app that isn't maintainable is a ticking time bomb, waiting to break rules 1 and 2.
-                Write quality comments that explain intent, don't get caught up on a "code is documentation" mantra that harms
-                team members (especially newer ones). Write useful tests that allow you to refactor with confidence.
-                Keep code clear, organized, and simple.
+                New reports of security vulnerabilities & data leaks are in the news seemingly every day. Wether we're
+                writing code for the government, industry, or consumers, we have a responsibility to consider privacy
+                and data security for our users.
               </li>
             </ol>
             <p className="text-muted-foreground mb-4">
@@ -151,7 +154,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                  <li>Created the <a className="text-blue-700 hover:underline" href="https://tangramflex.com/capabilities" target="_blank" rel="noopener noreferrer">Verifier</a> tool: a new patented product & feature that's unique in the market. </li>
+                  <li>Created the <a className="text-blue-700 hover:underline" href="https://tangramflex.com/tangram-pro" target="_blank" rel="noopener noreferrer">Verifier</a> tool: a new patented product & feature that's unique in the market. </li>
                   <li>Tech lead for many project teams performing on contracts, doing everything from security and testing to code generation and containerization</li>
                   <li>Technical advisor & product advisor for both internal & external teams, as well as for customers</li>
                   <li>Actively collaborate with peers & leadership to "level up" the team, looking for skill & career development opportunities as well as team culture improvements</li>
