@@ -14,11 +14,11 @@ relatedPosts:
 
 ## Why You Should Care
 
-It's actually kinda funny... In the past couple years, we've watched programming change _dramatically_. Whether you use AI or not, it's changed the world around you, especially how programmers (and non-programmers) choose to write code. However, this post isn't about AI. In fact, what I find funny is that despite this huge step change in engineering production, AI is still a byproduct of human knowledge and because of that, I'd argue that the way we  _engineer_ our code is completely unchanged, and **code hygiene and solid design might matter _even more_ than ever before**. Whether you're designing code that will only ever be seen by yourself, advanced by a team of other engineers potentially more junior than yourself, or upgrade by robot agents, I've found that  _good code design principles_ will absolutely improve the end results.
+Despite the huge advances & dramatic step change in the use of AI for engineering in the past year, LLMs are still a byproduct of human knowledge. Because of that, I'd argue that the way we  _engineer our code_ thus far remains completely unchanged, and **code hygiene and solid design might matter _even more_ than ever before**. Whether you're designing code that will only ever be seen by yourself, advanced by a team of other engineers potentially more junior than yourself, or upgrade by robot agents, I've found that _good code design principles_ will absolutely improve the end results.
 
 **Complex Event Programming** is the name of a method for receiving and processing a large amount of incoming data and reacting to it accordingly, and it's also ostensibly what this blog post is about. However, the lessons I've learned from the application of this method over the past few years have taken me back to basic principles of quality software engineering that's pertinent across the full gamut of modern programming.
 
-As you read on, you should consider first how each of the lessons I've learned might apply in any of your own direct needs with regards to CEP, but then how they might apply to the way you write code in general. _Especially_ if you're fresher in your career or pursuit of programming, I hope you'll return regularly to these principles and continue finding value in them. If you don't, let me know: I guarantee you have something to teach me, too. 
+As you read on, you should consider first how each of the lessons I've learned might apply in any of your own direct needs with regards to CEP, but then how they might apply to the way you write code in general. _Especially_ if you're fresher in your career or pursuit of programming, I hope you'll return regularly to these principles and continue finding value in them.
 
 
 ## Complex Event Processing
@@ -68,7 +68,7 @@ If your current problem has incoming data that already uses a cached queue (agai
 
 ### Structure Gives You Wings
 
-JavaScript devs, close your eyes... everyone else, _use your type system_.
+_Use your type system_.
 
 You're probably receiving lots of different events, each containing different data. What you _could_ do is pass that data around directly from event channels to all the places your code uses it, but then you'll need to deserialize that data and determine what event actually happened in about half a dozen places. Instead, **parse your data once into a specific data type.** Use structs, templates, traits, variants, enums, or whatever other options your chosen programming language exposes to make it simple to pass around data and know _exactly_ what you're working with.
 
@@ -134,5 +134,9 @@ Verifier is a software test tool for message-based software components. By consu
 
 In the process of testing the component, Verifier needs to be capable of handling a variety of different Events (thus this post). It manages the life cycle of the component being tested, incoming and outgoing messages, and timeouts. Of these, the messages are obviously the most important, most frequent, and most time sensitive -- if Verifier slows down the software under test, it's not an accurate test! Messages must be _sent_ somehow (almost always over a network, but sometimes serial, shared memory, etc.), and they may be sent over _multiple_ channels: TCP, UDP, or commonly a variety of different message queues (NATS, ZeroMQ, etc.).
 
-Verifier models the _component's state_ while testing, not through looking at the actual code but by parsing the message model. As messages are received and then sent, Verifier needs to be able to accurately progress its internal model of the component state, determine if messages are valid, and generate new messages to send to the component -- all with as little impact as possible. The event pipeline in Verifier has been stable for the past two year, surviving a huge refactor, so now feels like a great time to share some lessons I've learned.
+Verifier models the _component's state_ while testing, not through looking at the actual code but by parsing the message model. As messages are received and then sent, Verifier needs to be able to accurately progress its internal model of the component state, determine if messages are valid, and generate new messages to send to the component -- all with as little impact as possible.
+
+I've used the lessons learned above in multiple iterations and subcomponents of Verifier, not just with message handling but also with
+message constraint parsing and message spec handling. As a result, adding new features to Verifier is easier than it's ever been before,
+debugging is more straightforward, and I can onboard new engineers by assigning them genuinely useful work.
 
