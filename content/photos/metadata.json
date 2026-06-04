@@ -140,8 +140,8 @@
       "date": "2024-08-19"
     },
     "dimensions": {
-      "width": 3452,
-      "height": 4635
+      "width": 4160,
+      "height": 5586
     }
   },
   "takakkaw_clouds_bw.jpg": {
@@ -266,7 +266,6 @@
   "florida_parrot.jpg": {
     "title": "Peekaboo",
     "tags": [
-      "Florida",
       "Travel"
     ],
     "metadata": {
@@ -643,7 +642,7 @@
     }
   },
   "mtns_over_lake_louise.jpg": {
-    "title": "mtns_over_lake_louise",
+    "title": "Fairview Mountain",
     "tags": [
       "Banff",
       "Mountains",
@@ -664,7 +663,7 @@
     }
   },
   "over_lake_louise.jpg": {
-    "title": "over_lake_louise",
+    "title": "Over Lake Louise",
     "description": "This is one of my favorite photos of the whole trip. The still glacier blue water, the distant haze, and of course the canoers on the lake. I could have sat here for hours.",
     "tags": [
       "Banff",
@@ -683,6 +682,150 @@
     "dimensions": {
       "width": 4160,
       "height": 6240
+    }
+  },
+  "maine_beach.jpg": {
+    "title": "Acadia's Sandy Beach",
+    "description": "An unexpected but welcome change from hiking mountains along the rocky coastline",
+    "tags": ["New England", "Fall Colors", "Water"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/5.6",
+      "shutterSpeed": "1/1250",
+      "iso": "320",
+      "location": "Acadia National Park, ME",
+      "date": "2025-10-06"
+    },
+    "dimensions": {
+      "width": 6088,
+      "height": 4059
+    }
+  },
+  "maine_church.jpg": {
+    "title": "The Stowe Church",
+    "description": "Famous in the area for the start contrast this white church provides against the fall colors around it, although in my opinion it's spoiled somewhat by the surrounding buildings.",
+    "tags": ["New England", "Fall Colors"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/4.0",
+      "shutterSpeed": "1/800",
+      "iso": "320",
+      "location": "Stowe, VT",
+      "date": "2025-10-08"
+    },
+    "dimensions": {
+      "width": 6240,
+      "height": 4160
+    }
+  },
+  "maine_golden_trees.jpg": {
+    "title": "Smuggler's Notch",
+    "description": "We couldn't have hit Smuggler's Notch at a better time! The entire windy road was a golden tunnel. We drove through several times, and I never got tired of the view.",
+    "tags": ["New England", "Fall Colors"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/8.0",
+      "shutterSpeed": "1/210",
+      "iso": "320",
+      "location": "Cambridge, VT",
+      "date": "2025-10-08"
+    },
+    "dimensions": {
+      "width": 4160,
+      "height": 6240
+    }
+  },
+  "maine_lighthouse_narrow.jpg": {
+    "title": "Portland Head Light",
+    "description": "The iconic Portland Head light",
+    "tags": ["New England", "Water", "Lighthouse"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/5.6",
+      "shutterSpeed": "1/500",
+      "iso": "160",
+      "location": "Cape Elizabeth, ME",
+      "date": "2025-10-04"
+    },
+    "dimensions": {
+      "width": 4160,
+      "height": 6240
+    }
+  },
+  "maine_lighthouse_wide.jpg": {
+    "title": "Portland Head Light",
+    "description": "The iconic Portland Head light, with the rocky coastline and crashing waves in the foreground.",
+    "tags": ["New England", "Water", "Lighthouse"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/2.8",
+      "shutterSpeed": "1/500",
+      "iso": "320",
+      "location": "Cape Elizabeth, ME",
+      "date": "2025-10-04"
+    },
+    "dimensions": {
+      "width": 6240,
+      "height": 3655
+    }
+  },
+  "maine_mtn_sunset.jpg": {
+    "title": "Sunset on Cadillac",
+    "description": "Driving up Cadillac requires a reservation, so we got one well in advance of sunset and enjoyed the view from every angle before sunset hit.",
+    "tags": ["New England", "Mountains"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/7.1",
+      "shutterSpeed": "1/600",
+      "iso": "320",
+      "location": "Acadia National Park, ME",
+      "date": "2025-10-06"
+    },
+    "dimensions": {
+      "width": 6240,
+      "height": 4160
+    }
+  },
+  "maine_river.jpg": {
+    "title": "A Rainy River",
+    "description": "It was a rainy day to drive along Kancamagus Highway, but the wet leaves just made for a more colorful drive.",
+    "tags": ["New England", "Water"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/8.0",
+      "shutterSpeed": "1/30",
+      "iso": "800",
+      "location": "Lincoln, ME",
+      "date": "2025-10-08"
+    },
+    "dimensions": {
+      "width": 3497,
+      "height": 5245
+    }
+  },
+  "maine_sunset_lighthouse.jpg": {
+    "title": "Bass Harbor Head Light",
+    "description": "This was a very popular spot for sunset photos. We got there early and struggled to find a parking spot, and had to stay until quite a bit after sunset to get a clear shot.",
+    "tags": ["New England", "Water", "Lighthouse"],
+    "metadata": {
+      "camera": "Fuji X-T30 II",
+      "lens": "Fuji 18-55mm f/2.8-4",
+      "aperture": "f/7.1",
+      "shutterSpeed": "1.6 seconds",
+      "iso": "800",
+      "location": "44.221707, -68.336797",
+      "date": "2025-10-05"
+    },
+    "dimensions": {
+      "width": 6231,
+      "height": 3854
     }
   }
 }

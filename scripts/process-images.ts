@@ -15,14 +15,19 @@ const WEB_IMAGE_WIDTH = 1200;
 const THUMBNAIL_WIDTH = 300;
 const IMAGE_QUALITY = 80;
 
+// Re-encode every image even if outputs already exist
+const FORCE = process.argv.includes('--force');
+
+// EXIF fields we copy into a photo's `metadata`, in display order
+const EXIF_FIELDS = ['camera', 'lens', 'aperture', 'shutterSpeed', 'iso', 'location', 'date'];
+
 /**
  * Read the photo metadata from the JSON file
  */
 function readPhotoMetadata(): Record<string, any> {
   try {
     if (fs.existsSync(metadataPath)) {
-      const jsonData = fs.readFileSync(metadataPath, 'utf8');
-      return JSON.parse(jsonData);
+      return JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
     }
     return {};
   } catch (error) {
@@ -36,8 +41,7 @@ function readPhotoMetadata(): Record<string, any> {
  */
 function writePhotoMetadata(metadata: Record<string, any>): void {
   try {
-    const jsonData = JSON.stringify(metadata, null, 2);
-    fs.writeFileSync(metadataPath, jsonData, 'utf8');
+    fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf8');
     console.log('Metadata file updated successfully');
   } catch (error) {
     console.error('Error writing photo metadata:', error);
@@ -45,97 +49,72 @@ function writePhotoMetadata(metadata: Record<string, any>): void {
 }
 
 /**
- * Extract EXIF metadata from an image
+ * Extract EXIF metadata from an image, mapped to our metadata structure
  */
 async function extractExifMetadata(imagePath: string): Promise<Record<string, any> | null> {
   try {
-    // Parse EXIF data from the image
-    const exif = await exifr.parse(imagePath, {
-      // Specify which tags to extract
-      tiff: true,
-      exif: true,
-      gps: true,
-      ifd0: true,
-      // Include all EXIF tags
-      all: true
-    });
-    
+    const exif = await exifr.parse(imagePath, { all: true });
     if (!exif) return null;
-    
-    // Map EXIF data to our metadata structure
+
     const metadata: Record<string, any> = {};
-    
+
     // Camera model
     if (exif.Make && exif.Model) {
       metadata.camera = `${exif.Make} ${exif.Model}`.trim();
     } else if (exif.Model) {
       metadata.camera = exif.Model;
     }
-
-    // Manually map the camera make to something more readable
-    if (metadata.camera == "FUJIFILM X-T30 II") {
-      metadata.camera = "Fuji X-T30 II";
+    // Map the camera make to something more readable
+    if (metadata.camera === 'FUJIFILM X-T30 II') {
+      metadata.camera = 'Fuji X-T30 II';
     }
-    
+
     // Lens information
     if (exif.LensModel) {
       metadata.lens = exif.LensModel;
     } else if (exif.Lens) {
       metadata.lens = exif.Lens;
     }
-
-    // Manually map the lens names to something more readable
-    if (metadata.lens == "XF18-55mmF2.8-4 R LM OIS") {
-      metadata.lens = "Fuji 18-55mm f/2.8-4";
-    } else if (metadata.lens == "XF70-300mmF4-5.6 R LM OIS WR") {
-      metadata.lens = "Fuji 70-300mm f/4-5.6";
+    // Map the lens names to something more readable
+    if (metadata.lens === 'XF18-55mmF2.8-4 R LM OIS') {
+      metadata.lens = 'Fuji 18-55mm f/2.8-4';
+    } else if (metadata.lens === 'XF70-300mmF4-5.6 R LM OIS WR') {
+      metadata.lens = 'Fuji 70-300mm f/4-5.6';
     }
-    
+
     // Aperture
     if (exif.FNumber) {
       metadata.aperture = `f/${exif.FNumber.toFixed(1)}`;
     } else if (exif.ApertureValue) {
       metadata.aperture = `f/${Math.pow(Math.sqrt(2), exif.ApertureValue).toFixed(1)}`;
     }
-    
+
     // Shutter speed
-    if (exif.ExposureTime) {
-      // Format exposure time as a fraction if less than 1 second
-      if (exif.ExposureTime < 1) {
-        const denominator = Math.round(1 / exif.ExposureTime);
-        metadata.shutterSpeed = `1/${denominator}`;
-      } else {
-        metadata.shutterSpeed = `${exif.ExposureTime.toFixed(1)} seconds`;
-      }
-    } else if (exif.ShutterSpeedValue) {
-      const exposureTime = Math.pow(2, -exif.ShutterSpeedValue);
-      if (exposureTime < 1) {
-        const denominator = Math.round(1 / exposureTime);
-        metadata.shutterSpeed = `1/${denominator}`;
-      } else {
-        metadata.shutterSpeed = `${exposureTime.toFixed(1)} seconds`;
-      }
+    const exposureTime = exif.ExposureTime ?? (exif.ShutterSpeedValue != null
+      ? Math.pow(2, -exif.ShutterSpeedValue)
+      : undefined);
+    if (exposureTime != null) {
+      metadata.shutterSpeed = exposureTime < 1
+        ? `1/${Math.round(1 / exposureTime)}`
+        : `${exposureTime.toFixed(1)} seconds`;
     }
-    
+
     // ISO
     if (exif.ISO) {
       metadata.iso = exif.ISO.toString();
     }
-    
+
     // Date
-    if (exif.DateTimeOriginal) {
-      const date = new Date(exif.DateTimeOriginal);
-      metadata.date = date.toISOString().split('T')[0];
-    } else if (exif.CreateDate) {
-      const date = new Date(exif.CreateDate);
-      metadata.date = date.toISOString().split('T')[0];
+    const dateValue = exif.DateTimeOriginal ?? exif.CreateDate;
+    if (dateValue) {
+      metadata.date = new Date(dateValue).toISOString().split('T')[0];
     }
-    
+
     // Location (if GPS data is available)
     if (exif.latitude && exif.longitude) {
       metadata.location = `${exif.latitude.toFixed(6)}, ${exif.longitude.toFixed(6)}`;
     }
-    
+
     return metadata;
   } catch (error) {
     console.error('Error extracting EXIF metadata:', error);
@@ -144,46 +123,35 @@ async function extractExifMetadata(imagePath: string): Promise<Record<string, an
 }
 
 /**
- * Process a single image
+ * Generate the web-optimized image and thumbnail, returning the oriented
+ * (display) dimensions of the original.
  */
-async function processImage(
-  filename: string,
-  metadata: Record<string, any>
-): Promise<{ width: number; height: number } | null> {
+async function processImage(filename: string): Promise<{ width: number; height: number } | null> {
   const originalPath = path.join(originalDir, filename);
   const webPath = path.join(webDir, filename);
-  const fileNameWithoutExt = path.parse(filename).name;
-  const thumbnailPath = path.join(webDir, `${fileNameWithoutExt}-thumb.jpg`);
-  
-  // Create webdir if it doesn't exist
-  if (!fs.existsSync(webDir)) {
-    fs.mkdirSync(webDir, { recursive: true });
-  }
+  const thumbnailPath = path.join(webDir, `${path.parse(filename).name}-thumb.jpg`);
 
   try {
-    // Get image dimensions
-    const imageMetadata = await sharp(originalPath).metadata();
-    const width = imageMetadata.width;
-    const height = imageMetadata.height;
-    
-    // Process web-optimized version
+    // Dimensions as displayed: swap when EXIF orientation is a 90° rotation
+    // (5-8), since the web/thumbnail outputs below are auto-rotated.
+    const { width, height, orientation } = await sharp(originalPath).metadata();
+    const dimensions = orientation && orientation >= 5
+      ? { width: height, height: width }
+      : { width, height };
+
     await sharp(originalPath)
-      .rotate() // Preserve EXIF orientation
+      .rotate() // Apply EXIF orientation
       .resize(WEB_IMAGE_WIDTH, null, { withoutEnlargement: true })
       .jpeg({ quality: IMAGE_QUALITY })
       .toFile(webPath);
-    
-    // Process thumbnail
+
     await sharp(originalPath)
-      .rotate() // Preserve EXIF orientation
+      .rotate() // Apply EXIF orientation
       .resize(THUMBNAIL_WIDTH, null, { withoutEnlargement: true })
       .jpeg({ quality: IMAGE_QUALITY })
       .toFile(thumbnailPath);
-    
-    console.log(`Processed ${filename}`);
-    
-    // Return dimensions for metadata update
-    return { width, height };
+
+    return dimensions;
   } catch (error) {
     console.error(`Error processing ${filename}:`, error);
     return null;
@@ -191,114 +159,89 @@ async function processImage(
 }
 
 /**
+ * True if the image already has both outputs and a metadata entry with
+ * dimensions, so it can be skipped unless --force is passed.
+ */
+function isAlreadyProcessed(filename: string, metadata: Record<string, any>): boolean {
+  const thumbnailPath = path.join(webDir, `${path.parse(filename).name}-thumb.jpg`);
+  return (
+    fs.existsSync(path.join(webDir, filename)) &&
+    fs.existsSync(thumbnailPath) &&
+    !!metadata[filename]?.dimensions
+  );
+}
+
+/**
  * Process all images in the original directory
  */
 async function processAllImages(): Promise<void> {
-  // Read existing metadata
   const metadata = readPhotoMetadata();
   let metadataUpdated = false;
-  
-  const files = fs.readdirSync(originalDir).filter((file: string) => 
+
+  if (!fs.existsSync(webDir)) {
+    fs.mkdirSync(webDir, { recursive: true });
+  }
+
+  const files = fs.readdirSync(originalDir).filter((file: string) =>
     file.match(/\.(jpg|jpeg|png|gif)$/i)
   );
-  
-  // Process each image
+
   for (const filename of files) {
-    // Check if metadata exists for this image
+    if (!FORCE && isAlreadyProcessed(filename, metadata)) {
+      console.log(`Skipping ${filename} (already processed)`);
+      continue;
+    }
+
+    // Seed default metadata for images we haven't seen before
     if (!metadata[filename]) {
-      // Add default metadata
       metadata[filename] = {
         title: filename.replace(/\.[^/.]+$/, '').replace(/-/g, ' '),
-        description: "No description provided.",
+        description: 'No description provided.',
         tags: [],
         metadata: {
-          camera: "Unknown",
-          lens: "Unknown",
-          aperture: "Unknown",
-          shutterSpeed: "Unknown",
-          iso: "Unknown",
-          location: "Unknown",
-          date: new Date().toISOString().split('T')[0]
-        }
+          camera: 'Unknown',
+          lens: 'Unknown',
+          aperture: 'Unknown',
+          shutterSpeed: 'Unknown',
+          iso: 'Unknown',
+          location: 'Unknown',
+          date: 'Unknown',
+        },
       };
       metadataUpdated = true;
       console.log(`Added metadata for ${filename}`);
     }
-    
-    // Process the image and get dimensions
-    const dimensions = await processImage(filename, metadata);
-    
-    // Update metadata with dimensions if available
+
+    console.log(`Processing ${filename}…`);
+    const dimensions = await processImage(filename);
+
     if (dimensions) {
-      if (!metadata[filename].dimensions) {
+      const existing = metadata[filename].dimensions;
+      if (!existing || existing.width !== dimensions.width || existing.height !== dimensions.height) {
         metadata[filename].dimensions = dimensions;
         metadataUpdated = true;
-        console.log(`Added dimensions for ${filename}`);
       }
     }
-    
-    // Extract EXIF metadata from the image
-    const originalPath = path.join(originalDir, filename);
-    const exifData = await extractExifMetadata(originalPath);
-    
+
+    // Fill any still-Unknown metadata fields from EXIF
+    const exifData = await extractExifMetadata(path.join(originalDir, filename));
     if (exifData) {
-      let imageMetadataUpdated = false;
       const imageMetadata = metadata[filename].metadata;
-      
-      // Update "Unknown" fields with extracted EXIF data
-      if (imageMetadata.camera === "Unknown" && exifData.camera) {
-        imageMetadata.camera = exifData.camera;
-        imageMetadataUpdated = true;
-        console.log(`Updated camera for ${filename}: ${exifData.camera}`);
-      }
-      
-      if (imageMetadata.lens === "Unknown" && exifData.lens) {
-        imageMetadata.lens = exifData.lens;
-        imageMetadataUpdated = true;
-        console.log(`Updated lens for ${filename}: ${exifData.lens}`);
-      }
-      
-      if (imageMetadata.aperture === "Unknown" && exifData.aperture) {
-        imageMetadata.aperture = exifData.aperture;
-        imageMetadataUpdated = true;
-        console.log(`Updated aperture for ${filename}: ${exifData.aperture}`);
-      }
-      
-      if (imageMetadata.shutterSpeed === "Unknown" && exifData.shutterSpeed) {
-        imageMetadata.shutterSpeed = exifData.shutterSpeed;
-        imageMetadataUpdated = true;
-        console.log(`Updated shutterSpeed for ${filename}: ${exifData.shutterSpeed}`);
-      }
-      
-      if (imageMetadata.iso === "Unknown" && exifData.iso) {
-        imageMetadata.iso = exifData.iso;
-        imageMetadataUpdated = true;
-        console.log(`Updated iso for ${filename}: ${exifData.iso}`);
-      }
-      
-      if (imageMetadata.location === "Unknown" && exifData.location) {
-        imageMetadata.location = exifData.location;
-        imageMetadataUpdated = true;
-        console.log(`Updated location for ${filename}: ${exifData.location}`);
-      }
-      
-      // Always update date if available from EXIF data
-      if (exifData.date) {
-        const oldValue = imageMetadata.date;
-        imageMetadata.date = exifData.date;
-        imageMetadataUpdated = true;
-        console.log(`Updated date for ${filename}: ${oldValue} -> ${exifData.date}`);
-      }
-      
-      if (imageMetadataUpdated) {
-        metadataUpdated = true;
+      for (const field of EXIF_FIELDS) {
+        const current = imageMetadata[field];
+        if ((current === undefined || current === 'Unknown') && exifData[field]) {
+          imageMetadata[field] = exifData[field];
+          metadataUpdated = true;
+          console.log(`  ${field}: ${exifData[field]}`);
+        }
       }
     }
   }
-  
-  // Save updated metadata if needed
+
   if (metadataUpdated) {
     writePhotoMetadata(metadata);
+  } else {
+    console.log('Metadata unchanged');
   }
 }
 
